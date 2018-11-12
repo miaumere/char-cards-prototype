@@ -1,0 +1,72 @@
+.body {
+  font-family: "Roboto";
+}
+
+.h3 {
+  text-align: center;
+}
+
+.information__charname, .header__title {
+  font-family: 'Playfair Display';
+  animation: glitch 5s steps(100) infinite;
+}
+
+.body {
+  color: #dadada;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #5A3982;
+}
+
+::selection {
+  background-color: lightslategrey;
+  color: white;
+}
+
+.header {
+  height: 100vh;
+  background-image: url("./background.gif");
+  background-attachment: fixed;
+  background-size: cover;
+  color: black;
+  position: relative;
+}
+
+.header__title {
+  text-align: center;
+  font-size: 4.5em;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: 0;
+}
+
+.header__description {
+  background-color: white;
+}
+
+.parallax__item--front {
+  transform: translateZ(-1px) translateX(0);
+  background: url("./paralax2.png") no-repeat;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+}
+
+.footer {
+  background-color: rgb(81, 60, 105);
+}
+
+.footer .footer__address {
+  text-align: center;
+}
+
+.address__author {
+  color: white;
+  -webkit-text-decoration: hotpink double underline;
+  text-decoration: hotpink double underline;
+}

@@ -4,33 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="rgb(35, 49, 73)">
 
     <title>AIE</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
-<body>
+<body class="body">
 
-    <aside>
-    <nav>
+    <aside class="col-12 col-md-2 p-0 bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark flex-md-column flex-row align-items-start py-2 ">
             
-            <button >
-                    <span></span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation-list">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
 
-            <div >
-                <ul>
+            <div class="collapse navbar-collapse" id="navigation-list">
+                <ul class="flex-md-column  navbar-nav w-100 justify-content-between mr-auto nav-pills">
 
-                    <li>
-                        <a>Karty postaci</a></li>
+                    <li class="nav-item">
+                        <a href="/char-cards" class="nav-link pl-0 text-nowrap">Karty postaci</a></li>
 
-                    <li >
-                        <a>Historia</a></li>
+                    <li class="nav-item">
+                        <a href="/pages" class="nav-link pl-0 text-nowrap">Historia</a></li>
 
-                    <li>
-                        <a href="/#">
+                    <li class="nav-item">
+                        <a href="/#" class="nav-link pl-0 text-nowrap disabled">
                             Nawiązania</a></li>
 
-                    <li>
-                        <a href="/#">
+                    <li class="nav-item">
+                        <a href="/#" class="nav-link pl-0 text-nowrap disabled">
                             Panel admina</a></li>
                 </ul>
             </div>
@@ -38,14 +40,14 @@
     </aside>
 
 
-    <div >
+    <div class="main col offset-2 bg-faded py-3">
     <main>
-        <header>
-            <div>
+        <header class="header parallax">
+            <div class="parallax__item parallax__item--front ">
             </div>
                 
-            <h1>Alea iacta est</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit voluptate architecto molestias quibusdam obcaecati 
+            <h1 class="header__title">Alea iacta est</h1>
+            <p class="header__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit voluptate architecto molestias quibusdam obcaecati 
                 maiores cumque, consectetur vel reprehenderit nulla inventore illum ipsum laudantium! Quo veniam eligendi et quisq
                 uam reprehenderit.</p>            
 
@@ -55,7 +57,12 @@
     </main>
 
 
-        <footer>       
+        <footer class="footer">        
+            <address class="footer__address">
+                <img src="https://orig00.deviantart.net/f875/f/2010/324/8/0/pixel__pink_star_by_apparate-d337lzz.gif">
+                <a href="http://meowmere.art/" rel="author" class="address__author">meowmere.art</a>
+                <img src="https://orig00.deviantart.net/f875/f/2010/324/8/0/pixel__pink_star_by_apparate-d337lzz.gif">
+            </address>
         </footer>
         </div>
 
