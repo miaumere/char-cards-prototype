@@ -1,0 +1,102 @@
+@import 'reset';
+@import 'fonts';
+
+
+
+// Generall things: 
+
+.body {
+  // background-image: url("./pattern.png");
+  color: rgb(218, 218, 218);
+  font-family: 'Courier New', Courier, monospace;
+  background-color:#5A3982;
+}
+
+::selection {
+  background-color: lightslategrey;
+  color: white;
+}
+
+
+
+// Header is here:
+
+
+.header {
+    height: 100vh;
+    background-image: url("./background.gif");
+    background-attachment: fixed;
+    background-size: cover;
+    color: black;
+    position: relative; 
+
+    &__title {
+      text-align: center;
+      font-size: 4.5em;
+      background-color: white;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: 0;
+
+
+    }
+    &__description {
+      background-color: white;
+
+    }
+
+  }
+
+
+
+.parallax {
+
+
+  &__item {
+    &--front {
+    transform: translateZ(-1px) translateX(0);
+    background: url("./paralax2.png")
+    no-repeat;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    }
+
+  }
+}
+
+
+// Footer is here:
+
+.footer {
+  background-color: #5A3982;
+ height: 100px;
+ }
+  .footer .footer__address {
+   text-align: center;
+} 
+.address__author {
+  color: white;
+  -webkit-text-decoration: hotpink double underline;
+  text-decoration: hotpink double underline;
+}
+
+
+.main {
+  @media (max-width: 720px){
+    margin: 0;
+  }
+}
+.col-md-2 {
+
+  @media (min-width: 678px){
+    position: fixed;
+    height: 100vh;
+    box-sizing: border-box;
+  }
+}
