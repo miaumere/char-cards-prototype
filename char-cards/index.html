@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="rgb(35, 49, 73)">
+    <title>Karty postaci</title>
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50" class="body">
+
+<nav">                                 
+    <a href="../">AIE</a>
+        <button>
+            <span></span>
+        </button>
+    <div >
+        <ul id="menu">     
+            <li>
+                <a href="#data">Dane osobowe</a></li>
+            <li>
+                <a href="#appearance">Wygląd</a></li>
+            <li>
+                <a href="#personality">Osobowość</a></li>
+        </ul>
+        <ul> 
+            <li>
+                <a href="../">
+                Powrót</a></li>                        
+        </ul>
+    </div>
+</nav>
+
+<!-- Tutaj będzie hamburger -->
+<div></div>
+
+<aside class="aside aside--first-arrival">
+    <div class="menu"><div class="menu__close">
+        <i class="fas fa-times"></i></div>
+        <ul id="menu_list" class="menu__list"></ul>
+    </div>
+</aside>
+
+<main>
+
+<header>
+
+        <h1>Imię Nazwisko</h1>
+        <p>01.01.1970</p>
+        <p>MBTI</p>
+
+    <br>
+        <div>
+            <!-- W tym divie będą opisy typu osobowości + paski pokazujące procent danej cechy. -->
+            <blockquote>Sangwinik
+                    <span>Sangwinik to osoba o optymistycznym podejściu do życia, 
+                        otwarta na relacje interpersonalne, towarzyska, beztroska. Lubi być w centrum zainteresowania, 
+                        władcza i dominująca, czasem dumna i spoglądająca na innych "z góry". </span>
+            </blockquote>
+            <div class="progress">
+
+            </div>
+
+            <blockquote >Choleryk
+                <span>Choleryk to osobnik dominujący, władczy i wyraża to całą swoją postawą i sposobem gestykulowania. 
+                    Nie lubi się mylić, ciężko znosi porażki, natomiast docenia relacje oparte na wzajemnym zrozumieniu, 
+                    szacunku i lubi wyzwania. Pozytywne cechy choleryka takie jak optymizm, aktywność, zdecydowanie, przywódczość, 
+                    ambicja, determinacja i towarzyskość mogą przerodzić się w apatię, drażliwość, despotyzm, cynizm i władczość.</span>
+            </blockquote>
+            <div class="progress">
+
+            </div>
+
+
+            <blockquote >Flegmatyk
+                <span>Flegmatyk to osoba pogodna i raczej zrównoważana, doskonale potrafiąca kontrolować swoje emocje. 
+                    W pierwszym kontakcie może wydawać się cicha i wycofana, ale przy bliższym poznaniu ludzie 
+                    doceniają jej cierpliwość i to, że jest mało nachalna. Jej zdolność obserwacji, słuchania innych i 
+                    obiektywnej oceny zwykle jest ceniona przez środowisko.
+                    </span>
+            </blockquote>
+            <div class="progress">
+
+            </div>
+
+            <blockquote >Melancholik
+                <span>Osoba taka często ma trudności z podejmowaniem decyzji, brakuje jej wiary w siebie. 
+                    Melancholik jest wrażliwy na krytykę swojej osoby, obraźliwy, nerwowy i skłonny do zadumy, spokojny, wyciszony,
+                        powściągliwy i mało elastyczny w zachowaniu. Lubi marzyć, oddawać się zadumie.
+                    </span>
+            </blockquote>
+
+            <div class="progress">
+
+            </div>
+        </div>
+
+        <blockquote class="information__quotation">"Lorem ipsum"</blockquote>
+</header>
+
+<hr>
+
+<article>
+    <h2>Wygląd</h2>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Opis</th>
+                    <th>Niemowlę <br> (0-3)</th>
+                    <th>Dziecko <br>(3-11)</th>
+                    <th>Nastolatek <br>(11-15)</th>
+                    <th>Młody dorosły <br>(15-20)</th>
+                    <th>Dorosły <br>(20+)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Waga</th>
+                    <td id="baby_weight">10kg</td>
+                    <td id="child_weight">35kg</td>
+                    <td id="teen_weight">50kg</td>
+                    <td id="youngadult_weight">60kg</td>
+                    <td id="adult_weight">61kg</td>
+                </tr>
+                <tr>
+                    <th>Wzrost</th>
+                    <td id="baby_height">10cm</td>
+                    <td id="child_height">120cm</td>
+                    <td id="teen_height">160cm</td>
+                    <td id="youngadult_height">170cm</td>
+                    <td id="adult_height">180cm</td>
+                </tr>
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+    </div>
+
+    <p id="appearance-text" class="appearance__text"></p>
+
+    <table class="appearance__design">
+        <tr>
+            <th id="skin_color" class="appearance__design--skin"></th>
+            <th id="hair_color" class="appearance__design--hair"></th>
+            <th id="eye1_color" class="appearance__design--eye1"></th>
+            <th id="eye2_color" class="appearance__design--eye2"></th>
+        </tr>
+        <tr class="appearance__inputs">
+            <!-- dodać inny element bemowy, kontener na 100%, el na 25% -->
+            <td><input id="skin_text" class="appearance__design-text  appearance__design-text--skin" type="text"></td>
+            <td><input id="hair_text" class="appearance__design-text appearance__design-text--hair" type="text"></td>
+            <td><input id="eye1_text" class="appearance__design-text appearance__design-text--eye1" type="text"></td>
+            <td><input id="eye2_text" class="appearance__design-text appearance__design-text--eye2" type="text"></td>
+        </tr>
+    </table>
+                        
+    <table>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <!-- Div pokazujący kolor oczu danej postaci -->
+    <div class="eye">  
+    </div>
+
+</article>
+
+<article>
+    <!-- Button pokazujący div z informacjami o historii postaci -->
+    <!-- <button id="spoiler" class="personality__spoiler" name="spoiler">
+        UWAGA SPOILERY!!! Kliknij, jeżeli chcesz wiedzieć więcej
+
+    </button> -->
+
+<!-- p z opisem: -->
+    <p>Tutaj bedzie opis charakteru postaci</p>
+
+</article>
+</main>
+
+<footer>        
+    <address>
+        <a href="http://meowmere.art/">meowmere.art</a>
+
+    </address>
+</footer>
+
+
+</body>
+</html>
