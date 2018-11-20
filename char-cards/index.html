@@ -7,51 +7,62 @@
     <meta name="theme-color" content="rgb(35, 49, 73)">
     <title>Karty postaci</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="./cardstyle.css">
+  
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50" class="body">
 
-<nav">                                 
-    <a href="../">AIE</a>
-        <button>
-            <span></span>
-        </button>
-    <div >
-        <ul id="menu">     
-            <li>
-                <a href="#data">Dane osobowe</a></li>
-            <li>
-                <a href="#appearance">Wygląd</a></li>
-            <li>
-                <a href="#personality">Osobowość</a></li>
-        </ul>
-        <ul> 
-            <li>
-                <a href="../">
-                Powrót</a></li>                        
-        </ul>
-    </div>
-</nav>
+        <nav">                                 
+                <a href="../">AIE</a>
+                    <button>
+                        <span></span>
+                    </button>
+                <div >
+                    <ul id="menu">     
+                        <li>
+                            <a href="#data">Dane osobowe</a></li>
+                        <li>
+                            <a href="#appearance">Wygląd</a></li>
+                        <li>
+                            <a href="#personality">Osobowość</a></li>
+                    </ul>
+                    <ul> 
+                        <li>
+                            <a href="../">
+                            Powrót</a></li>                        
+                    </ul>
+                </div>
+            </nav>
 
-<!-- Tutaj będzie hamburger -->
-<div></div>
-
+<div class="opening-icon rounded-circle fa-3x">
+    <!-- Tutaj będą ikonki (burger) -->
+    </span>
+</div>
 <aside class="aside aside--first-arrival">
     <div class="menu"><div class="menu__close">
-        <i class="fas fa-times"></i></div>
         <ul id="menu_list" class="menu__list"></ul>
     </div>
 </aside>
 
 <main>
 
-<header>
+<header class="container-fluid header main__header">
+
+    <div class="information container-fluid">
 
         <h1>Imię Nazwisko</h1>
-        <p>01.01.1970</p>
-        <p>MBTI</p>
+        <p class="font-weight-bold information__dates">01.01.1970</p>
+        <p class="information__mbti font-weight-bold">01.01.1970</p>
 
     <br>
-        <div>
+    <div>
             <!-- W tym divie będą opisy typu osobowości + paski pokazujące procent danej cechy. -->
             <blockquote>Sangwinik
                     <span>Sangwinik to osoba o optymistycznym podejściu do życia, 
@@ -101,37 +112,37 @@
 
 <hr>
 
-<article>
+<article class="container-fluid">
     <h2>Wygląd</h2>
 
-    <div>
-        <table>
-            <thead>
+    <div class="wrapper-table">
+        <table class="table table-dark table-hover tabela-wzrostu">
+            <thead class="thead-dark">
                 <tr>
-                    <th>Opis</th>
-                    <th>Niemowlę <br> (0-3)</th>
-                    <th>Dziecko <br>(3-11)</th>
-                    <th>Nastolatek <br>(11-15)</th>
-                    <th>Młody dorosły <br>(15-20)</th>
-                    <th>Dorosły <br>(20+)</th>
+                    <th class="font-weight-bold" scope="col">Opis</th>
+                    <th class="font-weight-bold" scope="col">Niemowlę <br> (0-3)</th>
+                    <th class="font-weight-bold" scope="col">Dziecko <br>(3-11)</th>
+                    <th class="font-weight-bold" scope="col">Nastolatek <br>(11-15)</th>
+                    <th class="font-weight-bold" scope="col">Młody dorosły <br>(15-20)</th>
+                    <th class="font-weight-bold" scope="col">Dorosły <br>(20+)</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th>Waga</th>
-                    <td id="baby_weight">10kg</td>
-                    <td id="child_weight">35kg</td>
-                    <td id="teen_weight">50kg</td>
-                    <td id="youngadult_weight">60kg</td>
-                    <td id="adult_weight">61kg</td>
-                </tr>
-                <tr>
-                    <th>Wzrost</th>
-                    <td id="baby_height">10cm</td>
-                    <td id="child_height">120cm</td>
-                    <td id="teen_height">160cm</td>
-                    <td id="youngadult_height">170cm</td>
-                    <td id="adult_height">180cm</td>
+                    <tr>
+                            <th>Waga</th>
+                            <td id="baby_weight">10kg</td>
+                            <td id="child_weight">35kg</td>
+                            <td id="teen_weight">50kg</td>
+                            <td id="youngadult_weight">60kg</td>
+                            <td id="adult_weight">61kg</td>
+                        </tr>
+                        <tr>
+                            <th>Wzrost</th>
+                            <td id="baby_height">10cm</td>
+                            <td id="child_height">120cm</td>
+                            <td id="teen_height">160cm</td>
+                            <td id="youngadult_height">170cm</td>
+                            <td id="adult_height">180cm</td>
                 </tr>
             </tbody>
             <tfoot></tfoot>
@@ -140,6 +151,7 @@
 
     <p id="appearance-text" class="appearance__text"></p>
 
+    <!-- Tabelka z kolorami: -->
     <table class="appearance__design">
         <tr>
             <th id="skin_color" class="appearance__design--skin"></th>
@@ -148,7 +160,6 @@
             <th id="eye2_color" class="appearance__design--eye2"></th>
         </tr>
         <tr class="appearance__inputs">
-            <!-- dodać inny element bemowy, kontener na 100%, el na 25% -->
             <td><input id="skin_text" class="appearance__design-text  appearance__design-text--skin" type="text"></td>
             <td><input id="hair_text" class="appearance__design-text appearance__design-text--hair" type="text"></td>
             <td><input id="eye1_text" class="appearance__design-text appearance__design-text--eye1" type="text"></td>
@@ -158,43 +169,38 @@
                         
     <table>
         <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
         <tr>
             <td></td>
             <td></td>
             <td></td>
-        </tr>
+            <td></td>
+
+</tr>
     </table>
 
     <!-- Div pokazujący kolor oczu danej postaci -->
     <div class="eye">  
-    </div>
+        </div>
 
 </article>
 
-<article>
-    <!-- Button pokazujący div z informacjami o historii postaci -->
-    <!-- <button id="spoiler" class="personality__spoiler" name="spoiler">
+<article id="personality" class="container-fluid personality">
+    <h2>Osobowość i historia</h2>
         UWAGA SPOILERY!!! Kliknij, jeżeli chcesz wiedzieć więcej
 
-    </button> -->
-
-<!-- p z opisem: -->
-    <p>Tutaj bedzie opis charakteru postaci</p>
-
 </article>
+
 </main>
 
 <footer>        
     <address>
-        <a href="http://meowmere.art/">meowmere.art</a>
-
+        <a href="http://meowmere.art/" rel="author" class="address__author">meowmere.art</a>
     </address>
 </footer>
-
-
 </body>
 </html>
