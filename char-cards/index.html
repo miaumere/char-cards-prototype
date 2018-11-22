@@ -13,19 +13,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
 
 
     <link rel="stylesheet" href="./cardstyle.css">
-  
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50" class="body">
 
-        <nav">                                 
+        <nav>                                 
                 <a href="../">AIE</a>
                     <button>
                         <span></span>
-                    </button>
-                <div >
+    <div class="collapse navbar-collapse">
+            <div >
                     <ul id="menu">     
                         <li>
                             <a href="#data">Dane osobowe</a></li>
@@ -37,84 +37,91 @@
                     <ul> 
                         <li>
                             <a href="../">
-                            Powrót</a></li>                        
-                    </ul>
-                </div>
-            </nav>
+                Powrót</a></li>                        
+        </ul>
+    </div>
+</nav>
 
 <div class="opening-icon rounded-circle fa-3x">
-    <!-- Tutaj będą ikonki (burger) -->
+    <span class="fa-layers fa-fw" style="color:rgba(255, 251, 5, 0.781)">
+    <i class="fas fa-circle"></i>
+    <i class="fas fa-users" style="color: rgb(255, 0, 0)" data-fa-transform="shrink-5"></i>
+    <i class="fa-inverse fas fa-heart" data-fa-transform="shrink-13 down-2.5" style="color:Tomato"></i>
+
     </span>
 </div>
+
+
+
 <aside class="aside aside--first-arrival">
     <div class="menu"><div class="menu__close">
+        <i class="fas fa-times"></i></div>
         <ul id="menu_list" class="menu__list"></ul>
     </div>
 </aside>
 
 <main>
 
-<header class="container-fluid header main__header">
+        <header class="container-fluid header main__header">
 
-    <div class="information container-fluid">
-
-        <h1>Imię Nazwisko</h1>
-        <p class="font-weight-bold information__dates">01.01.1970</p>
-        <p class="information__mbti font-weight-bold">01.01.1970</p>
-
-    <br>
-    <div>
-            <!-- W tym divie będą opisy typu osobowości + paski pokazujące procent danej cechy. -->
-            <blockquote>Sangwinik
-                    <span>Sangwinik to osoba o optymistycznym podejściu do życia, 
-                        otwarta na relacje interpersonalne, towarzyska, beztroska. Lubi być w centrum zainteresowania, 
-                        władcza i dominująca, czasem dumna i spoglądająca na innych "z góry". </span>
-            </blockquote>
-            <div class="progress">
-
-            </div>
-
-            <blockquote >Choleryk
-                <span>Choleryk to osobnik dominujący, władczy i wyraża to całą swoją postawą i sposobem gestykulowania. 
-                    Nie lubi się mylić, ciężko znosi porażki, natomiast docenia relacje oparte na wzajemnym zrozumieniu, 
-                    szacunku i lubi wyzwania. Pozytywne cechy choleryka takie jak optymizm, aktywność, zdecydowanie, przywódczość, 
-                    ambicja, determinacja i towarzyskość mogą przerodzić się w apatię, drażliwość, despotyzm, cynizm i władczość.</span>
-            </blockquote>
-            <div class="progress">
-
-            </div>
-
-
-            <blockquote >Flegmatyk
-                <span>Flegmatyk to osoba pogodna i raczej zrównoważana, doskonale potrafiąca kontrolować swoje emocje. 
-                    W pierwszym kontakcie może wydawać się cicha i wycofana, ale przy bliższym poznaniu ludzie 
-                    doceniają jej cierpliwość i to, że jest mało nachalna. Jej zdolność obserwacji, słuchania innych i 
-                    obiektywnej oceny zwykle jest ceniona przez środowisko.
-                    </span>
-            </blockquote>
-            <div class="progress">
-
-            </div>
-
-            <blockquote >Melancholik
-                <span>Osoba taka często ma trudności z podejmowaniem decyzji, brakuje jej wiary w siebie. 
-                    Melancholik jest wrażliwy na krytykę swojej osoby, obraźliwy, nerwowy i skłonny do zadumy, spokojny, wyciszony,
-                        powściągliwy i mało elastyczny w zachowaniu. Lubi marzyć, oddawać się zadumie.
-                    </span>
-            </blockquote>
-
-            <div class="progress">
-
-            </div>
-        </div>
-
-        <blockquote class="information__quotation">"Lorem ipsum"</blockquote>
-</header>
+                <div class="information container-fluid">
+            
+                    <h1>Imię Nazwisko</h1>
+                    <p class="font-weight-bold information__dates">01.01.1970</p>
+                    <p class="information__mbti font-weight-bold">01.01.1970</p>
+            
+                <br>
+                <div>
+                        <!-- W tym divie będą opisy typu osobowości + paski pokazujące procent danej cechy. -->
+                        <blockquote>Sangwinik
+                                <span>Sangwinik to osoba o optymistycznym podejściu do życia, 
+                                    otwarta na relacje interpersonalne, towarzyska, beztroska. Lubi być w centrum zainteresowania, 
+                                    władcza i dominująca, czasem dumna i spoglądająca na innych "z góry". </span>
+                        </blockquote>
+                        <div class="progress">
+            
+                        </div>
+            
+                        <blockquote >Choleryk
+                            <span>Choleryk to osobnik dominujący, władczy i wyraża to całą swoją postawą i sposobem gestykulowania. 
+                                Nie lubi się mylić, ciężko znosi porażki, natomiast docenia relacje oparte na wzajemnym zrozumieniu, 
+                                szacunku i lubi wyzwania. Pozytywne cechy choleryka takie jak optymizm, aktywność, zdecydowanie, przywódczość, 
+                                ambicja, determinacja i towarzyskość mogą przerodzić się w apatię, drażliwość, despotyzm, cynizm i władczość.</span>
+                        </blockquote>
+                        <div class="progress">
+            
+                        </div>
+            
+            
+                        <blockquote >Flegmatyk
+                            <span>Flegmatyk to osoba pogodna i raczej zrównoważana, doskonale potrafiąca kontrolować swoje emocje. 
+                                W pierwszym kontakcie może wydawać się cicha i wycofana, ale przy bliższym poznaniu ludzie 
+                                doceniają jej cierpliwość i to, że jest mało nachalna. Jej zdolność obserwacji, słuchania innych i 
+                                obiektywnej oceny zwykle jest ceniona przez środowisko.
+                                </span>
+                        </blockquote>
+                        <div class="progress">
+            
+                        </div>
+            
+                        <blockquote >Melancholik
+                            <span>Osoba taka często ma trudności z podejmowaniem decyzji, brakuje jej wiary w siebie. 
+                                Melancholik jest wrażliwy na krytykę swojej osoby, obraźliwy, nerwowy i skłonny do zadumy, spokojny, wyciszony,
+                                    powściągliwy i mało elastyczny w zachowaniu. Lubi marzyć, oddawać się zadumie.
+                                </span>
+                        </blockquote>
+            
+                        <div class="progress">
+            
+                        </div>
+                    </div>
+            
+                    <blockquote class="information__quotation">"Lorem ipsum"</blockquote>
+            </header>
 
 <hr>
-
 <article class="container-fluid">
-    <h2>Wygląd</h2>
+        <h2>Wygląd</h2>
 
     <div class="wrapper-table">
         <table class="table table-dark table-hover tabela-wzrostu">
@@ -144,7 +151,6 @@
                             <td id="teen_height">160cm</td>
                             <td id="youngadult_height">170cm</td>
                             <td id="adult_height">180cm</td>
-                </tr>
             </tbody>
             <tfoot></tfoot>
         </table>
@@ -152,7 +158,6 @@
 
     <p id="appearance-text" class="appearance__text"></p>
 
-    <!-- Tabelka z kolorami: -->
     <table class="appearance__design">
         <tr>
             <th id="skin_color" class="appearance__design--skin"></th>
@@ -167,35 +172,46 @@
             <td><input id="eye2_text" class="appearance__design-text appearance__design-text--eye2" type="text"></td>
         </tr>
     </table>
-                        
-    <table>
-        <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
 
-</tr>
+    <table>
+            <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+    
+    </tr>
     </table>
 
     <!-- Div pokazujący kolor oczu danej postaci -->
     <div class="eye">  
-        </div>
+        <div></div>
+    </div>
 
 </article>
 
+<hr>
 <article id="personality" class="container-fluid personality">
-    <h2>Osobowość i historia</h2>
+        <h2>Osobowość i historia</h2>
+    <button id="spoiler" class="personality__spoiler">
+        <i class="fas fa-exclamation-triangle"></i> 
         UWAGA SPOILERY!!! Kliknij, jeżeli chcesz wiedzieć więcej
+        <i class="fas fa-exclamation-triangle"></i>
+    </button>
+
+    <p id="personality-text" class="personality__text">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, veniam. Incidunt, quo magnam quia numquam assumenda deserunt eum? Quis aspernatur, id illo ratione autem voluptatibus incidunt deserunt debitis reprehenderit cum!
+    </p>
 
 </article>
 
+<hr>
 </main>
 
 <footer>        
@@ -203,5 +219,6 @@
         <a href="http://meowmere.art/" rel="author" class="address__author">meowmere.art</a>
     </address>
 </footer>
+
 </body>
 </html>
