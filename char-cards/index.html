@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,6 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
-
-
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -21,214 +18,231 @@
 
     <link rel="stylesheet" href="./cardstyle.css">
 </head>
+
 <body data-spy="scroll" data-target=".navbar" data-offset="50" class="body">
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top navigation">                                 
-    <a href="../" class="navigation__link navbar-brand">AIE</a>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top navigation">
+        <a href="../" class="aie navigation__link navbar-brand">AIE</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation-list">
             <span class="navbar-toggler-icon"></span>
         </button>
-    <div class="collapse navbar-collapse">
-        <ul id="menu" class="navbar-nav nav-pills mr-auto">     
+        <div class="collapse navbar-collapse">
+            <ul id="menu" class="navbar-nav nav-pills mr-auto">
 
-            <li class="nav-item">
-                <a href="#data" class="nav-link">Dane osobowe</a></li>
+                <li class="nav-item">
+                    <a href="#data" class="nav-link">Dane osobowe</a></li>
 
-            <li class="nav-item">
-                <a href="#appearance" class="nav-link">Wygląd</a></li>
+                <li class="nav-item navigation__link">
+                    <a href="#appearance" class="nav-link">Wygląd</a></li>
 
-            <li class="nav-item ">
-                <a href="#personality" class="nav-link">Osobowość</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li class="nav-item  navbar-right">
-                <a href="../" class="nav-link bg-danger">
-                <i class="fas fa-hand-point-left"></i>
-                Powrót</a></li>                        
-        </ul>
+                <li class="nav-item navigation__link">
+                    <a href="#personality" class="nav-link">Osobowość</a></li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item navigation__link navbar-right">
+                    <a href="../" class="nav-link bg-danger">
+                        <i class="fas fa-hand-point-left"></i>
+                        Powrót</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="opening-icon rounded-circle fa-3x">
+        <span class="fa-layers fa-fw" style="color:rgba(255, 255, 255, 0.781)">
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-users" style="color: black" data-fa-transform="shrink-5"></i>
+            <i class="fa-inverse fas fa-heart" data-fa-transform="shrink-13 down-2.5" style="color:Tomato"></i>
+
+        </span>
     </div>
-</nav>
 
-<div class="opening-icon rounded-circle fa-3x">
-    <span class="fa-layers fa-fw" style="color:rgba(255, 255, 255, 0.781)">
-    <i class="fas fa-circle"></i>
-    <i class="fas fa-users" style="color: black" data-fa-transform="shrink-5"></i>
-    <i class="fa-inverse fas fa-heart" data-fa-transform="shrink-13 down-2.5" style="color:Tomato"></i>
+    <aside class="aside aside--first-arrival">
+        <div class="menu">
+            <div class="menu__close">
+                <i class="fas fa-times"></i></div>
+            <ul id="menu_list" class="menu__list"></ul>
+        </div>
+    </aside>
 
-    </span>
-</div>
+    <main class="main">
 
-<aside class="aside aside--first-arrival">
-    <div class="menu"><div class="menu__close">
-        <i class="fas fa-times"></i></div>
-        <ul id="menu_list" class="menu__list"></ul>
-    </div>
-</aside>
+        <header id="data" class="container-fluid header main__header">
+            <div class="information container-fluid">
 
-<main>
+                <h1 id="person_name" class="information__charname"></h1>
+                <p class="font-weight-bold information__dates"></p>
+                <p class="information__mbti font-weight-bold"></p>
 
-<header id="data" class="container-fluid header main__header">
+                <br>
 
-    <div class="information container-fluid">
-
-        <h1 id="person_name" class="information__charname"></h1>
-        <p class="font-weight-bold information__dates"></p>
-        <p class="information__mbti font-weight-bold"></p>
-
-    <br>
-        <div>
-            <blockquote>Sangwinik
-                    <span>Sangwinik to osoba o optymistycznym podejściu do życia, 
-                        otwarta na relacje interpersonalne, towarzyska, beztroska. Lubi być w centrum zainteresowania, 
-                        władcza i dominująca, czasem dumna i spoglądająca na innych "z góry". </span>
-            </blockquote>
-            <div class="progress">
-                    <div class="progress-bar" role="progressbar" 
-                    aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                <div class="aie-progress">
+                    <blockquote class="aie-progress__tooltip">Sangwinik
+                        <span class="aie-progress__text">Sangwinik to osoba o optymistycznym podejściu do życia,
+                            otwarta na relacje interpersonalne, towarzyska, beztroska. Lubi być w centrum
+                            zainteresowania,
+                            władcza i dominująca, czasem dumna i spoglądająca na innych "z góry". </span>
+                    </blockquote>
+                    <div class="progress aie-progress__bar">
+                        <divclass="progress-bar aie-progress__bar--sanguine" role="progressbar" aria-valuenow="70"
+                            aria-valuemin="0" aria-valuemax="100" style="width:0%">
                     </div>
-            </div>
-            <blockquote>Choleryk
-                <span>Choleryk to osobnik dominujący, władczy i wyraża to całą swoją postawą i sposobem gestykulowania. 
-                    Nie lubi się mylić, ciężko znosi porażki, natomiast docenia relacje oparte na wzajemnym zrozumieniu, 
-                    szacunku i lubi wyzwania. Pozytywne cechy choleryka takie jak optymizm, aktywność, zdecydowanie, przywódczość, 
-                    ambicja, determinacja i towarzyskość mogą przerodzić się w apatię, drażliwość, despotyzm, cynizm i władczość.</span>
-            </blockquote>
-            <div class="progress">
-                    <div id="choleric" class="progress-bar aie-progress__bar--choleric" role="progressbar" 
-                aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                </div>
+
+                <blockquote class="aie-progress__tooltip">Choleryk
+                    <span class="aie-progress__text">Choleryk to osobnik dominujący, władczy i wyraża to całą swoją
+                        postawą i sposobem gestykulowania.
+                        Nie lubi się mylić, ciężko znosi porażki, natomiast docenia relacje oparte na wzajemnym
+                        zrozumieniu,
+                        szacunku i lubi wyzwania. Pozytywne cechy choleryka takie jak optymizm, aktywność, zdecydowanie,
+                        przywódczość,
+                        ambicja, determinacja i towarzyskość mogą przerodzić się w apatię, drażliwość, despotyzm, cynizm
+                        i władczość.</span>
+                </blockquote>
+                <div class="progress aie-progress__bar">
+                    <div id="choleric" class="progress-bar aie-progress__bar--choleric" role="progressbar"
+                        aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%">
                     </div>
-            </div>
+                </div>
 
 
-            <blockquote>Flegmatyk
-                <span>Flegmatyk to osoba pogodna i raczej zrównoważana, doskonale potrafiąca kontrolować swoje emocje. 
-                    W pierwszym kontakcie może wydawać się cicha i wycofana, ale przy bliższym poznaniu ludzie 
-                    doceniają jej cierpliwość i to, że jest mało nachalna. Jej zdolność obserwacji, słuchania innych i 
-                    obiektywnej oceny zwykle jest ceniona przez środowisko.
+                <blockquote class="aie-progress__tooltip">Flegmatyk
+                    <span class="aie-progress__text">Flegmatyk to osoba pogodna i raczej zrównoważana, doskonale
+                        potrafiąca kontrolować swoje emocje.
+                        W pierwszym kontakcie może wydawać się cicha i wycofana, ale przy bliższym poznaniu ludzie
+                        doceniają jej cierpliwość i to, że jest mało nachalna. Jej zdolność obserwacji, słuchania innych
+                        i
+                        obiektywnej oceny zwykle jest ceniona przez środowisko.
                     </span>
-            </blockquote>
-            <div class="progress">
-                    <div id="flegmatic" class="progress-bar" role="progressbar" 
-                    aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                </blockquote>
+                <div class="progress aie-progress__bar">
+                    <div id="flegmatic" class="progress-bar aie-progress__bar--flegmatic" role="progressbar"
+                        aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%">
                     </div>
-            </div>
+                </div>
 
-            <blockquote>Melancholik
-                <span>Osoba taka często ma trudności z podejmowaniem decyzji, brakuje jej wiary w siebie. 
-                    Melancholik jest wrażliwy na krytykę swojej osoby, obraźliwy, nerwowy i skłonny do zadumy, spokojny, wyciszony,
+                <blockquote class="aie-progress__tooltip">Melancholik
+                    <span class="aie-progress__text">Osoba taka często ma trudności z podejmowaniem decyzji, brakuje jej
+                        wiary w siebie.
+                        Melancholik jest wrażliwy na krytykę swojej osoby, obraźliwy, nerwowy i skłonny do zadumy,
+                        spokojny, wyciszony,
                         powściągliwy i mało elastyczny w zachowaniu. Lubi marzyć, oddawać się zadumie.
                     </span>
-            </blockquote>
+                </blockquote>
 
-            <div class="progress">
-                    <div id="melancholic" class="progress-bar aie-progress__bar--melancholic" role="progressbar" 
-                    aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                <div class="progress aie-progress__bar">
+                    <div id="melancholic" class="progress-bar aie-progress__bar--melancholic" role="progressbar"
+                        aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%">
                     </div>
+                </div>
             </div>
-        </div>
 
-        <blockquote class="information__quotation bg-dark font-italic"></blockquote>
-</header>
+            <blockquote class="information__quotation bg-light font-italic"></blockquote>
+        </header>
 
-<hr>
+        <hr>
 
-<article id="appearance" class="container-fluid">
-    <h2 class="break"><span class="break__title">Wygląd</span></h2>
-    <div class="wrapper-table">
-        <table class="table table-dark table-hover tabela-wzrostu">
-            <thead class="thead-dark">
+        <article id="appearance" class="container-fluid appearance">
+            <h2 class="break"><span class="break__title">Wygląd</span></h2>
+
+            <div class="wrapper-table">
+                <table class="table table-dark table-hover tabela-wzrostu">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th class="font-weight-bold" scope="col">Opis</th>
+                            <th class="font-weight-bold" scope="col">Niemowlę <br> (0-3)</th>
+                            <th class="font-weight-bold" scope="col">Dziecko <br>(3-11)</th>
+                            <th class="font-weight-bold" scope="col">Nastolatek <br>(11-15)</th>
+                            <th class="font-weight-bold" scope="col">Młody dorosły <br>(15-20)</th>
+                            <th class="font-weight-bold" scope="col">Dorosły <br>(20+)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Waga</th>
+                            <td id="baby_weight">10kg</td>
+                            <td id="child_weight">35kg</td>
+                            <td id="teen_weight">50kg</td>
+                            <td id="youngadult_weight">60kg</td>
+                            <td id="adult_weight">61kg</td>
+                        </tr>
+                        <tr>
+                            <th>Wzrost</th>
+                            <td id="baby_height">10cm</td>
+                            <td id="child_height">120cm</td>
+                            <td id="teen_height">160cm</td>
+                            <td id="youngadult_height">170cm</td>
+                            <td id="adult_height">180cm</td>
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
+
+            <p id="appearance-text" class="appearance__text"></p>
+
+            <table class="appearance__design">
                 <tr>
-                    <th class="font-weight-bold" scope="col">Opis</th>
-                    <th class="font-weight-bold" scope="col">Niemowlę <br> (0-3)</th>
-                    <th class="font-weight-bold" scope="col">Dziecko <br>(3-11)</th>
-                    <th class="font-weight-bold" scope="col">Nastolatek <br>(11-15)</th>
-                    <th class="font-weight-bold" scope="col">Młody dorosły <br>(15-20)</th>
-                    <th class="font-weight-bold" scope="col">Dorosły <br>(20+)</th>
+                    <th id="skin_color" class="appearance__design--skin"></th>
+                    <th id="hair_color" class="appearance__design--hair"></th>
+                    <th id="eye1_color" class="appearance__design--eye1"></th>
+                    <th id="eye2_color" class="appearance__design--eye2"></th>
                 </tr>
-            </thead>
-            <tbody>
+                <tr class="appearance__inputs">
+                    <td><input id="skin_text" class="appearance__design-text  appearance__design-text--skin"
+                            type="text"></td>
+                    <td><input id="hair_text" class="appearance__design-text appearance__design-text--hair" type="text">
+                    </td>
+                    <td><input id="eye1_text" class="appearance__design-text appearance__design-text--eye1" type="text">
+                    </td>
+                    <td><input id="eye2_text" class="appearance__design-text appearance__design-text--eye2" type="text">
+                    </td>
+                </tr>
+            </table>
+
+            <hr>
+
+            <table class="appearance__clothing">
                 <tr>
-                        <th>Waga</th>
-                        <td id="baby_weight">10kg</td>
-                        <td id="child_weight">35kg</td>
-                        <td id="teen_weight">50kg</td>
-                        <td id="youngadult_weight">60kg</td>
-                        <td id="adult_weight">61kg</td>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
                     </tr>
                     <tr>
-                        <th>Wzrost</th>
-                        <td id="baby_height">10cm</td>
-                        <td id="child_height">120cm</td>
-                        <td id="teen_height">160cm</td>
-                        <td id="youngadult_height">170cm</td>
-                        <td id="adult_height">180cm</td>
-            </tbody>
-            <tfoot></tfoot>
-        </table>
-    </div>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                </tr>
+            </table>
 
-    <p id="appearance-text" class="appearance__text"></p>
+            <div class="eye">
+                <div></div>
+            </div>
 
-    <table class="appearance__design">
-        <tr>
-            <th id="skin_color" class="appearance__design--skin"></th>
-            <th id="hair_color" class="appearance__design--hair"></th>
-            <th id="eye1_color" class="appearance__design--eye1"></th>
-            <th id="eye2_color" class="appearance__design--eye2"></th>
-        </tr>
-        <tr class="appearance__inputs">
-            <td><input id="skin_text" class="appearance__design-text  appearance__design-text--skin" type="text"></td>
-            <td><input id="hair_text" class="appearance__design-text appearance__design-text--hair" type="text"></td>
-            <td><input id="eye1_text" class="appearance__design-text appearance__design-text--eye1" type="text"></td>
-            <td><input id="eye2_text" class="appearance__design-text appearance__design-text--eye2" type="text"></td>
-        </tr>
-    </table>
-
-    <hr>
-    
-    <table class="appearance__clothing">
-        <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
-
-    <div class="eye">  
-            <div></div>
-    </div>
-
-</article>
-<hr>
-<article id="personality" class="container-fluid personality">
-        <h2>Osobowość i historia</h2>
-    <button id="spoiler" class="personality__spoiler" name="spoiler">
-        <i class="fas fa-exclamation-triangle"></i> 
-        UWAGA SPOILERY!!! Kliknij, jeżeli chcesz wiedzieć więcej
-        <i class="fas fa-exclamation-triangle"></i>
-    </button>
-
-    <p id="personality-text" class="personality__text">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, veniam. Incidunt, quo magnam quia numquam assumenda deserunt eum? Quis aspernatur, id illo ratione autem voluptatibus incidunt deserunt debitis reprehenderit cum!
-        </p>
-        
         </article>
-        
+        <article id="personality" class="container-fluid personality">
+                <h2>Osobowość i historia</h2>
+
+            <button id="spoiler" class="personality__spoiler" name="spoiler">
+                <i class="fas fa-exclamation-triangle"></i>
+                UWAGA SPOILERY!!! Kliknij, jeżeli chcesz wiedzieć więcej
+                <i class="fas fa-exclamation-triangle"></i>
+            </button>
+
+            <p id="personality-text" class="personality__text">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, veniam. Incidunt, quo magnam quia numquam assumenda deserunt eum? Quis aspernatur, id illo ratione autem voluptatibus incidunt deserunt debitis reprehenderit cum!
+                </p>
+        </article>
+
         <hr>
-        </main>
-        
-        <footer>
-            <address>
-                <a href="http://meowmere.art/" rel="author" class="address__author">meowmere.art</a>
-            </address>
-        </footer>
+    </main>
+
+    <footer class="footer ">
+        <address class="footer__address">
+            <a href="http://meowmere.art/" rel="author" class="address__author">meowmere.art</a>
+        </address>
+    </footer>
 
 </body>
 </html>
