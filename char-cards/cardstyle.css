@@ -52,15 +52,15 @@ html {
 }
 
 .body {
-  background-color: #222036;
+  background-color: #444163;
   background-image: url("./609a50ec.png");
-  color: #dadada;
+  color: #ffffff;
   font-family: "Courier New", Courier, monospace;
 }
 
 ::selection {
-  background-color: white;
-  color: black;
+  background-color: rgb(128, 75, 75);
+  color: rgb(255, 255, 255);
 }
 
 .break {
