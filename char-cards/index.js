@@ -231,6 +231,10 @@ if (xhrCharList.status === 200 || xhrCharList.status === 204) {
 
 
 
+
+
+
+
     } else if(true){
         loadingScreen(loader, false)
         console.log("jaiśbłąd")
@@ -241,6 +245,15 @@ if (xhrCharList.status === 200 || xhrCharList.status === 204) {
 
 xhrCharList.send()
 loadingScreen(loader, false)
+
+
+
+
+
+    
+
+
+
 
 function charDetail(id) {
 
@@ -292,6 +305,8 @@ function charDetail(id) {
     let xhr = new XMLHttpRequest();
 
     xhr.open("GET", hostName + "?id=" + id, true);
+
+
 
     xhr.addEventListener('load', () => {
         if (xhr.status === 200) {
@@ -426,8 +441,7 @@ function charDetail(id) {
             let slideButtons = document.querySelector(".slide__buttons")
 
             slideButtons.textContent = ""
-
-            // temperament - progress bars 
+              // temperament - progress bars 
 
             let sanguineBar = charString.temperament.sangwinik
             sanguine.textContent = sanguineBar + "%"
@@ -441,6 +455,61 @@ function charDetail(id) {
             let melancholicBar = charString.temperament.melancholik
             melancholic.textContent = melancholicBar + "%"
 
+
+            setTimeout( () => {
+
+                sanguine.style.width = sanguineBar + "%"
+                choleric.style.width = cholericBar + "%";
+                flegmatic.style.width = flegmaticBar + "%"
+                melancholic.style.width = melancholicBar + "%"
+
+            }, animationTime );
+
+            
+
+
+
+            // weight and width table
+            let babyWeight = charString.waga.niemowle
+            babyW.textContent = babyWeight + " kg";
+
+            let childWeight = charString.waga.dziecko
+            childW.textContent = childWeight + " kg";
+
+            let teenWeight = charString.waga.nastolatek
+            teenW.textContent = teenWeight + " kg";
+
+            let youngadultWeight = charString.waga.mlodydorosly
+            youngadultW.textContent = youngadultWeight + " kg";
+
+            let adultWeight = charString.waga.dorosly
+            adultW.textContent = adultWeight + " kg";
+
+            // height
+            let babyHeight = charString.wzrost.niemowle
+            babyH.textContent = babyHeight + " cm";
+
+            let childHeight = charString.wzrost.dziecko
+            childH.textContent = childHeight + " cm";
+
+            let teenHeight = charString.wzrost.nastolatek
+            teenH.textContent = teenHeight + " cm";
+
+            let youngadultHeight = charString.wzrost.mlodydorosly
+            youngadultH.textContent = youngadultHeight + " cm";
+
+            let adultHeight = charString.wzrost.dorosly
+            adultH.textContent = adultHeight + " cm";
+        
+                for(let key in charString) {
+                    for(let key2 in charString[key]){
+                        if(charString.waga[key2] === null){
+                            console.log("dziala")
+                            
+                            continue
+                            }
+                    }
+                }
 
             // skin, hair, eye colors table
                 let skinColor = charString.kolory.skora
@@ -478,8 +547,6 @@ function charDetail(id) {
             cloth1.style.backgroundColor = cloth1Color;
             cloth1Text.setAttribute("value", cloth1Color)
 
-
-
             cloth1Text.addEventListener("click", (e)=> {
                 console.log("aaa")
                 let backUp = e.target.getAttribute("data-original-title")
@@ -496,7 +563,7 @@ function charDetail(id) {
                 }, 2000)
 
             })
-         
+
             let cloth2Color = charString.kolory.ubior_2
 
             cloth2Text.textContent = cloth2Color;
@@ -517,6 +584,8 @@ function charDetail(id) {
             let quotation = charString.cytaty;
             let quotationBlock = document.querySelector(".information__quotation")
 
+            quotationBlock.style.border = `solid 1px ${cloth2Color}`
+            quotationBlock.style.borderLeft = `solid 10px ${cloth2Color}`
 
                 function randomGen(min, max) {
                     let wynik = (Math.random()*(max-min))+min
@@ -524,16 +593,23 @@ function charDetail(id) {
                 }
             
             // displaying random quotes:
+
                 let randomItem = quotation[randomGen(0, quotation.length-1)]
                 quotationBlock.textContent = randomItem
 
             // displaying personality and design articles: 
             let personalityBlock = document.querySelector("#personality-text")
+            let personalityText = charString.mainInfo.historia
+
+
+            let designBlock = document.querySelector("#appearance-text")
+            let designText = charString.mainInfo.opis_wygladu
 
             let triviaArray = charString.ciekawostki
 
 
             // displaying facts:
+
 
             let triviaElement = document.querySelector("#trivia")
             let triviaLink = document.querySelector("#trivia-link")
@@ -545,7 +621,11 @@ function charDetail(id) {
                     menu.removeChild(triviaLink)
                 }
 
+
+
+
             if (triviaArray.length !== 0){
+
 
                     let article = document.createElement("article")
                     main.appendChild(article)
@@ -592,6 +672,16 @@ function charDetail(id) {
 
             }
 
+            //displaying <br> in texts 
+
+            const reg = /\\n/mg
+
+            let personalityBreaks = personalityText.replace(reg, "<br>")
+            let designBreaks = designText.replace(reg, "<br>")
+
+            personalityBlock.innerHTML = personalityBreaks
+            designBlock.innerHTML = designBreaks
+
             // spoiler warning:
             let spoilerButton = document.querySelector("#spoiler")
 
@@ -602,6 +692,8 @@ function charDetail(id) {
                 personalityBlock.classList.add("personality__text--pure")
                 spoilerButton.classList.add("personality__spoiler--disabled")
             })
+
+
 
             // if value === null or "", error is displayed:
 
@@ -655,5 +747,9 @@ function charDetail(id) {
 
 
 );
+loadingScreen(loader, false)
+
     xhr.send();
+
+
 }
