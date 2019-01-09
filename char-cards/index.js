@@ -441,7 +441,59 @@ function charDetail(id) {
             let slideButtons = document.querySelector(".slide__buttons")
 
             slideButtons.textContent = ""
-              // temperament - progress bars 
+            
+            if(profilePicsArray.length === 0) {
+                console.log("nie ma")
+                slideImage.style.backgroundImage = `url("./unlocked.jpg")`
+
+            } else {
+
+                slideImage.style.backgroundImage = "url(" + hostName + "profilepic/" + id + "/" + profilePicsArray[0] + ")"
+
+                for (let i=0; i<profilePicsArray.length; i++){
+
+                    let buttonSlide = document.createElement("button")
+                    let description = /(\.jpg|\.png|\.gif|\.jpeg|\.tiff|\.bmp)/i
+                    let descriptionBr = /\_/mg
+                    let buttonSlideText = document.createTextNode(profilePicsArray[i].replace(description,"").replace(descriptionBr, " "));
+    
+
+                    buttonSlide.appendChild(buttonSlideText)    
+                    buttonSlide.dataset.image = profilePicsArray[i];
+                    
+                    slideButtons.appendChild(buttonSlide)
+                    buttonSlide.classList.add("slide__button")
+                
+                    
+                    //For the first iterate set first button to selected
+                    if(i === 0) {
+                        buttonSlide.classList.add("slide__button--active");
+                    }
+
+                    buttonSlide.addEventListener("click", (e) => {
+
+                        slideImage.style.backgroundImage = `url(${hostName}profilepic/${id}/${e.target.dataset.image})`
+
+                            slideButtons.childNodes.forEach(element => {
+                               
+                                //When current clicked element is else element in current childNodes iterate item
+                                //  also not contains specified class
+                                if(element === e.target && !element.classList.contains("slide__button--active")) {
+                                    element.classList.add("slide__button--active");
+                                } 
+
+                                //If currect clicked element is not current iterate element
+                                if(element !== e.target) {
+                                    element.classList.remove("slide__button--active");
+                                } 
+
+                            });
+
+                        })
+                    }
+            }
+
+            // temperament - progress bars 
 
             let sanguineBar = charString.temperament.sangwinik
             sanguine.textContent = sanguineBar + "%"
@@ -542,10 +594,21 @@ function charDetail(id) {
 
             // table with colors (clothes)
 
+
             let cloth1Color = charString.kolory.ubior_1_dominujacy
 
             cloth1.style.backgroundColor = cloth1Color;
             cloth1Text.setAttribute("value", cloth1Color)
+            
+             function copyHex(e) {
+                 console.log("a")
+                 
+                let backUp = e.getAttribute("data")
+                e.focus()
+                e.select();
+                document.execCommand("copy")
+            }
+
 
             cloth1Text.addEventListener("click", (e)=> {
                 console.log("aaa")
@@ -563,6 +626,10 @@ function charDetail(id) {
                 }, 2000)
 
             })
+            // cloth1Text.addEventListener("click", copyHex(cloth1Text))
+
+            
+
 
             let cloth2Color = charString.kolory.ubior_2
 
@@ -581,6 +648,7 @@ function charDetail(id) {
             header.style.background =`url('gradient.png'), linear-gradient(to right, ${cloth1Color} 0%, ${cloth2Color} 44%, ${cloth3Color} 100%)`
             header.style.backgroundBlendMode = "multiply"
 
+
             let quotation = charString.cytaty;
             let quotationBlock = document.querySelector(".information__quotation")
 
@@ -594,8 +662,22 @@ function charDetail(id) {
             
             // displaying random quotes:
 
+            
+       
                 let randomItem = quotation[randomGen(0, quotation.length-1)]
                 quotationBlock.textContent = randomItem
+
+                // let author = /~((\s*)(\w*)(\W*)){1,}/mig
+                // let replace = "<br> <span>" + randomItem.match(author) + "</span>"
+
+                // if (replace !== null){
+                //     console.log("%c" + randomItem.replace(author, replace), "color: purple")
+                //     console.log("%c" + replace, "color:red")
+                // }
+
+            
+
+
 
             // displaying personality and design articles: 
             let personalityBlock = document.querySelector("#personality-text")
@@ -681,6 +763,8 @@ function charDetail(id) {
 
             personalityBlock.innerHTML = personalityBreaks
             designBlock.innerHTML = designBreaks
+
+
 
             // spoiler warning:
             let spoilerButton = document.querySelector("#spoiler")
