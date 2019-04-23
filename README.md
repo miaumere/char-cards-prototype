@@ -23,4 +23,4 @@ The project idea is based on Wikia https://www.fandom.com/.
 - make better UI
 
 ## License
-© https://github.com/miaumere, 2019
+© Creative Commons BY https://github.com/miaumere, 2019
