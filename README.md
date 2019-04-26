@@ -5,10 +5,10 @@ Data contains information like: image of an character, its backstory, color them
 The project idea is based on Wikia https://www.fandom.com/.
 
 ## Built with:
-**Front End**
+### Front End
 - JavaScript ES6, AJAX
 - HTML5 / CSS3 + Sass / Bootstrap 4
-**Back End**
+### Back End
 - PHP
 - MySQL
 
