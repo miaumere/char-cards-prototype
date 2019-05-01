@@ -1,15 +1,20 @@
 import React from 'react';
-import '../../index.css';
-import Test from "../Test/Test";
-import Test2 from "../Test2/Test2";
+import './App.scss';
+import Form from '../Form/Form';
 
-function App() {
+class App extends React.Component{
+
+  render(){  
+
   return (
-    <>
-<Test />
-<Test2 />
-    </>
+    <div className="App" >
+    <Form />
+    </div>
   );
-};
+  }
+}
 
 export default App;
+
+// Image, nazwisko, ilosc lap, czy ma wszystkie lapy.
+// Przy submicie: wyświetlenie całego info
