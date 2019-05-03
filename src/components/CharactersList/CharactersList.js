@@ -1,28 +1,29 @@
 import React from 'react';
+import axios from 'axios';
+
 export default class CharactersList extends React.Component {
-
-
     state = {
         error: false
     }
 
     componentWillMount() {
         const RESTurl = "https://meowmere.art/aie/api/char-info/"
-        fetch(RESTurl)
-            .then(res => res.json())
-            .then((result) => {
-                this.setState({characters: result})
-            })
-            .catch((e) => {
-                console.error(e)
-                this.setState({error: true})
-            })
 
-    }
+        axios.get(RESTurl)
+        .then((response) => {
+            this.setState({characters: response.data})
+          })
+          .catch((error) => {
+            // handle error
+            console.error(error);
+          })
+
+        }
+
 
     render() {
-
         const { characters, error } = this.state;
+
 
         if(error) {
             return <div>ERR</div>
