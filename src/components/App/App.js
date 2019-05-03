@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 import Form from '../Form/Form';
+import CharactersList from '../CharactersList/CharactersList'
 
 class App extends React.Component{
 
@@ -8,6 +9,9 @@ class App extends React.Component{
 
   return (
     <div className="App" >
+    <CharactersList />
+    <br />
+    <br />
     <Form />
     </div>
   );
@@ -16,5 +20,7 @@ class App extends React.Component{
 
 export default App;
 
-// Image, nazwisko, ilosc lap, czy ma wszystkie lapy.
-// Przy submicie: wyświetlenie całego info
+// Nowy komponent o nazwie CharactersList 
+// Gdy komponent zostanie zinicjalizowany, ma to zostac pobrane zostac wywolany rest - lista postaci 
+// index.php z listą postaci, JSON  to ma byc
+// + obsługa błędów
