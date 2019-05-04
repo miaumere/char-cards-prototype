@@ -4,10 +4,15 @@
     float: left;
     padding: 10px;
     margin: 5px;
-
+    font-weight: bold;
 
 
     &__item {
         line-height: 1.4;
+        font-weight: initial;
+
+        &:hover {
+            color: blue;
+        }
     }
 }
