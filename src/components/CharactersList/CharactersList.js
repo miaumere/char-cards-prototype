@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import "./CharactersList.scss"
 
 export default class CharactersList extends React.Component {
     state = {
@@ -34,8 +35,8 @@ export default class CharactersList extends React.Component {
         }
 
         return (
-            <ul>{this.state.characters.map(item =>
-                <li key={item.id}>
+            <ul className="menu">{this.state.characters.map(item =>
+                <li className="menu__item" key={item.id}>
                     {item.imie + " " + item.nazwisko}
                 </li>)}</ul>
         )

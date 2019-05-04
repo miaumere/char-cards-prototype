@@ -6,13 +6,13 @@ function Navbar(){
     <nav className="Navbar">
         <ul className="nav-list">
             <li className="nav-list__item">
-                <a href="" className="link link--disabled">Strona główna</a>
+                <a href="" className="link link--disabled">STRONA GŁÓWNA</a>
             </li>
             <li className="nav-list__item">
-                <a href="" className="link link--disabled">Historia</a>
+                <a href="" className="link link--disabled">HISTORIA</a>
             </li>
             <li className="nav-list__item">
-                <a href="" className="link link--disabled">Postacie poboczne</a>
+                <a href="" className="link link--disabled">POSTACIE POBOCZNE</a>
             </li>
         </ul>
     </nav>

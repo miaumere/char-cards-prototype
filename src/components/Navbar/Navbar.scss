@@ -1,19 +1,26 @@
 
 .Navbar {
     background-color: rgb(71, 71, 71);
-    font: "Bitter" 1.2rem;
+    font-family: "Aleo-Regular";
+    font-size: 1.1rem;
+    padding: 5px;
     .nav-list {
-        margin: 0;
         list-style-type: none;
         display: flex;
-        justify-content: space-evenly;
-
+        justify-content: start;
+        
     }
     
     .link {
         text-decoration: none;
+        margin-right: 10px;
+        transition: all 0.2s;
+
           &--disabled {
-            color: rgb(255, 133, 133);
+            color: rgb(172, 60, 60);
+        }
+        &:hover {
+            color: white;
         }
     }
 }
