@@ -1,0 +1,20 @@
+
+.Navbar {
+    background-color: rgb(71, 71, 71);
+    font: "Bitter" 1.2rem;
+    .nav-list {
+        margin: 0;
+        list-style-type: none;
+        display: flex;
+        justify-content: space-evenly;
+
+    }
+    
+    .link {
+        text-decoration: none;
+          &--disabled {
+            color: rgb(255, 133, 133);
+        }
+    }
+}
+
