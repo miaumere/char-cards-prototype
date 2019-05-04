@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import '../Navbar/Navbar'
 import CharactersList from '../CharactersList/CharactersList'
 
 class App extends React.Component{
@@ -8,6 +9,7 @@ class App extends React.Component{
 
   return (
     <div className="App" >
+    <Navbar />
     <CharactersList />
     </div>
   );
