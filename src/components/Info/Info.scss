@@ -9,13 +9,15 @@
     background-color: white;
     color: black;
 
-
-    .name {
-        font-family: "Bitter";
-        font-size: 2rem;
-    }
-
     .desc {
 
+        &__name{
+        font-family: "Bitter";
+        font-size: 2rem;     
+        }
+        &__other{
+            text-transform: uppercase;
+        }
     }
+
 }
