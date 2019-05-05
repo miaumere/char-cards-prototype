@@ -1,10 +1,12 @@
 import React from 'react';
 import "./Info.scss";
-import Temperament from '../Temperament/Temperament'
+import Temperament from '../Temperament/Temperament';
+import PersonImages from '../PersonImages/PersonImages';
 
 function Info() {
     return(
         <section className="Info">
+            <PersonImages />
             <h1 className="name">Jean de Valette</h1>
             DATA URODZENIA: xx.xx.1970            
             <br />
