@@ -11,7 +11,7 @@ class char_enity_DAO {
           $this->id = $id;
           $this->name = $imie. " ". $nazwisko;
 
-          $this->profilePic = base64_encode($profilePic);
+          // $this->profilePic = base64_encode($profilePic);
      }
 }
 
