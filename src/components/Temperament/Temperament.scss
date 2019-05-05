@@ -1,8 +1,20 @@
 $progressbar-height: 12px;
 
+.Temperament {
+    display: inline-block;
+    background-color: white;
+    border: 2px solid black;
+    margin-top: 20px;
+
+.title {
+    font-family: "Bitter";
+    width: 35%;
+    background-color: white;
+    margin-top: -8px;
+}
 .temperament-list {
     list-style-type: none;
-    font-family: "Bitter";
+    padding: 10px;
 }
    
 .progress-bar {
@@ -12,11 +24,19 @@ $progressbar-height: 12px;
     width: 250px;
     height: $progressbar-height;
     position: relative;
+    border: 1px rgba(0, 0, 0, 0.452) solid;
 
     &__percentage {
-        font-weight: bold;
         color: black;
         height: $progressbar-height;
+
+        animation: percentage-bars 1.5s 1; 
+
+
+
+        &--none {
+            width: 0;
+        }
 
         &--sanguine {
             background: #ff4242;
@@ -51,3 +71,16 @@ $progressbar-height: 12px;
     }
 }
 
+@keyframes percentage-bars {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+
+    100% {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+}

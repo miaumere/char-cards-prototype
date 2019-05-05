@@ -1,46 +1,61 @@
 import React from 'react';
 import "./Temperament.scss";
 
-function Temperament(props) {
+export default class Temperament extends React.Component {
 
-    return (
-        <ul className="temperament-list"> TEMPERAMENT <br />
-            <li className="temperament-list__item">Sangwinik:</li>
-            <li>
-                <div className="progress-bar">
-                    <div className="progress-bar__percentage progress-bar__percentage--sanguine" style={{ width: props.sanguine + '%' }}>
-                        <span>{props.sanguine}%</span>
-                    </div>
-                </div>
-            </li>
-            <li className="temperament-list__item">Choleryk:</li>
-            <li>
-                <div className="progress-bar">
-                    <div className="progress-bar__percentage progress-bar__percentage--choleric" style={{ width: props.choleric + '%' }}>
-                        <span>{props.choleric}%</span>
-                    </div>
-                </div>
-            </li>
-            <li className="temperament-list__item">Flegmatyk:</li>
-            <li>
-                <div className="progress-bar">
-                    <div className="progress-bar__percentage progress-bar__percentage--flegmatic" style={{ width: props.flegmatic + '%' }}>
-                        <span>{props.flegmatic}%</span>
-                    </div>
-                </div>
-            </li>
+    render(){
 
-            <li className="temperament-list__item">Melancholik:</li>
-            <li>
-                <div className="progress-bar">
-                    <div className="progress-bar__percentage progress-bar__percentage--melancholic" style={{ width: props.melancholic + '%' }}>
-                        <span>{props.melancholic}%</span>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    )
+        console.log(this)
 
+
+
+        return (
+            <div className="Temperament">
+            <h3 className="title">TEMPERAMENT</h3>
+            <ul className="temperament-list">
+                <li className="temperament-list__item">Sangwinik:</li>
+                <li>
+                    <div className="progress-bar">
+                    <div style={{ width: this.props.sanguine + '%' }}>
+                            <div className="progress-bar__percentage progress-bar__percentage--sanguine" >
+                                <span>{this.props.sanguine}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li className="temperament-list__item">Choleryk:</li>
+                <li>
+                    <div className="progress-bar">
+                        <div style={{ width: this.props.choleric + '%' }}>
+                            <div className="progress-bar__percentage progress-bar__percentage--choleric" >
+                                <span>{this.props.choleric}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li className="temperament-list__item">Flegmatyk:</li>
+                <li>
+                    <div className="progress-bar">
+                    <div style={{ width: this.props.flegmatic + '%' }}>
+                            <div className="progress-bar__percentage progress-bar__percentage--flegmatic" >
+                                <span>{this.props.flegmatic}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+    
+                <li className="temperament-list__item">Melancholik:</li>
+                <li>
+                    <div className="progress-bar">
+                    <div style={{ width: this.props.melancholic + '%' }}>
+                            <div className="progress-bar__percentage progress-bar__percentage--melancholic" >
+                                <span>{this.props.melancholic}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </div>
+        )
+    }
 }
-
-export default Temperament

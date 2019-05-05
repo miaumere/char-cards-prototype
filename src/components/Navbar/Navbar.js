@@ -6,13 +6,13 @@ function Navbar(){
     <nav className="Navbar">
         <ul className="nav-list">
             <li className="nav-list__item">
-                <a href="" className="link link--disabled">STRONA GŁÓWNA</a>
+                <a href="https://meowmere.art/" className="link link--disabled">STRONA GŁÓWNA</a>
             </li>
             <li className="nav-list__item">
-                <a href="" className="link link--disabled">HISTORIA</a>
+                <a href="https://meowmere.art/" className="link link--disabled">HISTORIA</a>
             </li>
             <li className="nav-list__item">
-                <a href="" className="link link--disabled">POSTACIE POBOCZNE</a>
+                <a href="https://meowmere.art/" className="link link--disabled">POSTACIE POBOCZNE</a>
             </li>
         </ul>
     </nav>

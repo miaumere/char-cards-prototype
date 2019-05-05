@@ -5,15 +5,12 @@ import Temperament from '../Temperament/Temperament'
 function Info() {
     return(
         <section className="Info">
-            Imię: Jean
+            <h1 className="name">Jean de Valette</h1>
+            DATA URODZENIA: xx.xx.1970            
             <br />
-            Nazwisko: De Valette
+            CZY ŻYJE? true
             <br />
-            Data urodzenia: xx.xx.1970            
-            <br />
-            Czy żyje? true
-            <br />
-            MBTI: INTJ
+            OSOBOWOŚĆ MBTI: INTJ
             <br />
             <Temperament sanguine="50" choleric="30" flegmatic="70" melancholic="90" />
 
