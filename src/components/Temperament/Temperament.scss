@@ -1,0 +1,53 @@
+$progressbar-height: 12px;
+
+.temperament-list {
+    list-style-type: none;
+    font-family: "Bitter";
+}
+   
+.progress-bar {
+    text-align: center;
+    display: inline-block;
+    background: #cccccc;
+    width: 250px;
+    height: $progressbar-height;
+    position: relative;
+
+    &__percentage {
+        font-weight: bold;
+        color: black;
+        height: $progressbar-height;
+
+        &--sanguine {
+            background: #ff4242;
+            background: -moz-linear-gradient(left, #ff4242 1%, #d581ef 100%);
+            background: -webkit-linear-gradient(left, #ff4242 1%,#d581ef 100%);
+            background: linear-gradient(to right, #ff4242 1%,#d581ef 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff4242', endColorstr='#d581ef',GradientType=1 );
+        }
+
+        &--choleric {
+            background: #f7d840;
+            background: -moz-linear-gradient(left, #f7d840 0%, #ffa589 100%);
+            background: -webkit-linear-gradient(left, #f7d840 0%,#ffa589 100%);
+            background: linear-gradient(to right, #f7d840 0%,#ffa589 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7d840', endColorstr='#ffa589',GradientType=1 );
+        }
+
+        &--flegmatic {
+            background: #b16ded;
+            background: -moz-linear-gradient(left, #b16ded 0%, #94ed80 100%);
+            background: -webkit-linear-gradient(left, #b16ded 0%,#94ed80 100%);
+            background: linear-gradient(to right, #b16ded 0%,#94ed80 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b16ded', endColorstr='#94ed80',GradientType=1 );
+        }
+        &--melancholic{
+            background: #688fe2;
+            background: -moz-linear-gradient(left, #688fe2 0%, #ffe68c 100%);
+            background: -webkit-linear-gradient(left, #688fe2 0%,#ffe68c 100%);
+            background: linear-gradient(to right, #688fe2 0%,#ffe68c 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#688fe2', endColorstr='#ffe68c',GradientType=1 );
+        }
+    }
+}
+

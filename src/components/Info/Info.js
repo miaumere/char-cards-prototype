@@ -4,7 +4,7 @@ import Temperament from '../Temperament/Temperament'
 
 function Info() {
     return(
-        <section className="information">
+        <section className="Info">
             Imię: Jean
             <br />
             Nazwisko: De Valette
@@ -15,7 +15,7 @@ function Info() {
             <br />
             MBTI: INTJ
             <br />
-            <Temperament sanguine="40" choleric="30" flegmatic="70" melancholic="90" />
+            <Temperament sanguine="50" choleric="30" flegmatic="70" melancholic="90" />
 
         </section>
     )

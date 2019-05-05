@@ -35,7 +35,7 @@ export default class CharactersList extends React.Component {
         }
 
         return (
-            <ul className="menu">LISTA POSTACI:{this.state.characters.map(item =>
+            <ul className="CharactersList menu">LISTA POSTACI:{this.state.characters.map(item =>
                 <li className="menu__item" key={item.id}>
                     {item.imie + " " + item.nazwisko}
                 </li>)}</ul>
