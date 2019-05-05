@@ -6,8 +6,8 @@ export default class PersonImages extends React.Component {
 
     render(){
         return(
-            <div className="PersonImages">
-
+            <div >
+            <img className="PersonImages" src="https://via.placeholder.com/159x250" alt="" />
             </div>
         )
     }

@@ -1,0 +1,42 @@
+
+.container {
+    height: 100vh;
+    width: 100vw;
+
+    background: purple;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: flex-start;
+    align-content: flex-start;
+
+}
+
+
+.blue {
+    background-color: blue;
+  
+    flex: 1;
+    min-width: 300px;
+
+    height: 300px;
+}
+
+
+.red {
+    background-color: red;
+  
+    flex: 1;
+    min-width: 300px;
+
+    height: 600px;
+}
+
+
+.black {
+    background-color: black;
+    width: 100%;
+    height: 100px;
+}

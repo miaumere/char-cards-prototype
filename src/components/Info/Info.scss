@@ -1,11 +1,21 @@
 .Info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    flex: 1;
+    padding: 1rem;
+
     background-color: white;
     color: black;
-    display: block;
-    padding: 10px;
+
 
     .name {
         font-family: "Bitter";
         font-size: 2rem;
+    }
+
+    .desc {
+
     }
 }

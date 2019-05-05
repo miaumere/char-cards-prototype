@@ -4,17 +4,17 @@ import Navbar from '../Navbar/Navbar'
 import CharactersList from '../CharactersList/CharactersList'
 import Info from '../Info/Info'
 
-class App extends React.Component{
+class App extends React.Component {
 
-  render(){  
+  render() {
 
-  return (
-    <div className="App" >
-    <Navbar />
-    <CharactersList />
-    <Info />
-    </div>
-  );
+    return (
+      <div className="App" >
+        <Navbar />
+        <CharactersList />
+        <Info />
+      </div>
+    );
   }
 }
 

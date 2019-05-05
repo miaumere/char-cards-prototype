@@ -1,17 +1,34 @@
-.menu {
-    list-style-type: none;
-    background-color: #D3D3D3;
-    float: left;
-    padding: 10px;
-    font-weight: bold;
+@import '../../variables.scss';
 
+.CharactersList {
 
-    &__item {
-        line-height: 1.4;
-        font-weight: initial;
+    &.menu, .menu {
 
-        &:hover {
-            color: blue;
+        max-height: calc(100vh - #{$navbar-height});
+        min-width: $aside-menu-width;
+        max-width: $aside-menu-width;
+
+        overflow-y: auto;
+
+        padding: 10px;
+        box-sizing: border-box;
+
+        list-style-type: none;
+        background-color: #D3D3D3;
+
+        box-shadow: inset 0px 0 10px 0px black;
+        font-weight: bold;
+    
+    
+        &__item {
+            line-height: 1.4;
+            font-weight: initial;
+    
+            &:hover {
+                color: blue;
+            }
         }
     }
+
 }
+

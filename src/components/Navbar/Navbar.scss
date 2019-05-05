@@ -1,13 +1,32 @@
+@import '../../variables.scss';
 
 .Navbar {
+    display: flex;
+    align-items: center;
+    
+    height: $navbar-height;
+    width: 100%;
+
+    padding: 0 1rem;
+    
     background-color: rgb(71, 71, 71);
+
     font-family: "Aleo-Regular";
     font-size: 1.1rem;
-    padding: 5px;
+    
     .nav-list {
         list-style-type: none;
         display: flex;
         justify-content: flex-start;
+
+        width: 100%;
+
+        &__item {
+            &--right {
+                margin-left: auto;
+            }
+
+        }
         
     }
     
@@ -15,10 +34,14 @@
         text-decoration: none;
         margin-right: 10px;
         transition: all 0.2s;
+        text-transform: uppercase;
 
-          &--disabled {
-            color: rgb(172, 60, 60);
+        &--disabled {
+            color: rgb(175, 24, 24);
+            opacity: 0.5;
+            touch-action: none;
         }
+
         &:hover {
             color: white;
         }

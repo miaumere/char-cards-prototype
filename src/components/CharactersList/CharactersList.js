@@ -3,6 +3,7 @@ import axios from 'axios';
 import "./CharactersList.scss"
 
 export default class CharactersList extends React.Component {
+    
     state = {
         error: false
     }
