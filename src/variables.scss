@@ -1,3 +1,25 @@
 $navbar-height: 2rem;
 
 $aside-menu-width: 20rem;
+
+@mixin paragraph-container {
+    border: 2px solid black;
+    background: white;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@mixin paragraph-title {
+    font-family: "Bitter";
+    text-transform: uppercase;
+    margin-top: -0.8rem;
+    margin-right: -0.2rem;
+    background-color: white;
+    width: 10%;
+}
+
+@mixin paragraph-content {
+    padding: 0.8rem;
+}
