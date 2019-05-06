@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Appearance.scss";
-import AppearanceTable from "./AppearanceTable/AppearanceTable"
+import AppearanceColors from "./AppearanceColors/AppearanceColors"
 
 function Appearance() {
 
@@ -29,7 +29,7 @@ function Appearance() {
             </p>
             </div>
 
-            <AppearanceTable />
+            <AppearanceColors />
         </section>
     )
 }
