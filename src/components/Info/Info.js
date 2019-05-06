@@ -3,6 +3,7 @@ import "./Info.scss";
 import Temperament from './Temperament/Temperament';
 import PersonImages from './PersonImages/PersonImages';
 import Appearance from './Appearance/Appearance';
+import Story from './Story/Story';
 
 function Info() {
     return (
@@ -27,6 +28,7 @@ function Info() {
 
             <Appearance />
             
+            <Story />
         </section>
     )
 }

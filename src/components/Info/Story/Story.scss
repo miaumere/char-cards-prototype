@@ -1,0 +1,18 @@
+@import '../../../variables.scss';
+
+.Story {
+
+    .story-section {    
+        @include paragraph-container;
+
+        &__title {
+            @include paragraph-title;
+        }
+        &__desc {
+            @include paragraph-content;
+        }
+        
+
+    }
+
+}

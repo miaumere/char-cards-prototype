@@ -1,14 +1,13 @@
 import React from 'react';
-import "./Appearance.scss";
-import AppearanceColors from "./AppearanceColors/AppearanceColors"
+import "./Story.scss";
 
-function Appearance() {
+function Story() {
 
     return (
-        <article className="Appearance">
-            <div className="appearance-section">
-                <h2 className="appearance-section__title">Wygląd</h2>
-                <p className="appearance-section__desc">
+        <article className="Story">
+            <div className="story-section">
+                <h2 className="story-section__title">Historia</h2>
+                <p className="story-section__desc">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ultricies eu nulla id lacinia. M
                     auris vulputate vel ante vitae dapibus. Morbi dapibus, purus sed iaculis pulvinar, est velit rho
                     ncus elit, nec dapibus neque sem ac metus. Maecenas sit amet ligula vestibulum, euismod quam non
@@ -29,11 +28,7 @@ function Appearance() {
             </p>
             </div>
 
-            <AppearanceColors color_1="red" color_2="green" color_3="yellow" 
-            color_skin="rgb(247, 215, 169)" color_hair="black"
-            color_eye_1="red" color_eye_2="blue"
-            />
         </article>
     )
 }
-export default Appearance
+export default Story
