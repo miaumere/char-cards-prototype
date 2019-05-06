@@ -8,7 +8,7 @@ render(){
     return(
         <div className="AppearanceColors color">
         
-        <div class="color__container">
+        <div className="color__container">
         <h3 className="color__title">Lista kolorów</h3>
 
             <ul className="color color__list">

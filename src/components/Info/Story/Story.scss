@@ -3,6 +3,7 @@
 .Story {
 
     .story-section {    
+        box-sizing: border-box;
         @include paragraph-container;
 
         &__title {
@@ -10,6 +11,46 @@
         }
         &__desc {
             @include paragraph-content;
+            
+            &--blurred {
+                filter: blur(2px);
+            }
+
+            &--clean {
+                filter: none;
+            }
+
+            & h3 {
+                @include font-alternative;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+
+        &__warning {
+            color: red;
+
+            &--unactive {
+                display: none;
+            }
+        }
+        &__button {
+
+            border: 1px black solid;
+
+            @include font-regular;
+            font-size: 1rem;
+            color: white;
+
+            background: rgb(255,94,94);
+            background: -moz-linear-gradient(top, rgba(255,94,94,1) 0%, rgba(181,61,63,1) 98%);
+            background: -webkit-linear-gradient(top, rgba(255,94,94,1) 0%,rgba(181,61,63,1) 98%);
+            background: linear-gradient(to bottom, rgba(255,94,94,1) 0%,rgba(181,61,63,1) 98%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5e5e', endColorstr='#b53d3f',GradientType=0 );
+        
+            &--clicked {
+                display: none;
+            }
         }
         
 

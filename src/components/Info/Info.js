@@ -4,6 +4,7 @@ import Temperament from './Temperament/Temperament';
 import PersonImages from './PersonImages/PersonImages';
 import Appearance from './Appearance/Appearance';
 import Story from './Story/Story';
+import Gallery from './Gallery/Gallery';
 
 function Info() {
     return (
@@ -29,6 +30,8 @@ function Info() {
             <Appearance />
             
             <Story />
+
+            <Gallery />
         </section>
     )
 }
