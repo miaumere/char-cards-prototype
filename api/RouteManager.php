@@ -1,21 +1,13 @@
 <?php
-namespace CharCards;
-require_once('routes.php');
-
 
 $routeManager = RouteManager::getInstance();
 
 class RouteManager {
 
      private static $_instance;
+     public $routes = [];
 
      function __construct() {
-          global $routes;
-
-          print("Utworzono RouteManager\n");
-
-          print(json_encode($routes));
-
      }
 
      private function __clone() {}
@@ -26,7 +18,6 @@ class RouteManager {
          }
          return self::$_instance;
      }
-
 };
 
 

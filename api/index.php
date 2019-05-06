@@ -1,24 +1,26 @@
 <?php
 
-namespace CharCards;
-require_once('config.php');
-require_once('DTOs.php');
-require_once('DAOs.php');
+// ini_set( "display_errors", 0); 
 
-require_once('RouteManager.php');
+try {
+     require_once('config.php');
+     require_once('DTOs.php');
+     require_once('DAOs.php');
+     
+     require_once('RouteManager.php');
+     require_once('routes.php');
+     require_once('controller.php');
 
-
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+} catch (Exception $e) {
+     http_response_code(500);
+     echo $e->getMessage();
+     die();
+}
 
 header("Access-Control-Allow-Origin: *");
 header('Content-Type: application/json');
 
 // header('Content-Type: text/html');
-
-
 
 function console_log($log) {
      header('Content-Type: text/html');
@@ -36,22 +38,72 @@ $queryParams = $_SERVER['QUERY_STRING'];
 $requestBody = file_get_contents('php://input');
 
 
-print("\n\n");
-print("Context:\t" . $context . "\n");
-print("Method:\t\t" . $method . "\n");
-print("QueryParams:\t" . $queryParams . "\n");
-print("Request Body:\t" . $requestBody . "\n");
+$context = explode("?", $context)[0];
+
+// print("\n\n");
+// print("Context:\t" . $context . "\n");
+// print("Method:\t\t" . $method . "\n");
+// print("QueryParams:\t" . $queryParams . "\n");
+// print("Request Body:\t" . $requestBody . "\n");
+// print("\n\n");
+
+// var_dump($_SERVER);
+// echo json_encode($routeManager);
 
 
-// // Create connection
-// $conn = new mysqli(DB_SERVERNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-// mysqli_set_charset($conn,"utf8");
+$found = false;
+foreach ($routeManager->routes as &$route) {
 
-// // Check connection
-// if ($conn->connect_error) {
-//     die("Connection failed: " . $conn->connect_error);
-// } 
-// // echo "Connected successfully<br><hr>";
+     if($method === $route->method && $context === $route->endpoint) {
+          $found = true;
+
+          if($route->callBack) {
+
+               try {
+
+                    if(!method_exists('Controller', $route->callBack )) {
+                         throw new Exception("Internal server error. Method '". $route->callBack . "' dosen't exist in Controller");
+                    } 
+
+                    $callBackInvoke = call_user_func(array('Controller', $route->callBack), $queryParams, $requestBody );
+
+                    if($callBackInvoke) {
+                         if(empty($callBackInvoke)) {
+                              header_remove("Content-Type"); 
+                              http_response_code(204);
+                         } else if(is_string($callBackInvoke)) {
+                              header('Content-Type: text/plain');
+                              echo $callBackInvoke;
+                         } else {
+                              header('Content-Type: application/json');
+                              echo json_encode($callBackInvoke);
+                         }
+                    }
+           
+               } catch (Exception $e) {
+                    http_response_code(500);
+                    echo $e->getMessage();
+                    die();
+               }
+
+          } else {
+               http_response_code(500);
+               echo "No method assigned to current endpoint";
+               die();
+          }
+     }
+
+}
+
+
+if($found === false) {
+     http_response_code(404);
+     echo "Not found.";
+     die();
+}
+
+
+
 
 
 // if (empty($_GET)) {
