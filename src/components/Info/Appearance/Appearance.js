@@ -29,7 +29,10 @@ function Appearance() {
             </p>
             </div>
 
-            <AppearanceColors color_1="red"/>
+            <AppearanceColors color_1="red" color_2="green" color_3="yellow" 
+            color_skin="rgb(247, 215, 169)" color_hair="black"
+            color_eye_1="red" color_eye_2="blue"
+            />
         </section>
     )
 }
