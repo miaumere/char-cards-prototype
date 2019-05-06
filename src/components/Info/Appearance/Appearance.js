@@ -6,9 +6,9 @@ function Appearance() {
 
     return (
         <section className="Appearance">
-            <div className="appearance">
-                <h2 className="appearance__title">Wygląd</h2>
-                <p className="appearance__desc">
+            <div className="appearance-section">
+                <h2 className="appearance-section__title">Wygląd</h2>
+                <p className="appearance-section__desc">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ultricies eu nulla id lacinia. M
                     auris vulputate vel ante vitae dapibus. Morbi dapibus, purus sed iaculis pulvinar, est velit rho
                     ncus elit, nec dapibus neque sem ac metus. Maecenas sit amet ligula vestibulum, euismod quam non
@@ -29,7 +29,7 @@ function Appearance() {
             </p>
             </div>
 
-            <AppearanceColors />
+            <AppearanceColors color_1="red"/>
         </section>
     )
 }

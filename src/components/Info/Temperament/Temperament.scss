@@ -1,3 +1,5 @@
+@import "../../../variables.scss";
+
 $progressbar-height: 12px;
 
 .Temperament {
@@ -12,11 +14,12 @@ $progressbar-height: 12px;
     margin-top: 20px;
 
 .title {
-    font-family: "Bitter";
+    @include font-alternative;
     width: 30%;
     background-color: white;
     margin-top: -8px;
-    margin-right: -2px;
+    margin-left: 3px;
+    padding-left: 3px;
 }
 .temperament-list {
     list-style-type: none;
@@ -41,8 +44,6 @@ $progressbar-height: 12px;
         height: $progressbar-height;
 
         animation: percentage-bars 1.5s 1; 
-
-
 
         &--none {
             width: 0;

@@ -1,9 +1,33 @@
+@import '../../../../variables.scss';
+
+
 .AppearanceColors {
 
-    .table {
-        border-collapse: collapse;
+    .color {
+
+        &__list{
+            @include paragraph-content;
+
+            list-style-type: none;
+        }
+
+        &__title {
+            @include paragraph-title;
+            text-transform: uppercase;
+            width: 9rem;
+        }
+
+        &__block {
+            width: 30%;
+            height: 36px;
+            border: 1px solid black;
+            
+        }
+
+        &__container {
+            @include paragraph-container;
+
+        }
     }
-
-
 
 }

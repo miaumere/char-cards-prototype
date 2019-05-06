@@ -1,6 +1,21 @@
+// Variables:
 $navbar-height: 2rem;
-
 $aside-menu-width: 20rem;
+
+// Font mixins: 
+@mixin font-light {
+    font-family: "Aleo-Light";
+}
+
+@mixin font-regular {
+    font-family: "Aleo-Regular";
+}
+
+@mixin font-alternative {
+    font-family: "Bitter";
+}
+
+// Other mixins: 
 
 @mixin paragraph-container {
     display: flex;
@@ -15,13 +30,15 @@ $aside-menu-width: 20rem;
     background: white;
 }
 
+
 @mixin paragraph-title {
     width: 5rem;
 
     margin-top: -0.8rem;
-    margin-right: -0.2rem;
+    margin-left: 3px;
+    padding-left: 3px;
 
-    font-family: "Bitter";
+    @include font-alternative;
     text-transform: uppercase;
 
     background-color: white;
@@ -30,3 +47,5 @@ $aside-menu-width: 20rem;
 @mixin paragraph-content {
     padding: 0.8rem;
 }
+
+

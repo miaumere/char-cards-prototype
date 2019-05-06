@@ -23,9 +23,7 @@ body {
 }
 
 :root {
-    font-family: "Aleo-Regular";
-		// font-size: 70.5%;
-		
+	  @include font-regular;		
 		font-size: 62.5%;
 
 }
