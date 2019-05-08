@@ -5,6 +5,7 @@ import PersonImages from './PersonImages/PersonImages';
 import Appearance from './Appearance/Appearance';
 import Story from './Story/Story';
 import Gallery from './Gallery/Gallery';
+import Weight from './Weight/Weight';
 
 function Info() {
     return (
@@ -31,7 +32,9 @@ function Info() {
             
             <Story />
 
-            <Gallery />
+            <Weight />
+
+            {/* <Gallery /> */}
         </section>
     )
 }

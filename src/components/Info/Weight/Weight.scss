@@ -1,0 +1,31 @@
+@import '../../../variables.scss';
+
+.Weight {
+
+    .table {
+        box-sizing: border-box;
+
+        border: 1px black solid;
+        
+
+        &__row {
+            box-sizing: border-box;
+            text-align: center;
+
+
+            & em {
+                display: block;
+            }
+        }
+        &__heading {
+            text-transform: uppercase;
+            padding: 5px;
+            @include font-alternative;
+
+        }
+
+
+    }
+
+
+}

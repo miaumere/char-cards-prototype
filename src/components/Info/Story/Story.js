@@ -30,7 +30,7 @@ export default class Story extends React.Component {
                     POKAŻ ZAWARTOŚĆ
                     
                     </button>
-                    <section className={`story-section__desc ${this.state.blur ? "story-section__desc--blurred" : "story-section__desc--clean"}`}>
+                    <section className={`story-section__desc ${this.state.blur ? "story-section__desc--blurred" : ""}`}>
                         <h3>Młodość</h3>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ultricies eu nulla id lacinia. M
                         auris vulputate vel ante vitae dapibus. Morbi dapibus, purus sed iaculis pulvinar, est velit rho

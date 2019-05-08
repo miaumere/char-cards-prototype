@@ -4,7 +4,10 @@
 
     .story-section {    
         box-sizing: border-box;
+
         @include paragraph-container;
+
+  
 
         &__title {
             @include paragraph-title;
@@ -12,13 +15,14 @@
         &__desc {
             @include paragraph-content;
             
+            filter: blur(0);
+            transition: 0.3s;
+
             &--blurred {
                 filter: blur(2px);
+
             }
 
-            &--clean {
-                filter: none;
-            }
 
             & h3 {
                 @include font-alternative;
@@ -37,6 +41,7 @@
         &__button {
 
             border: 1px black solid;
+            
 
             @include font-regular;
             font-size: 1rem;
