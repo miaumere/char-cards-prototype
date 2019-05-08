@@ -6,8 +6,10 @@ export default class Weight extends React.Component {
     render() {
         return (
 
-            <article className="Weight">
-
+            <article className="Weight size">
+            <div className="size__container">
+                <h2 className="size__title">Wzrost i waga</h2>
+                <div className="size__content">
                 <table className="table">
                     <tr className="table table__row">
                         <th className="table table__heading">Opis</th>
@@ -57,6 +59,8 @@ export default class Weight extends React.Component {
                     </tr>
 
                 </table>
+                </div>
+                </div>
             </article>
 
 

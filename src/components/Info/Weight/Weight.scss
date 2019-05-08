@@ -2,6 +2,22 @@
 
 .Weight {
 
+    .size {
+        
+        &__container {
+        @include paragraph-container;
+
+        }
+        &__title {
+            @include paragraph-title;
+            width: 21%;
+        }
+
+        &__content {
+            @include paragraph-content;
+        }
+    }
+
     .table {
         box-sizing: border-box;
 
