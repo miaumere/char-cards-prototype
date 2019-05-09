@@ -45,7 +45,6 @@ class CharsList extends React.Component {
         return (
             <>
 
-
                 <Route path="/karty/" exact render={() => {
 
                     return <ul className="CharsList">

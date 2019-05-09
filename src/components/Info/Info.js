@@ -7,6 +7,7 @@ import Story from './Story/Story';
 import Gallery from './Gallery/Gallery';
 import Weight from './Weight/Weight';
 import Trivia from './Trivia/Trivia';
+import Loader from '../Loader/Loader';
 import { withRouter } from "react-router";
 
 class Info extends React.Component {
@@ -72,7 +73,7 @@ class Info extends React.Component {
         const { charInfo } = this.state;
 
         if(!charInfo) {
-            return <div>Nie ma info o postaci</div>
+            return <Loader />
         }
 
 
