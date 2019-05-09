@@ -8,28 +8,13 @@ class App extends React.Component {
 
   render() {
 
-    let objFromApi = [
-      {
-      id: 1,
-      name: "Jean",
-      surname: "DULEVLE"
-    },
-      {
-      id: 2,
-      name: "FEFE",
-      surname: "fifi"
-    }
-  ]
-
-    console.log(this)
-
     return (
-
-
       <div className="App" >
-        <CharactersList />
-        <Info />
-       
+        {/* <CharactersList /> */}
+        <div>
+          DUZA LISTA POSTACI
+        </div>
+        {/* <Info /> */}
       </div>
     );
   }

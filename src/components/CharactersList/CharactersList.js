@@ -1,30 +1,17 @@
 import React from 'react';
-import axios from 'axios';
 import "./CharactersList.scss"
+import { Route, Switch, Link } from "react-router-dom";
 
 export default class CharactersList extends React.Component {
     
-    state = {
-        error: false
-    }
 
-    componentWillMount() {
-        const RESTurl = "http://192.168.100.20/characters-cards/api/get-characters"
-
-        axios.get(RESTurl)
-        .then((response) => {
-            this.setState({characters: response.data})
-          })
-          .catch((error) => {
-            // handle error
-            console.error(error);
-          })
-
-        }
+    state = {}
 
 
     render() {
-        const { characters, error } = this.state;
+
+        const { error } = this.state;
+        const { characters } = this.props;
 
 
         if(error) {
@@ -36,9 +23,10 @@ export default class CharactersList extends React.Component {
         }
 
         return (
-            <ul className="CharactersList menu">LISTA POSTACI:{this.state.characters.map(item =>
+            <ul className="CharactersList menu">LISTA POSTACI:{characters.map(item =>
                 <li className="menu__item" key={item.id}>
-                    {item.name + " " + item.surname}
+                    <Link to={`/karty/${item.id}`} className="link link--disabled">{item.name + " " + item.surname}</Link>
+                   
                 </li>)}</ul>
         )
     }

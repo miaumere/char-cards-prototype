@@ -1,10 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter,  Route, Switch } from "react-router-dom";
 import Footer from './Footer/Footer';
 
 import App from './App/App';
 import Test from './Test'
 import Navbar from './Navbar/Navbar'
+import CharsList from './CharsList/CharsList';
 
 function Main() {
 
@@ -15,7 +16,8 @@ function Main() {
 
         <Switch>
           <Route path="/" exact component={Test} />
-          <Route path="/karty/" component={App} />
+          <Route path="/karty/" component={CharsList} />
+
           <Route component={NoMatch} />
         </Switch>
 
@@ -33,6 +35,7 @@ function Main() {
       </div>
     );
   }
+
 
 }
 export default Main
