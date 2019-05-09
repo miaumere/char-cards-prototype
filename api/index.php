@@ -35,7 +35,8 @@ function console_log($log) {
      echo "<hr/>";
 }
 
-$context = str_replace($_SERVER['CONTEXT_PREFIX'], "", $_SERVER['REQUEST_URI']);
+$scriptLocation = str_replace('/index.php', "", $_SERVER['SCRIPT_NAME']);
+$context = str_replace($scriptLocation, "", $_SERVER['REQUEST_URI']);
 $method = $_SERVER['REQUEST_METHOD'];
 $queryParams = $_SERVER['QUERY_STRING'];
 $requestBody = file_get_contents('php://input');
@@ -44,14 +45,19 @@ $requestBody = file_get_contents('php://input');
 $context = explode("?", $context)[0];
 
 // print("\n\n");
+// print("Script Location:\t" . $scriptLocation . "\n");
 // print("Context:\t" . $context . "\n");
 // print("Method:\t\t" . $method . "\n");
 // print("QueryParams:\t" . $queryParams . "\n");
 // print("Request Body:\t" . $requestBody . "\n");
 // print("\n\n");
+// var_dump($routeManager->routes);
+// print("\n\n");
+
 
 // var_dump($_SERVER);
 // echo json_encode($routeManager);
+
 
 
 $found = false;
