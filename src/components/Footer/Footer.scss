@@ -1,16 +1,16 @@
 .Footer {
-        color: white;
-
+    
     height: auto;
     width: 100%;
-
-    background-color: #474747;
+    
+    color: white;
+    background-color: black;
 
     .footer-info {
 
 
         &__avatar {
-            height: 35px;
+            height: 25px;
         }
 
         &__list {

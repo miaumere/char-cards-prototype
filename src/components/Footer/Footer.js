@@ -9,12 +9,14 @@ function Footer() {
            
             <ul class="footer-info__list">Stworzone przez:
                 <li>
+                    <a href="https://github.com/miaumere">
                     <img className="footer-info__avatar" src="https://avatars3.githubusercontent.com/u/40804624?s=60&v=4" alt="" />
-                    <a href="https://github.com/miaumere">/miaumere</a>
+                    /miaumere</a>
                 </li>
                 <li>
+                <a href="https://github.com/SatarisGIT">
                     <img className="footer-info__avatar" src="https://avatars1.githubusercontent.com/u/28608081?s=180&v=4" alt="" />
-                    <a href="https://github.com/SatarisGIT">/SatarisGIT</a>
+                    /SatarisGIT</a>
                 </li>
 
             </ul>
