@@ -1,0 +1,21 @@
+.Footer {
+        color: white;
+
+    height: auto;
+    width: 100%;
+
+    background-color: #474747;
+
+    .footer-info {
+
+
+        &__avatar {
+            height: 35px;
+        }
+
+        &__list {
+            list-style-type: none;
+        }
+    }
+
+} 

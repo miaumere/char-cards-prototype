@@ -2,10 +2,27 @@
 
 .Trivia {
     .list {
-        background-color: blue;
+        list-style-type: none;
 
         &__item {
-            color: red;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+
+        }
+    }
+    .facts {
+        &__container {
+
+            @include paragraph-container;
+        }
+
+
+        &__title {
+            @include paragraph-title;
+            width: 25%;
+        }
+
+        &__content {
+            @include paragraph-content;
         }
     }
 }
