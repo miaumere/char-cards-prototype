@@ -11,6 +11,7 @@ export default class Weight extends React.Component {
                 <h2 className="size__title">Wzrost i waga</h2>
                 <div className="size__content">
                 <table className="table">
+                <thead>
                     <tr className="table table__row">
                         <th className="table table__heading">Opis</th>
 
@@ -35,6 +36,8 @@ export default class Weight extends React.Component {
                             <em>(20+)</em>
                         </th>
                     </tr>
+                </thead>
+                <tbody>
                     <tr className="table table__row">
                         <th className="table table__heading">Waga</th>
                         
@@ -57,7 +60,7 @@ export default class Weight extends React.Component {
                         <td className="table table_cell">12 kg</td>
 
                     </tr>
-
+                </tbody>
                 </table>
                 </div>
                 </div>

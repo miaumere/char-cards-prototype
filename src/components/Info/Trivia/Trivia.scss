@@ -1,0 +1,11 @@
+@import '../../../variables.scss';
+
+.Trivia {
+    .list {
+        background-color: blue;
+
+        &__item {
+            color: red;
+        }
+    }
+}

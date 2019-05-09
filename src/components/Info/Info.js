@@ -6,6 +6,7 @@ import Appearance from './Appearance/Appearance';
 import Story from './Story/Story';
 import Gallery from './Gallery/Gallery';
 import Weight from './Weight/Weight';
+import Trivia from './Trivia/Trivia';
 
 function Info() {
     return (
@@ -34,7 +35,9 @@ function Info() {
 
             <Weight />
 
-            {/* <Gallery /> */}
+            <Gallery />
+
+            <Trivia />
         </section>
     )
 }

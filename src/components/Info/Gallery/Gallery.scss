@@ -2,6 +2,25 @@
 
 .Gallery {
 
-    color: red;
+    .img {
+        &__container {
+            @include paragraph-container;
+        }
+        &__title {
+            @include paragraph-title;
+        }
+        &__content {
+            @include paragraph-content;
+            display: flex;
+            flex-direction: column;
+
+
+            & img {
+                max-width: 250px;
+                max-height: 500px;
+            }
+        }
+    }
+
 
 }
