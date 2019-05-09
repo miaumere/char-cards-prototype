@@ -9,7 +9,7 @@ export default class CharactersList extends React.Component {
     }
 
     componentWillMount() {
-        const RESTurl = "https://meowmere.art/aie/api/char-info/"
+        const RESTurl = "http://192.168.100.20/characters-cards/api/get-characters"
 
         axios.get(RESTurl)
         .then((response) => {
@@ -38,7 +38,7 @@ export default class CharactersList extends React.Component {
         return (
             <ul className="CharactersList menu">LISTA POSTACI:{this.state.characters.map(item =>
                 <li className="menu__item" key={item.id}>
-                    {item.imie + " " + item.nazwisko}
+                    {item.name + " " + item.surname}
                 </li>)}</ul>
         )
     }

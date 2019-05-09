@@ -1,15 +1,11 @@
-import React from 'react';
-import './Test.scss'
-export default class Test extends React.Component {
+import React from "react";
 
-
-    render(){
-        return(
-        <div className="container">
-            <div className="black" />
-            <div className="blue" />
-            <div className="red" />
-        </div>
-        )
-    }
+function Test() {
+  return (
+  <div>
+    TESCIK! - strona glowna
+  </div>
+  );
 }
+
+export default Test;
