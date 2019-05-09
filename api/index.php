@@ -105,6 +105,7 @@ foreach ($routeManager->routes as &$route) {
                     }
                          
 
+                    http_response_code(200);
 
                     $callBackInvoke = call_user_func(array('Controller', $route->callBack), $queryParamsObj, $requestBody );
 
@@ -113,11 +114,15 @@ foreach ($routeManager->routes as &$route) {
                               header_remove("Content-Type"); 
                               http_response_code(204);
                          } else if(is_string($callBackInvoke)) {
+                              $output = json_encode($callBackInvoke);
+                              echo $output;
                               header('Content-Type: text/plain');
-                              echo $callBackInvoke;
+                              header('Content-length: ' . strlen($output));
                          } else {
+                              $output = json_encode($callBackInvoke);
+                              echo $output;
                               header('Content-Type: application/json');
-                              echo json_encode($callBackInvoke);
+                              header('Content-length: ' . strlen($output));
                          }
                     }
            
