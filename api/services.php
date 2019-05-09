@@ -32,6 +32,7 @@ class Services {
           return "SERVICES!";
      }
 
+     
      function getCharsList() {
      // SELECT
           $sql_charsList = "SELECT id, name, surname FROM `characters`";
@@ -49,9 +50,64 @@ class Services {
                mysqli_free_result($sqlResult);
           }
 
-          return  $result;
 
+          if(empty($result)) {
+               return '[]';
+          } else {
+               return $result;
+          }
+          
      }
+
+
+     function getCharDetails($id) {
+          // SELECT
+               $sql_char = "SELECT * FROM `characters` WHERE id=$id LIMIT 1";
+               $result_char = mysqli_query($this->_conn, $sql_char);
+
+               $result = mysqli_fetch_object($result_char, 'DAO\CharDetailsDAO');
+               mysqli_free_result($result_char);
+
+
+               $sql_charTemperament = "SELECT sanguine, spitfire, phlegmatic, melancholy  FROM `temperament` WHERE character_id=$id LIMIT 1";
+               $result_charTemperament = mysqli_query($this->_conn, $sql_charTemperament);
+               $resultTemperament = mysqli_fetch_object($result_charTemperament, 'DAO\TemperamentDAO');
+               mysqli_free_result($result_charTemperament);
+               $result->temperament = $resultTemperament;
+
+
+               $sql_charQuotes = "SELECT quote, context FROM `quotes` WHERE character_id=$id";
+               $result_charQuotes = mysqli_query($this->_conn, $sql_charQuotes);
+               $resultQuotes = array();
+               if ($sqlResult=mysqli_query($this->_conn, $sql_charQuotes)) {
+     
+                    while ($obj=mysqli_fetch_object($result_charQuotes))
+                    {
+                         array_push($resultQuotes, $obj);
+                    }
+     
+                    // Free result set
+                    mysqli_free_result($result_charQuotes);
+            
+               }
+               $result->quotes = $resultQuotes;
+
+               $sql_charColors = "SELECT outfit_1, outfit_2, outfit_3, skin, hair FROM `colors` WHERE character_id=$id LIMIT 1";
+               $result_charColors = mysqli_query($this->_conn, $sql_charColors);
+               $resultColors = mysqli_fetch_object($result_charColors, 'DAO\ColorsDAO');
+               mysqli_free_result($result_charColors);
+               $result->colors = $resultColors;
+
+          
+            
+               if(empty($result)) {
+                    header('HTTP/1.0 404 not found');
+                    return null;
+               } else {
+                    return $result;
+               }
+               
+          }
 
 
      function getCharactersFullInfo() {

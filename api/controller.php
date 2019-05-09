@@ -16,6 +16,25 @@ class Controller
           return $services->getCharsList();
      }
 
+
+
+     public static function getCharacter($queryParams, $requestBody)
+     {
+          
+          if(property_exists($queryParams, 'id') && $queryParams->id && (int)$queryParams->id !== 0) {
+
+               global $services;
+        
+               return $services->getCharDetails($queryParams->id);
+
+          } else {
+       
+               throw new Exception("Missing or incorrect ID param");
+
+          }
+
+     }
+
      public static function getCharactersFullInfo($queryParams, $requestBody)
      {
           global $services;

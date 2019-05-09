@@ -6,6 +6,9 @@ try {
      require_once('config.php');
      require_once('DTOs.php');
      require_once('DAOs.php');
+     require_once('dao/temperament.php');
+     require_once('dao/char-details.php');
+     require_once('dao/colors.php');
      
      require_once('RouteManager.php');
      require_once('routes.php');
@@ -20,7 +23,7 @@ try {
 header("Access-Control-Allow-Origin: *");
 header('Content-Type: application/json');
 
-// header('Content-Type: text/html');
+header('Content-Type: text/html');
 
 function console_log($log) {
      header('Content-Type: text/html');
@@ -65,7 +68,39 @@ foreach ($routeManager->routes as &$route) {
                          throw new Exception("Internal server error. Method '". $route->callBack . "' dosen't exist in Controller");
                     } 
 
-                    $callBackInvoke = call_user_func(array('Controller', $route->callBack), $queryParams, $requestBody );
+                    $queryParamsObj = new stdClass; 
+
+                    if(strlen($queryParams) > 0) {
+
+                         $queryParamsExplodedFirst = explode("&", $queryParams);
+
+                         foreach ($queryParamsExplodedFirst as $value) {
+                         
+                              $queryParamValueExplode = explode("=", $value);
+
+                              $key = "";
+                              $value = "";
+
+                              if(sizeof($queryParamValueExplode) > 0 && $queryParamValueExplode[0]) {
+                                   $key = (string)$queryParamValueExplode[0];
+                                   $key = str_replace("%22","",$key);
+                              }
+
+                              if(sizeof($queryParamValueExplode) > 1 && $queryParamValueExplode[1]) {
+                                   $value = (string)$queryParamValueExplode[1];
+                                   $value = str_replace("%22","",$value);
+                              }
+
+                              $queryParamsObj->$key = $value;
+                         }
+                      
+
+
+                    }
+                         
+
+
+                    $callBackInvoke = call_user_func(array('Controller', $route->callBack), $queryParamsObj, $requestBody );
 
                     if($callBackInvoke) {
                          if(empty($callBackInvoke)) {
