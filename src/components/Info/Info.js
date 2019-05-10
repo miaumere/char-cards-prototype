@@ -57,7 +57,7 @@ class Info extends React.Component {
   
         this.timeout = setTimeout(() => {
             this.setState({charInfo: toCoZBackendu})
-        }, 10000);
+        }, 3000);
 
     }
 
@@ -101,6 +101,7 @@ class Info extends React.Component {
                 <Gallery />
     
                 <Trivia />
+                
             </section>
         )
     }

@@ -1,4 +1,15 @@
 .Loader {
+
+    &.container, .container {
+        opacity: 1;
+
+        &--fadeout {
+            transition: 0.5s;
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
     display: flex;
     align-items: center;
     justify-content: center;
