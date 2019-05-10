@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import Info from '../Info/Info';
 import CharactersList from '../CharactersList/CharactersList';
+import Loader from '../common/Loader/Loader';
 
 class CharsList extends React.Component {
 
@@ -20,11 +21,8 @@ class CharsList extends React.Component {
 
             })
             .catch((error) => {
-                // handle error
                 console.error(error);
             })
-
-        console.warn(this)
 
     }
 
@@ -34,11 +32,11 @@ class CharsList extends React.Component {
 
 
         if (error) {
-            return <div>ERR</div>
+            return <div>Wystąpił niespodziewany błąd!</div>
         }
 
         if (!characters) {
-            return <div>Ladowanie danych...</div>
+            return <Loader />
         }
 
 

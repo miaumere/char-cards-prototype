@@ -1,4 +1,5 @@
 import React from 'react';
+
 import "./Info.scss";
 import Temperament from './Temperament/Temperament';
 import PersonImages from './PersonImages/PersonImages';
@@ -7,7 +8,8 @@ import Story from './Story/Story';
 import Gallery from './Gallery/Gallery';
 import Weight from './Weight/Weight';
 import Trivia from './Trivia/Trivia';
-import Loader from '../Loader/Loader';
+import Loader from '../common/Loader/Loader';
+
 import { withRouter } from "react-router";
 
 class Info extends React.Component {
@@ -18,8 +20,6 @@ class Info extends React.Component {
     }
 
     componentWillMount() {
-        console.log("Komponent bedzie montwany")
-        console.log(this)
         const currentId = this.props.match.params.id;
         this.getCharInfo(currentId)
 
@@ -27,16 +27,11 @@ class Info extends React.Component {
 
 
     componentDidUpdate(props, state, d) {
-        console.log("component sie zapdejtowal")
         const lastId = props.match.params.id;
         const currentId = this.props.match.params.id;
 
-        console.log(lastId)
-        console.log(currentId)
-
         if(lastId !== currentId) {
-            console.warn("zmienilo sie!")
-
+            
             this.getCharInfo(currentId)
 
             this.setState({charInfo: null})
@@ -47,22 +42,22 @@ class Info extends React.Component {
     getCharInfo(id) {
         
         let toCoZBackendu = `{
-                                    "id":"2",
-                                    "name":"Imie1",
-                                    "surname":"Nazwisko1",
-                                    "birthday":"1992-03-03",
-                                    "death_date":null,
-                                    "personality_mbti":"QQQQ",
-                                    "appearance_desc":null,
-                                    "history":null,
-                                    "profile_pic":null
+                                "id":"2",
+                                "name":"Imie1",
+                                "surname":"Nazwisko1",
+                                "birthday":"1992-03-03",
+                                "death_date":null,
+                                "personality_mbti":"QQQQ",
+                                "appearance_desc":null,
+                                "history":null,
+                                "profile_pic":null
                             }`;
 
         toCoZBackendu = JSON.parse(toCoZBackendu);
   
         this.timeout = setTimeout(() => {
             this.setState({charInfo: toCoZBackendu})
-        }, 5000);
+        }, 10000);
 
     }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import "./CharactersList.scss"
-import { Route, Switch, Link } from "react-router-dom";
+import {Link } from "react-router-dom";
 
 export default class CharactersList extends React.Component {
     

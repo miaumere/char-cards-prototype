@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter,  Route, Switch } from "react-router-dom";
 import Footer from './Footer/Footer';
 
-import App from './App/App';
 import Test from './Test'
 import Navbar from './Navbar/Navbar'
 import CharsList from './CharsList/CharsList';
