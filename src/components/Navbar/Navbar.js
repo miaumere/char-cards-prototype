@@ -9,23 +9,23 @@ function Navbar() {
     <nav className="Navbar">
       <ul className="nav-list">
         <li className="nav-list__item">
-          <Link to="/" className="link link--disabled" label="Strona główna" />
+          <Link to="/" className="link link--active">Strona główna</Link>
         </li>
 
         <li className="nav-list__item">
-          <Link to="/karty" className="link link--disabled" label="karty" />
+          <Link to="/karty" className="link link--active">Karty postaci</Link>
         </li>
 
         <li className="nav-list__item">
-          <Link to="/historia" className="link link--disabled" label="Historia" />
+          <Link to="/historia" className="link link--disabled">Historia</Link>
         </li>
 
         <li className="nav-list__item">
-          <Link to="/others" className="link link--disabled" label="Postacie poboczne" />
+          <Link to="/others" className="link link--disabled">Postacie poboczne</Link>
         </li>
 
         <li className="nav-list__item nav-list__item--right">
-          <Link to="/admin" className="link link--disabled" label="Panel admina" />
+          <Link to="/admin" className="link link--disabled">Panel admina</Link>
         </li>
       </ul>
 
