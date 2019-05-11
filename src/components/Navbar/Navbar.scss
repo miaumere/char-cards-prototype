@@ -35,19 +35,28 @@
     
     .link {
 
-        text-decoration: none;
         margin-right: 10px;
-        transition: all 0.2s;
-        text-transform: uppercase;
+
         color: grey;
+        text-transform: uppercase;
+        text-decoration: none;
+
+        transition: all 0.2s;
 
         &--disabled {
             color: rgb(255, 0, 0);
+            opacity: 0.5;
+
             pointer-events: none;
         }
-        &--active {
+        &--normal {
             color: green;
 
+        }
+        &--active {
+            color: grey;
+
+            pointer-events: none;
         }
 
         &:hover {

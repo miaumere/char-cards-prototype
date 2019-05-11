@@ -1,19 +1,25 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link  } from "react-router-dom";
 
+import NavLink from  "./NavLink/NavLink";
 import "./Navbar.scss";
 
 function Navbar() {
 
   return (
+
+
+
+
+
     <nav className="Navbar">
       <ul className="nav-list">
         <li className="nav-list__item">
-          <Link to="/" className="link link--active">Strona główna</Link>
+        <NavLink activeOnlyWhenExact={true} to="/" label="Strona główna" />
         </li>
 
         <li className="nav-list__item">
-          <Link to="/karty" className="link link--active">Karty postaci</Link>
+        <NavLink activeOnlyWhenExact={true} to="/karty" label="Karty" />
         </li>
 
         <li className="nav-list__item">
@@ -34,5 +40,6 @@ function Navbar() {
 
 
 }
+
 
 export default Navbar

@@ -14,7 +14,7 @@ function Main() {
         <Navbar />
 
         <Switch>
-          <Route path="/" exact component={Test} />
+          <Route path="/" component={Test} />
           <Route path="/karty/" component={CharsList} />
 
           <Route component={NoMatch} />
@@ -25,6 +25,7 @@ function Main() {
     </BrowserRouter>
 
   );
+  
   function NoMatch({ location }) {
     return (
       <div>
