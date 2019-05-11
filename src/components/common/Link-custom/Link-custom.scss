@@ -1,0 +1,44 @@
+.link {
+
+    margin-right: 10px;
+
+    text-transform: uppercase;
+    
+    transition: all 0.2s;
+
+    & a {
+        text-decoration: none;
+    }
+
+
+    &--disabled {
+        color: rgb(255, 0, 0);
+        opacity: 0.5;
+
+        text-decoration: none;
+        
+        pointer-events: none;
+    }
+
+
+    &--normal {
+        a {
+            color: grey;
+        }
+            
+    }
+
+
+    &--active {
+        background-color: whitesmoke;
+        a {
+            color: black;
+        }
+
+        pointer-events: none;
+    }
+
+    &:hover a {
+        color: white;
+    }
+}

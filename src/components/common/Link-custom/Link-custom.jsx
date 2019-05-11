@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link, Route } from "react-router-dom";
 
-function NavLink({ label, to, activeOnlyWhenExact }) {
+import './Link-custom.scss'
+
+function LinkCustom({ label, to, activeOnlyWhenExact }) {
     return (
       <Route
         path={to}
         exact={activeOnlyWhenExact}
         children={({ match }) => (
-          <div className={match ? "active" : ""}>
-            {match ? "> " : ""}
+          <div className={match ? "link link--active" : "link link--normal"}>
             <Link to={to}>{label}</Link>
           </div>
         )}
@@ -16,4 +17,4 @@ function NavLink({ label, to, activeOnlyWhenExact }) {
     );
   }
 
-export default NavLink
+export default LinkCustom

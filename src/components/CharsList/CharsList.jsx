@@ -1,9 +1,14 @@
 import React from 'react';
 import axios from 'axios';
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
+
 import Info from '../Info/Info';
 import CharactersList from '../CharactersList/CharactersList';
 import Loader from '../common/Loader/Loader';
+import LinkCustom from '../common/Link-custom/Link-custom';
+
+import './CharsList.scss';
+
 
 class CharsList extends React.Component {
 
@@ -50,8 +55,9 @@ class CharsList extends React.Component {
 
                     return <ul className="CharsList">
                         {this.state.characters.map(item =>
-                            <li className="" key={item.id}>
-                                <Link to={`/karty/${item.id}`} className="link link--disabled" label={item.name + " " + item.surname}/>
+                            <li className="list" key={item.id}>
+                                <div className="list__image"></div>
+                                <LinkCustom to={`/karty/${item.id}`} className="link link--disabled" label={item.name + " " + item.surname} />
                             </li>)}
                     </ul>;
                 }} />

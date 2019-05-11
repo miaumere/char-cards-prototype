@@ -14,7 +14,7 @@ function Main() {
         <Navbar />
 
         <Switch>
-          <Route path="/" component={Test} />
+          <Route path="/" exact component={Test} />
           <Route path="/karty/" component={CharsList} />
 
           <Route component={NoMatch} />
