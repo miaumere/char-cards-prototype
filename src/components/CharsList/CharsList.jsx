@@ -51,7 +51,7 @@ class CharsList extends React.Component {
                     return <ul className="CharsList">
                         {this.state.characters.map(item =>
                             <li className="" key={item.id}>
-                                <Link to={`/karty/${item.id}`} className="link link--disabled">{item.name + " " + item.surname}</Link>
+                                <Link to={`/karty/${item.id}`} className="link link--disabled" label={item.name + " " + item.surname}/>
                             </li>)}
                     </ul>;
                 }} />
