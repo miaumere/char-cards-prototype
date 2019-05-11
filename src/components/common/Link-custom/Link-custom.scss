@@ -1,25 +1,12 @@
 .link {
 
     margin-right: 10px;
-
-    text-transform: uppercase;
     
     transition: all 0.2s;
 
     & a {
         text-decoration: none;
     }
-
-
-    &--disabled {
-        color: rgb(255, 0, 0);
-        opacity: 0.5;
-
-        text-decoration: none;
-        
-        pointer-events: none;
-    }
-
 
     &--normal {
         a {
@@ -28,11 +15,10 @@
             
     }
 
-
     &--active {
-        background-color: whitesmoke;
         a {
             color: black;
+            text-decoration: underline;
         }
 
         pointer-events: none;

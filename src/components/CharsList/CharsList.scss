@@ -2,7 +2,7 @@
 
 .CharsList {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 
     height: calc(100vh - #{$navbar-height});

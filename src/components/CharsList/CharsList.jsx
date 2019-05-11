@@ -44,7 +44,6 @@ class CharsList extends React.Component {
             return <Loader />
         }
 
-
         return (
             <>
 
@@ -64,6 +63,7 @@ class CharsList extends React.Component {
 
 
                 <Route path="/karty/:id" render={() => {
+                    
 
                     return <div style={{ display: "flex" }}>
 

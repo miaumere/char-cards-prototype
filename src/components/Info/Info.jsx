@@ -42,22 +42,22 @@ class Info extends React.Component {
     getCharInfo(id) {
         
         let toCoZBackendu = `{
-                                "id":"2",
-                                "name":"Imie1",
-                                "surname":"Nazwisko1",
-                                "birthday":"1992-03-03",
-                                "death_date":null,
-                                "personality_mbti":"QQQQ",
-                                "appearance_desc":null,
-                                "history":null,
-                                "profile_pic":null
-                            }`;
+                    "id":"2",
+                    "name":"Imie1",
+                    "surname":"Nazwisko1",
+                    "birthday":"1992-03-03",
+                    "death_date":null,
+                    "personality_mbti":"QQQQ",
+                    "appearance_desc":null,
+                    "history":null,
+                    "profile_pic":null
+                }`;
 
         toCoZBackendu = JSON.parse(toCoZBackendu);
   
         this.timeout = setTimeout(() => {
             this.setState({charInfo: toCoZBackendu})
-        }, 3000);
+        }, 2000);
 
     }
 
@@ -73,9 +73,13 @@ class Info extends React.Component {
 
 
         return (
+<>
+<Loader fadeOut={true} />
+
+            <PersonImages />
+
             <section className="Info">
-    
-                <PersonImages />
+
     
                 <div className="desc">
                     <h1 className="desc__name">Jean de Valette</h1>
@@ -103,6 +107,8 @@ class Info extends React.Component {
                 <Trivia />
                 
             </section>
+
+</>
         )
     }
 

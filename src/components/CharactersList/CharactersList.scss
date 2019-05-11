@@ -3,9 +3,7 @@
 .CharactersList {
     &.menu, .menu {
 
-        // max-height: calc(100vh - #{$navbar-height});
-        // min-width: $aside-menu-width;
-        // max-width: $aside-menu-width;
+        min-width: 9rem;
 
         overflow-y: auto;
 
@@ -22,6 +20,16 @@
         &__item {
             line-height: 1.4;
             font-weight: initial;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.432);
+
+            & a {
+                color: black;
+                text-decoration: none;
+
+                &:hover {
+                    color: white;
+                }
+            }
     
             &:hover {
                 color: blue;

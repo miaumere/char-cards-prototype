@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link  } from "react-router-dom";
 
 import LinkCustom from  "../common/Link-custom/Link-custom";
 import "./Navbar.scss";
@@ -27,7 +26,7 @@ function Navbar() {
         </li>
 
         <li className="nav-list__item nav-list__item--right">
-          <Link to="/admin" className="link link--disabled">Panel admina</Link>
+          <LinkCustom activeOnlyWhenExact={true} to="/admin" className="link link--disabled" label="Panel admina" />
         </li>
       </ul>
 
