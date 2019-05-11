@@ -2,20 +2,22 @@
 
     margin-right: 10px;
     
-    transition: all 0.2s;
 
     & a {
         text-decoration: none;
+
+        transition: all 0.2s;
     }
 
-    &--normal {
+    &--active {
         a {
             color: grey;
+
         }
             
     }
 
-    &--active {
+    &--inactive {
         a {
             color: black;
             text-decoration: underline;

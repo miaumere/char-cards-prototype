@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Route } from "react-router-dom";
 
-import './Link-custom.scss'
+import './Link-custom.scss';
 
 function LinkCustom({ label, to, activeOnlyWhenExact }) {
     return (
@@ -9,7 +9,7 @@ function LinkCustom({ label, to, activeOnlyWhenExact }) {
         path={to}
         exact={activeOnlyWhenExact}
         children={({ match }) => (
-          <div className={match ? "link link--active" : "link link--normal"}>
+          <div className={match ? "link link--inactive" : "link link--active"}>
             <Link to={to}>{label}</Link>
           </div>
         )}

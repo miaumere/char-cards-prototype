@@ -1,6 +1,7 @@
 import React from 'react';
 import "./CharactersList.scss"
-import {Link } from "react-router-dom";
+
+import LinkCustom from "../common/Link-custom/Link-custom";
 
 export default class CharactersList extends React.Component {
     
@@ -25,9 +26,11 @@ export default class CharactersList extends React.Component {
         return (
             <ul className="CharactersList menu">LISTA POSTACI:{characters.map(item =>
                 <li className="menu__item" key={item.id}>
-                    <Link to={`/karty/${item.id}`} className="link link--disabled">{item.name + " " + item.surname}</Link>
-                   
-                </li>)}</ul>
+                    <LinkCustom to={`/karty/${item.id}`} className="link link--inactive" label={item.name + " " + item.surname}/>
+
+                </li>
+                )}
+            </ul>
         )
     }
 
