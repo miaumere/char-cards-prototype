@@ -125,7 +125,11 @@ class Info extends React.Component {
 
                     <Temperament sanguine="2" choleric="30" flegmatic="70" melancholic="90" />
 
-                    <Appearance appearance_desc={(this.state.charInfo.appearance_desc === null)? <EmptyInfo /> : this.state.charInfo.appearance_desc} />
+                    <Appearance 
+                    appearance_desc={(this.state.charInfo.appearance_desc === null)? <EmptyInfo /> : this.state.charInfo.appearance_desc} 
+                    color_1={this.state.charInfo.colors.outfit_1}
+                    color_2={this.state.charInfo.colors.outfit_2}
+                    />
 
                     <Story history={(this.state.charInfo.history === null)? <EmptyInfo /> : this.state.charInfo.history}/>
 
