@@ -21,7 +21,7 @@ import { withRouter } from "react-router";
 class Info extends React.Component {
 
     state = {
-        error: false,
+        errorMsg: null,
         charInfo: null
 
     }
@@ -58,17 +58,17 @@ class Info extends React.Component {
                 this.setState({ charInfo: response.data })
                 JSON.stringify(this.state.charInfo)
 
-        // Zmiana daty z timestamp na datę YYYY-MM-DD:
-        const date = new Date(this.state.charInfo.birthday * 1000);
-        const birthdayDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
+            // Zmiana daty z timestamp na datę YYYY-MM-DD:
+            const date = new Date(this.state.charInfo.birthday * 1000);
+            const birthdayDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
 
-        console.log(this.state.charInfo.temperament.sanguine)
-
-        this.setState({birthdayDate: birthdayDate})
+            this.setState({birthdayDate})
 
             })
             .catch((error) => {
                 console.error(error);
+
+                this.setState({errorMsg: "Bład pobierania szczegółów dotyczących postaci"})
             })
 
     }
@@ -77,7 +77,12 @@ class Info extends React.Component {
 
     render() {
 
-        const { charInfo } = this.state;
+        const { charInfo, errorMsg } = this.state;
+
+
+        if(errorMsg) {
+            return <Error errorMsg={errorMsg} />
+        }
 
         if (!charInfo) {
             return <Loader />
@@ -86,7 +91,6 @@ class Info extends React.Component {
 
         return (
             <>
-
                 <Loader fadeOut={true} />
 
                 <PersonImages />
@@ -113,7 +117,7 @@ class Info extends React.Component {
 
                     <Appearance />
 
-                    <Story />
+                    <Story history={this.state.charInfo.history}/>
 
                     <Weight />
 
