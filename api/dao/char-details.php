@@ -1,8 +1,6 @@
 <?php
 namespace DAO;
 class CharDetailsDAO {
- 
-     private $name;
 
      function __construct() {
           $this->birthday = strtotime($this->birthday);
