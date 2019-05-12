@@ -129,6 +129,12 @@ class Info extends React.Component {
                     appearance_desc={(this.state.charInfo.appearance_desc === null)? <EmptyInfo /> : this.state.charInfo.appearance_desc} 
                     color_1={this.state.charInfo.colors.outfit_1}
                     color_2={this.state.charInfo.colors.outfit_2}
+                    color_3={this.state.charInfo.colors.outfit_3}
+                    color_skin={this.state.charInfo.colors.skin}
+                    color_hair={this.state.charInfo.colors.hair}
+                    color_eye_1={this.state.charInfo.colors.eye1}
+                    color_eye_2={this.state.charInfo.colors.eye2}
+
                     />
 
                     <Story history={(this.state.charInfo.history === null)? <EmptyInfo /> : this.state.charInfo.history}/>
