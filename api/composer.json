@@ -1,0 +1,12 @@
+{
+    "name": "characters-cards/api",
+    "authors": [
+        {
+            "name": "Patryk",
+            "email": "xsataris@gmail.com"
+        }
+    ],
+    "require": {
+        "firebase/php-jwt": "^5.0"
+    }
+}

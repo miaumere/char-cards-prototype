@@ -4,5 +4,6 @@
      define("DB_PASSWORD", "");
      define("DB_DATABASE", "");
 
-     define("PROFILEPIC_DIR", "profilepic");
+     define("DB_PASS_SALT", "md5-salt-here");
+     define("JWT_KEY", "jwt-key-here");
 ?>

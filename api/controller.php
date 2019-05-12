@@ -35,16 +35,23 @@ class Controller
 
      }
 
+
      public static function getCharactersFullInfo($queryParams, $requestBody)
      {
           global $services;
           return $services->getCharactersFullInfo();
      }
 
-     public static function test1($queryParams, $requestBody)
+
+     public static function login($queryParams, $requestBody)
      {
+          $parsedRequestBody = json_decode($requestBody);
+          if(!$parsedRequestBody || ($parsedRequestBody && !isset($parsedRequestBody->user) || !isset($parsedRequestBody->pass))) {
+               new HTTPError(401, "Niepoprawne dane logowania");
+          }
+
           global $services;
-          return $services->xxx();
+          return $services->login($parsedRequestBody->user, $parsedRequestBody->pass);
      }
 }
 
