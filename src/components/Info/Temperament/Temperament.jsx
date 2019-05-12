@@ -1,9 +1,18 @@
 import React from 'react';
 import "./Temperament.scss";
 
+import EmptyInfo from '../../common/Empty-info/Empty-info';
+
 export default class Temperament extends React.Component {
 
     render() {
+
+        const { temperament } = this.props;
+
+        if(!temperament) {
+            return <EmptyInfo />
+        }
+
 
         return (
             <div className="Temperament">
@@ -12,9 +21,9 @@ export default class Temperament extends React.Component {
                     <li className="temperament-list__item">Sangwinik:</li>
                     <li>
                         <div className="progress-bar">
-                            <div style={{ width: this.props.sanguine + '%' }}>
+                            <div style={{ width: temperament.sanguine + '%' }}>
                                 <div className="progress-bar__percentage progress-bar__percentage--sanguine" >
-                                    <span>{this.props.sanguine}%</span>
+                                    <span>{temperament.sanguine}%</span>
                                 </div>
                             </div>
                         </div>
@@ -22,9 +31,9 @@ export default class Temperament extends React.Component {
                     <li className="temperament-list__item">Choleryk:</li>
                     <li>
                         <div className="progress-bar">
-                            <div style={{ width: this.props.choleric + '%' }}>
+                            <div style={{ width: temperament.spitfire + '%' }}>
                                 <div className="progress-bar__percentage progress-bar__percentage--choleric" >
-                                    <span>{this.props.choleric}%</span>
+                                    <span>{temperament.spitfire}%</span>
                                 </div>
                             </div>
                         </div>
@@ -32,9 +41,9 @@ export default class Temperament extends React.Component {
                     <li className="temperament-list__item">Flegmatyk:</li>
                     <li>
                         <div className="progress-bar">
-                            <div style={{ width: this.props.flegmatic + '%' }}>
+                            <div style={{ width: temperament.phlegmatic + '%' }}>
                                 <div className="progress-bar__percentage progress-bar__percentage--flegmatic" >
-                                    <span>{this.props.flegmatic}%</span>
+                                    <span>{temperament.phlegmatic}%</span>
                                 </div>
                             </div>
                         </div>
@@ -43,9 +52,9 @@ export default class Temperament extends React.Component {
                     <li className="temperament-list__item">Melancholik:</li>
                     <li>
                         <div className="progress-bar">
-                            <div style={{ width: this.props.melancholic + '%' }}>
+                            <div style={{ width: temperament.melancholy + '%' }}>
                                 <div className="progress-bar__percentage progress-bar__percentage--melancholic" >
-                                    <span>{this.props.melancholic}%</span>
+                                    <span>{temperament.melancholy}%</span>
                                 </div>
                             </div>
                         </div>
