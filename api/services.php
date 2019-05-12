@@ -92,7 +92,7 @@ class Services {
                }
                $result->quotes = $resultQuotes;
 
-               $sql_charColors = "SELECT outfit_1, outfit_2, outfit_3, skin, hair FROM `colors` WHERE character_id=$id LIMIT 1";
+               $sql_charColors = "SELECT outfit_1, outfit_2, outfit_3, skin, hair, eye_1, eye_2 FROM `colors` WHERE character_id=$id LIMIT 1";
                $result_charColors = mysqli_query($this->_conn, $sql_charColors);
                $resultColors = mysqli_fetch_object($result_charColors, 'DAO\ColorsDAO');
                mysqli_free_result($result_charColors);
