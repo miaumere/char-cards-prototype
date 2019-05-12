@@ -19,6 +19,7 @@
         }
 
         &__title {
+            flex: 1;
             @include paragraph-title;
             text-transform: uppercase;
             width: 9rem;
@@ -28,20 +29,28 @@
             min-width: 6rem;
             height: 36px;
             border: 1px solid rgb(0, 0, 0);
-            -webkit-box-shadow: inset -3px -3px 0px 0px rgba(0, 0, 0, 0.281);
--moz-box-shadow: inset -3px -3px 0px 0px rgba(0, 0, 0, 0.281);
-box-shadow: inset -3px -3px 0px 0px rgba(0, 0, 0, 0.281);
+            -webkit-box-shadow: inset -3px -3px 0px 0px rgba(0, 0, 0, 0.28);
+            -moz-box-shadow: inset -3px -3px 0px 0px rgba(0, 0, 0, 0.28);
+            box-shadow: inset -3px -3px 0px 0px rgba(0, 0, 0, 0.28);
         }
 
         &__container {
             @include paragraph-container;
 
         }
+        &__item {
+            
+            &--eye{
+                padding: 0 2rem;
+            }
+        }
     }
 
 }
 
 .eye {
+    flex: 2;
+
     background-color: rgb(175, 175, 175);
     width: 130px;
     height: 130px;

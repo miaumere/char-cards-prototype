@@ -33,7 +33,7 @@ render(){
                     <div className="color__block color__block--color_hair" style={{background: this.props.color_hair}}></div>
                 </li>
 
-                <li className="color__item">Kolor oczu:
+                <li className="color__item color__item--eye">Kolor oczu:
                     <div className="eye">  
                         <div className="eye__color" style={{background: `radial-gradient(ellipse at center, black 0%,black 33%,${this.props.color_eye_1} 33%, ${this.props.color_eye_1} 33%, ${this.props.color_eye_2} 100%, ${this.props.color_eye_2} 100%)`}} />
                     <div className="eye__reflex"></div>
