@@ -18,6 +18,16 @@
         font-size: 2rem;     
         }
 
+        &__information {
+            text-transform: uppercase;
+        }
+
+        &__data {
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+
+
     }
 
 }

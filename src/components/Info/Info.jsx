@@ -14,6 +14,7 @@ import Quote from './Quote/Quote';
 
 import Loader from '../common/Loader/Loader';
 import Error from '../common/Error/Error';
+import EmptyInfo from '../common/Empty-info/Empty-info';
 
 
 import { withRouter } from "react-router";
@@ -80,9 +81,9 @@ class Info extends React.Component {
         const { charInfo, errorMsg } = this.state;
 
 
-        if(errorMsg) {
-            return <Error errorMsg={errorMsg} />
-        }
+        // if(errorMsg) {
+        //     return <Error errorMsg={errorMsg} />
+        // }
 
         if (!charInfo) {
             return <Loader />
@@ -102,22 +103,31 @@ class Info extends React.Component {
 
                         <h1 className="desc__name"> {this.state.charInfo.name} {this.state.charInfo.surname}</h1>
                         <div className="desc__other">
-                            Data urodzenia: {this.state.birthdayDate}
-                        <br />
-                            Status: {(this.state.charInfo.death)? "trup" : "żyjący"}
-                        <br />
-                            Osobowość MBTI: {(this.state.charInfo.personality_mbti)}
-                        <br />
+                            <span className="desc__information">Data urodzenia: </span>
+                            <span className="desc__data">{this.state.birthdayDate}</span>
+                            <br />
 
-                        <Quote />
+                            <span className="desc__information">Status: </span>
+
+                            <span className="desc__data">{(this.state.charInfo.death) ? "trup" : "żyjący"}</span>
+
+                            <br />
+                            <span className="desc__information">
+                            Osobowość <a href="https://www.16personalities.com/pl/typy-osobowosci">MBTI</a>:
+                            </span>
+                            <span className="desc__data">{(this.state.charInfo.personality_mbti)}</span>
+
+                            <br />
+
+                            <Quote />
                         </div>
                     </div>
 
                     <Temperament sanguine="2" choleric="30" flegmatic="70" melancholic="90" />
 
-                    <Appearance />
+                    <Appearance appearance_desc={(this.state.charInfo.appearance_desc === null)? <EmptyInfo /> : this.state.charInfo.appearance_desc} />
 
-                    <Story history={this.state.charInfo.history}/>
+                    <Story history={(this.state.charInfo.history === null)? <EmptyInfo /> : this.state.charInfo.history}/>
 
                     <Weight />
 
