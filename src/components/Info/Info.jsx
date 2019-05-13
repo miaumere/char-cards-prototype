@@ -15,6 +15,7 @@ import Quote from './Quote/Quote';
 import Loader from '../common/Loader/Loader';
 import Error from '../common/Error/Error';
 import EmptyInfo from '../common/Empty-info/Empty-info';
+import TimeFormatter from '../common/time-formatter';
 
 
 import { withRouter } from "react-router";
@@ -28,14 +29,14 @@ class Info extends React.Component {
     }
 
     componentWillMount() {
-        // Pobieranie informacji o postaci o ID z query params:
+        // Downloading information about characters with ID from query params:
         const currentId = this.props.match.params.id;
 
         this.getCharInfo(currentId)
     }
 
 
-    // Zmiana id postaci (wybór z menu):
+    // ID change (characters menu):
     componentDidUpdate(props) {
         const lastId = props.match.params.id;
         const currentId = this.props.match.params.id;
@@ -53,19 +54,22 @@ class Info extends React.Component {
 
         const RESTurl = `/characters-cards/api/get-character?id=${id}`;
 
-        // Zmiana state'a za pomocą metody AXIOS:
+        // Changing state with Axios:
         axios.get(RESTurl)
             .then((response) => {
                 this.setState({ charInfo: response.data })
                 JSON.stringify(this.state.charInfo)
 
-            // Zmiana daty z timestamp na datę YYYY-MM-DD:
-            const date = new Date(this.state.charInfo.birthday * 1000);
-            const birthdayDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
+            // Changing birthday date to YYYY-MM-DD:
+            const birthdayDate = TimeFormatter(this.state.charInfo.birthday);
 
             this.setState({birthdayDate})
 
+            const deathDate = TimeFormatter(this.state.charInfo.death_date);
+            this.setState({deathDate})
+
             })
+            // Error - backend
             .catch((error) => {
                 console.error(error);
 
@@ -81,15 +85,13 @@ class Info extends React.Component {
         const { charInfo, errorMsg } = this.state;
 
 
-        // if(errorMsg) {
-        //     return <Error errorMsg={errorMsg} />
-        // }
+        if(errorMsg) {
+            return <Error errorMsg={errorMsg} />
+        }
 
         if (!charInfo) {
             return <Loader />
         }
-
-        console.log(this.state.charInfo.death)
 
         return (
             <>
@@ -112,7 +114,7 @@ class Info extends React.Component {
 
                             <span className="desc__data">
                                 {(this.state.charInfo.death_date !== false) ? 
-                                (<span className="desc__death desc__death--true">trup</span>) : 
+                                (<span className="desc__death desc__death--true">trup od: {this.state.deathDate}</span>) : 
                                 (<span className="desc__death desc__death--false">żyjący</span>)}
                             </span>
 

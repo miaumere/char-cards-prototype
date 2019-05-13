@@ -41,11 +41,11 @@ export default class Weight extends React.Component {
                     <tr className="table table__row">
                         <th className="table table__heading">Waga</th>
                         
-                        <td className="table table_cell">12 kg</td>
-                        <td className="table table_cell">1 kg</td>
-                        <td className="table table_cell">12 kg</td>
-                        <td className="table table_cell">12 kg</td>
-                        <td className="table table_cell">12 kg</td>
+                        <td className="table table_cell">? kg</td>
+                        <td className="table table_cell">? kg</td>
+                        <td className="table table_cell">? kg</td>
+                        <td className="table table_cell">? kg</td>
+                        <td className="table table_cell">? kg</td>
 
 
                     
@@ -53,11 +53,11 @@ export default class Weight extends React.Component {
                     <tr className="table table__row">
                         <th className="table table__heading">Wzrost</th>
 
-                        <td className="table table_cell">12 kg</td>
-                        <td className="table table_cell">12 kg</td>
-                        <td className="table table_cell">12 kg</td>
-                        <td className="table table_cell">12 kg</td>
-                        <td className="table table_cell">12 kg</td>
+                        <td className="table table_cell">? cm</td>
+                        <td className="table table_cell">? cm</td>
+                        <td className="table table_cell">? cm</td>
+                        <td className="table table_cell">? cm</td>
+                        <td className="table table_cell">? cm</td>
 
                     </tr>
                 </tbody>
