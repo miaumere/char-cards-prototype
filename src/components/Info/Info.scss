@@ -27,6 +27,15 @@
             margin-left: 0.5rem;
         }
 
+        &__death {
+            &--true {
+            color: red;
+            }
+            &--false {
+                color: green;
+            }
+        }
+
 
     }
 

@@ -89,6 +89,7 @@ class Info extends React.Component {
             return <Loader />
         }
 
+        console.log(this.state.charInfo.death)
 
         return (
             <>
@@ -109,7 +110,11 @@ class Info extends React.Component {
 
                             <span className="desc__information">Status: </span>
 
-                            <span className="desc__data">{(this.state.charInfo.death) ? "trup" : "żyjący"}</span>
+                            <span className="desc__data">
+                                {(this.state.charInfo.death_date !== false) ? 
+                                (<span className="desc__death desc__death--true">trup</span>) : 
+                                (<span className="desc__death desc__death--false">żyjący</span>)}
+                            </span>
 
                             <br />
                             <span className="desc__information">
@@ -119,7 +124,6 @@ class Info extends React.Component {
 
                             <br />
                             
-
                             {this.state.charInfo.quotes.length !== 0 ? <Quote q={this.state.charInfo.quotes} /> : <EmptyInfo />}
                         
                             
@@ -127,14 +131,12 @@ class Info extends React.Component {
                         </div>
                     </div>
 
-                    <Temperament temperament={this.state.charInfo.temperament} />
+                    {this.state.charInfo.temperament !== 0 ? <Temperament temperament={this.state.charInfo.temperament} /> : <EmptyInfo />   }
 
-                    <Appearance 
-                    appearance_desc={(!this.state.charInfo.appearance_desc)? <EmptyInfo /> : this.state.charInfo.appearance_desc} 
-                    colors={this.state.charInfo.colors}
-                    />
 
-                    <Story history={(!this.state.charInfo.history)? <EmptyInfo /> : this.state.charInfo.history}/>
+                    {(this.state.charInfo.appearance_desc !== null) ? <Appearance appearance_desc={this.state.charInfo.appearance_desc} /> : <EmptyInfo/>}
+
+                    {(this.state.charInfo.history !== null) ? <Story history={(this.state.charInfo.history)}/> :  <EmptyInfo />}
 
                     <Weight />
 
