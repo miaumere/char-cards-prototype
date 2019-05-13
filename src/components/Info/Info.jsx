@@ -118,19 +118,23 @@ class Info extends React.Component {
                             <span className="desc__data">{(this.state.charInfo.personality_mbti)}</span>
 
                             <br />
+                            
 
-                            <Quote />
+                            {this.state.charInfo.quotes.length !== 0 ? <Quote q={this.state.charInfo.quotes} /> : <EmptyInfo />}
+                        
+                            
+
                         </div>
                     </div>
 
                     <Temperament temperament={this.state.charInfo.temperament} />
 
                     <Appearance 
-                    appearance_desc={(this.state.charInfo.appearance_desc === null)? <EmptyInfo /> : this.state.charInfo.appearance_desc} 
+                    appearance_desc={(!this.state.charInfo.appearance_desc)? <EmptyInfo /> : this.state.charInfo.appearance_desc} 
                     colors={this.state.charInfo.colors}
                     />
 
-                    <Story history={(this.state.charInfo.history === null)? <EmptyInfo /> : this.state.charInfo.history}/>
+                    <Story history={(!this.state.charInfo.history)? <EmptyInfo /> : this.state.charInfo.history}/>
 
                     <Weight />
 

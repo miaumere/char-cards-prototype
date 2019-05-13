@@ -1,0 +1,28 @@
+.Quote {
+    .quotation {
+        background-color: whitesmoke;
+
+        &__title {
+            text-transform: uppercase;
+        }
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+
+            padding: 3px;
+
+            background-color: whitesmoke;
+            border-left: 0.6rem solid rgb(58, 58, 58);
+        }
+
+        &__context { 
+            margin-left: auto;
+
+            font-weight: bold;
+        }
+
+    }
+
+
+}
