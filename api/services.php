@@ -152,12 +152,22 @@ class Services
           mysqli_free_result($query_user);
 
           if (empty($result_user)) {
+               setcookie("auth", "", 1, '/');
+
                new HTTPError(401, "Niepoprawne hasło lub nazwa użytkownika");
           } else {
 
-               $jwtToken = JWTAuth::getLoginToken($result_user->login, $result_user->password);
+               $expireTime = time() + (60*60*2) + (60*60*24);
+
+               $token = new stdClass;
+               $token->sub = $user;
+               $token->exp = $expireTime;
+
+               $jwtToken = JWTAuth::getToken($token);
      
-               header( "Set-Cookie: auth=$jwtToken; httpOnly" );
+               setcookie("auth", $jwtToken, $expireTime, '/');
+               
+               // return $result_user;
                return $jwtToken;
           }
      }
