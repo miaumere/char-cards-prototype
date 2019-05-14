@@ -7,12 +7,10 @@ export default class AppearanceColors extends React.Component {
 
     render() {
         let { colors } = this.props;
-        console.log(colors)
-
 
         if(!colors){
             colors = {}
-            colors.outfit_1 = "red";
+            colors.outfit_1 = "grey";
             colors.outfit_2 = "silver";
             colors.outfit_3 = "#727272";
 
