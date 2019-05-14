@@ -1,13 +1,28 @@
 import React from 'react';
 
 import rollRandomNumber from '../../common/roll-random-number';
+import EmptyInfo from '../../common/Empty-info/Empty-info';
 
 import './Quote.scss';
 
 export default class Quote extends React.Component {
-   
+
+    showQuotation() {
+        const { q } = this.props;
+        let output = rollRandomNumber(0, q.length - 1)
+
+        return(
+        <>
+            <q className="quotation__text"> {q[output].quote}</q>
+            <span className="quotation__context"> {q[output].context ? "~ " + q[output].context : null} </span>
+
+        </>
+        )
+
+    }
+
     render() {
-        let output = rollRandomNumber(0, this.props.q.length - 1)
+        const { q } = this.props;
 
         return (
 
@@ -15,8 +30,7 @@ export default class Quote extends React.Component {
                 <h2 className="quotation__title">Cytat:</h2>
                 <div className="quotation__container">
 
-                <q className="quotation__text"> {this.props.q[output].quote}</q>
-                <span className="quotation__context"> {this.props.q[output].context ? "~ " + this.props.q[output].context : null } </span>
+                {(q.length !== 0) ? this.showQuotation() : <EmptyInfo />}
 
                 </div>
             </div>

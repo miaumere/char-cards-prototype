@@ -14,7 +14,6 @@ import Quote from './Quote/Quote';
 
 import Loader from '../common/Loader/Loader';
 import Error from '../common/Error/Error';
-import EmptyInfo from '../common/Empty-info/Empty-info';
 import TimeFormatter from '../common/time-formatter';
 
 
@@ -126,19 +125,18 @@ class Info extends React.Component {
 
                             <br />
                             
-                            {this.state.charInfo.quotes.length !== 0 ? <Quote q={this.state.charInfo.quotes} /> : <EmptyInfo />}
+                            <Quote q={this.state.charInfo.quotes} />
                         
                             
 
                         </div>
                     </div>
 
-                    {this.state.charInfo.temperament !== 0 ? <Temperament temperament={this.state.charInfo.temperament} /> : <EmptyInfo />   }
+                   <Temperament temperament={this.state.charInfo.temperament} />
 
+                    <Appearance colors={this.state.charInfo.colors} appearance_desc={this.state.charInfo.appearance_desc} />
 
-                    {(this.state.charInfo.appearance_desc !== null) ? <Appearance appearance_desc={this.state.charInfo.appearance_desc} /> : <EmptyInfo/>}
-
-                    {(this.state.charInfo.history !== null) ? <Story history={(this.state.charInfo.history)}/> :  <EmptyInfo />}
+                    <Story history={this.state.charInfo.history}/>
 
                     <Weight />
 
