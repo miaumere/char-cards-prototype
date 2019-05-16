@@ -17,44 +17,57 @@ export default class Admin extends React.Component {
         this.state = {
             userValue: "",
             passValue: "",
+            error: false
         };
 
 
         // Funkcja logująca użytkownika:
         function login(user, pass) {
-            if(user === "user" && pass === "pass123") {
+            if(user === "test" && pass === "test") {
                  return true;
             }
             return false;
         }
 
 
+        // Funkcja podpięta pod button submit:
         this.handleSubmit = (e) => {
             let setLoggedUser = this.context[1];
 
             e.preventDefault();            
 
-            const user = e.target.children['user'].value
-            const pass = e.target.children['pass'].value
 
-          if(this.login(user, pass)) {
+            const user = e.target.elements['user'].value
+            const pass = e.target.elements['pass'].value
+
+          if(login(user, pass)) {
               
-            console.log("udalo sie!!");
-
             setLoggedUser(user);
 
        } else {
             console.log("error")
+            this.setState({error: true})
+            console.log(this.state)
 
        }
         };
 
 
         this.handleChange = (e) => {
-            this.setState({
-                userValue: e.target.value,
-                passValue: e.target.value
-            });
+
+            switch (e.target.name) {
+                case "user":
+                
+                this.setState({userValue: e.target.value})
+                break;
+            
+                case "pass": 
+                this.setState({passValue: e.target.value})
+
+                break;
+
+            }
+
         };
 
       }
@@ -66,10 +79,16 @@ export default class Admin extends React.Component {
     const setLoggedUser = this.context[1];
 
     return (
-        <div className="Admin">
+        <div className="Admin form">
         {
             loggedUser ? 
-            <button onClick={() => {setLoggedUser(null)}}>Wyloguj</button> 
+            (
+            <div>
+                <span>Logowanie się udało!</span>
+                <br />
+                <button onClick={() => {setLoggedUser(null)}}>Wyloguj</button> 
+            </div>
+            )
             : 
 
             (
@@ -77,15 +96,24 @@ export default class Admin extends React.Component {
             <h2>Panel logowania admina</h2>
 
             <form onSubmit={this.handleSubmit}>
+            {this.state.error ? <span className="form__error">Błędne hasło bądź nazwa użytkownika!</span> : ""}
+            <br />
                 <label>
                 Nazwa użytkownika:
-                <input type="text" name="user" onChange={this.handleChange} value={userValue}/>
-                </label>
                 <br />
+                <input type="text" name="user" onChange={this.handleChange} value={userValue}/>
+
+                </label>
+
+                <br />
+
                 <label>
                 Hasło:
-                <input type="text" name="pass" value={this.state.value} onChange={this.handleChange} value={passValue} />
+                <br />
+
+                <input type="text" name="pass" onChange={this.handleChange} value={passValue} />
                 </label>
+
                 <br />
                 <input type="submit" value="Zaloguj" />
             </form>
@@ -96,18 +124,3 @@ export default class Admin extends React.Component {
     );
   }
 }
-
-// sesja uzytkownika po stronie backendu bedzie zaszyta w ciasteczku typu httpOnly
-// do ktorego front nie ma dostepu (celowo)
-// Dla cwiczen - i to Ci sie przyda - mozesz
-// wejsc na strone "Panel admina"
-// i zrobic tam komponent - formularz logowania
-// 2 pola - user i haslo
-// wpisujesz tam user i haslo dajesz submit
-// i submit ustawi globalny kontekst o nazwie loggedUser na nową wartośc
-// wartością tą niech będzie objekt z tymi dwoma polami
-// i teraz w navbarze albo gdziekolwiek w apce mozesz przeczytac ten kontekst i wziac jego wartość
-// jezeli user bedzie zalogowany (czyli bylas juz w panelu adma i sie ,,zalogowalas") to wyswietlaj ten nick na belce górnej
-// dodatkowo - jezeli user jest zalogowany nie wyswietlaj panelu administratora - formularza
-// tylko po kliknięciu niech bedzie napis: WITAJ: "xxx"
-// gdzie XXX to nick

@@ -30,9 +30,21 @@
 
                 margin-left: auto;
             }
+            &--user {
+                color: grey;
+            }
 
         }
         
+    }
+    .logged {
+
+        &--true {
+            color: green;
+        }
+        &--false {
+            color: red;
+        }
     }
     
 }

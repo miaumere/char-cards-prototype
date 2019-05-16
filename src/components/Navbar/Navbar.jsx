@@ -34,12 +34,16 @@ static contextType = LoggedUserContext;
           <li className="nav-list__item nav-list__item--right">
             <LinkCustom to="/admin" className="link" label="Panel admina" />
           </li>
+  
+        <li className="nav-list__item nav-list__item--user">
+          {loggedUser ? 
+            (<span className="logged logged--true">Zalogowano: {loggedUser}</span>) 
+            : (<span className="logged logged--false">Nie zalogowano</span>)
+            }
+        </li>
+
         </ul>
-  
-        <div>
-          Zalogowano: {loggedUser ? loggedUser : "---" }
-        </div>
-  
+
       </nav>
       
     )
