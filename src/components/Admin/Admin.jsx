@@ -4,44 +4,95 @@ import "./Admin.scss";
 
 import React from 'react';
 
+import { LoggedUserContext } from './LoggedUserContext';
+
 
 export default class Admin extends React.Component {
+
+    static contextType = LoggedUserContext;
+
     constructor(props) {
         super(props);
-        this.state = {value: ""};
-    
-        
-        this.handleSubmit = (e) => {
-            console.log(this.state.value);
-            e.preventDefault();            
+
+        this.state = {
+            userValue: "",
+            passValue: "",
         };
-        this.handleChange = (e) => {
-            this.setState({value: e.target.value});
+
+
+        // Funkcja logująca użytkownika:
+        function login(user, pass) {
+            if(user === "user" && pass === "pass123") {
+                 return true;
+            }
+            return false;
         }
+
+
+        this.handleSubmit = (e) => {
+            let setLoggedUser = this.context[1];
+
+            e.preventDefault();            
+
+            const user = e.target.children['user'].value
+            const pass = e.target.children['pass'].value
+
+          if(this.login(user, pass)) {
+              
+            console.log("udalo sie!!");
+
+            setLoggedUser(user);
+
+       } else {
+            console.log("error")
+
+       }
+        };
+
+
+        this.handleChange = (e) => {
+            this.setState({
+                userValue: e.target.value,
+                passValue: e.target.value
+            });
+        };
+
       }
       
 
   render() {
+    const { userValue, passValue } = this.state;
+    const loggedUser = this.context[0];
+    const setLoggedUser = this.context[1];
 
     return (
-        <article className="Admin">
+        <div className="Admin">
+        {
+            loggedUser ? 
+            <button onClick={() => {setLoggedUser(null)}}>Wyloguj</button> 
+            : 
+
+            (
+            <div>
             <h2>Panel logowania admina</h2>
 
             <form onSubmit={this.handleSubmit}>
                 <label>
                 Nazwa użytkownika:
-                <input type="text" value={this.state.value} onChange={this.handleChange} />
+                <input type="text" name="user" onChange={this.handleChange} value={userValue}/>
                 </label>
                 <br />
                 <label>
                 Hasło:
-                <input type="text" value={this.state.value} onChange={this.handleChange} />
+                <input type="text" name="pass" value={this.state.value} onChange={this.handleChange} value={passValue} />
                 </label>
-
-                <input type="submit" value="Submit" />
+                <br />
+                <input type="submit" value="Zaloguj" />
             </form>
-        </article>
-
+            </div>
+            )
+        }
+        </div>
     );
   }
 }
@@ -60,4 +111,3 @@ export default class Admin extends React.Component {
 // dodatkowo - jezeli user jest zalogowany nie wyswietlaj panelu administratora - formularza
 // tylko po kliknięciu niech bedzie napis: WITAJ: "xxx"
 // gdzie XXX to nick
-// jak zrobisz to wszystko to praktycznie masz zrobione 99% zadania xd

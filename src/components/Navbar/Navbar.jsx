@@ -3,39 +3,47 @@ import React from 'react';
 import LinkCustom from  "../common/Link-custom/Link-custom";
 import "./Navbar.scss";
 
-function Navbar() {
+import { LoggedUserContext}  from '../Admin/LoggedUserContext';
 
-  return (
+export default class Navbar extends React.Component {
 
-    <nav className="Navbar">
-      <ul className="nav-list">
-        <li className="nav-list__item">
-        <LinkCustom activeOnlyWhenExact={true} to="/" label="Strona główna" className="link" />
-        </li>
+static contextType = LoggedUserContext;
 
-        <li className="nav-list__item">
-        <LinkCustom activeOnlyWhenExact={true} to="/karty" label="Karty" className="link" />
-        </li>
-
-        <li className="nav-list__item">
-          <LinkCustom activeOnlyWhenExact={true} to="/historia"  className="link" label="Historia"/>
-        </li>
-
-        <li className="nav-list__item">
-          <LinkCustom activeOnlyWhenExact={true} to="/others"  className="link" label="Postacie poboczne" />
-        </li>
-
-        <li className="nav-list__item nav-list__item--right">
-          <LinkCustom to="/admin" className="link" label="Panel admina" />
-        </li>
-      </ul>
-
-    </nav>
-    
-  )
+  render(){
+    const loggedUser = this.context[0];
+    return (
+  
+      <nav className="Navbar">
+        <ul className="nav-list">
+          <li className="nav-list__item">
+          <LinkCustom activeOnlyWhenExact={true} to="/" label="Strona główna" className="link" />
+          </li>
+  
+          <li className="nav-list__item">
+          <LinkCustom activeOnlyWhenExact={true} to="/karty" label="Karty" className="link" />
+          </li>
+  
+          <li className="nav-list__item">
+            <LinkCustom activeOnlyWhenExact={true} to="/historia"  className="link" label="Historia"/>
+          </li>
+  
+          <li className="nav-list__item">
+            <LinkCustom activeOnlyWhenExact={true} to="/others"  className="link" label="Postacie poboczne" />
+          </li>
+  
+          <li className="nav-list__item nav-list__item--right">
+            <LinkCustom to="/admin" className="link" label="Panel admina" />
+          </li>
+        </ul>
+  
+        <div>
+          Zalogowano: {loggedUser ? loggedUser : "---" }
+        </div>
+  
+      </nav>
+      
+    )
+  }
 
 
 }
-
-
-export default Navbar
