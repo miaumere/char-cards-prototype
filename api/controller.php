@@ -53,6 +53,19 @@ class Controller
           global $services;
           return $services->login($parsedRequestBody->user, $parsedRequestBody->pass);
      }
+
+
+     public static function relogin($queryParams, $requestBody) {
+          global $services;
+          return $services->relogin(isset($_COOKIE['auth']) ? $_COOKIE['auth'] : null);
+     }
+
+
+     public static function protected($queryParams, $requestBody) {
+          global $services;
+          return $services->protected();
+     }
+
 }
 
 

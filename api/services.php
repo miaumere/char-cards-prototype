@@ -142,6 +142,8 @@ class Services
      }
 
 
+
+
      function login($user, $pass)
      {
           $md5Pass = md5($pass . DB_PASS_SALT);
@@ -152,23 +154,38 @@ class Services
           mysqli_free_result($query_user);
 
           if (empty($result_user)) {
-               setcookie("auth", "", 1, '/');
-
                new HTTPError(401, "Niepoprawne hasło lub nazwa użytkownika");
           } else {
-
-               $expireTime = time() + (60*60*2) + (60*60*24);
-
-               $token = new stdClass;
-               $token->sub = $user;
-               $token->exp = $expireTime;
-
-               $jwtToken = JWTAuth::getToken($token);
-     
-               setcookie("auth", $jwtToken, $expireTime, '/');
-               
-               // return $result_user;
-               return $jwtToken;
+               return generateAuthTokenForUser($user);
           }
      }
+
+     
+     function relogin($jwtCookie) {
+
+          verifyAccess();
+
+          if(!$jwtCookie) {
+               new HTTPError(401, "Nie udało się przywrócić sesji użytkownika");
+          }
+
+          $jwtTokenDecoded = JWTAuth::decodeToken($jwtCookie);
+          $jwtToken = generateAuthTokenForUser($jwtTokenDecoded->sub);
+          
+
+          $newTokenDecoded = JWTAuth::decodeToken($jwtToken);
+
+          $userInfo = new stdClass;
+          $userInfo->user = $newTokenDecoded->sub;
+
+          return $userInfo;
+     }
+     
+
+     function protected() {
+          verifyAccess();
+
+          return "PASSED!";
+     }
+
 }

@@ -1,12 +1,13 @@
 <?php
 // ini_set( "display_errors", 0); 
-
+header("Access-Control-Allow-Origin: *");
 
 
 try {
      require_once('config.php');
      require __DIR__ . '/vendor/autoload.php';
      require_once('http-error.php');
+     require_once('verify-access.php');
      require_once('jwt.php');
 
      require_once('DTOs.php');
@@ -27,7 +28,6 @@ try {
 }
 
 
-header("Access-Control-Allow-Origin: *");
 header('Content-Type: application/json');
 
 // header('Content-Type: text/html');
@@ -120,10 +120,9 @@ foreach ($routeManager->routes as &$route) {
                               header_remove("Content-Type"); 
                               http_response_code(204);
                          } else if(is_string($callBackInvoke)) {
-                              $output = json_encode($callBackInvoke);
-                              echo $output;
+                              echo $callBackInvoke;
                               header('Content-Type: text/plain');
-                              header('Content-length: ' . strlen($output));
+                              header('Content-length: ' . strlen($callBackInvoke));
                          } else {
                               $output = json_encode($callBackInvoke);
                               echo $output;
