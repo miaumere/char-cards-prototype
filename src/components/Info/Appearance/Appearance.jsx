@@ -5,7 +5,6 @@ import AppearanceColors from "./AppearanceColors/AppearanceColors";
 import EmptyInfo from '../../common/Empty-info/Empty-info';
 
 export default class Appearance extends React.Component {
-
     showAppearanceDesc() {
 
         return(
@@ -15,9 +14,6 @@ export default class Appearance extends React.Component {
     }
 
     render(){
-
-        console.log(this.props.appearance_desc)
-
 
         return (
         <article className="Appearance">

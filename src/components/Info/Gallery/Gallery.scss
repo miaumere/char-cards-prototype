@@ -13,6 +13,7 @@
             @include paragraph-content;
             display: flex;
             flex-direction: column;
+            align-items: center;
 
 
             & img {

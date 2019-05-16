@@ -51,7 +51,7 @@ export default class AppearanceColors extends React.Component {
 
                             <li className="color__item color__item--eye">Kolor oczu:
                                 <div className="eye">
-                                    <div className="eye__color" style={{ background: `radial-gradient(ellipse at center, black 0%,black 33%,${colors.color_eye_1} 33%, ${colors.color_eye_1} 33%, ${colors.color_eye_2} 100%, ${colors.color_eye_2} 100%)` }} />
+                                    <div className="eye__color" style={{ background: `radial-gradient(ellipse at center, black 0%,black 33%,${colors.eye_1} 33%, ${colors.eye_1} 33%, ${colors.eye_2} 100%, ${colors.eye_2} 100%)` }} />
                                     <div className="eye__reflex"></div>
                                 </div>
                             </li>

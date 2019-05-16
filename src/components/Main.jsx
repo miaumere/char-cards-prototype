@@ -5,6 +5,7 @@ import Footer from './Footer/Footer';
 import Test from './Test'
 import Navbar from './Navbar/Navbar'
 import CharsList from './CharsList/CharsList';
+import Admin from './Admin/Admin';
 
 function Main() {
 
@@ -16,6 +17,7 @@ function Main() {
         <Switch>
           <Route path="/" exact component={Test} />
           <Route path="/karty/" component={CharsList} />
+          <Route path="/admin/" component={Admin} />
 
           <Route component={NoMatch} />
         </Switch>
