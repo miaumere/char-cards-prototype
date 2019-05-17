@@ -3,7 +3,7 @@ import React from 'react';
 import LinkCustom from  "../common/Link-custom/Link-custom";
 import "./Navbar.scss";
 
-import { LoggedUserContext}  from '../Admin/LoggedUserContext';
+import { LoggedUserContext}  from '../LoggedUserContext';
 
 export default class Navbar extends React.Component {
 

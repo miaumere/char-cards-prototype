@@ -7,7 +7,7 @@ import Navbar from './Navbar/Navbar'
 import CharsList from './CharsList/CharsList';
 import Admin from './Admin/Admin';
 
-import {LoggedUserContext}  from './Admin/LoggedUserContext';
+import {LoggedUserContext}  from './LoggedUserContext';
 
 export default class Main extends React.Component {
 

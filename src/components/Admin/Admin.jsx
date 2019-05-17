@@ -4,7 +4,7 @@ import "./Admin.scss";
 
 import React from 'react';
 
-import { LoggedUserContext } from './LoggedUserContext';
+import { LoggedUserContext } from '../LoggedUserContext';
 
 
 export default class Admin extends React.Component {
@@ -21,7 +21,7 @@ export default class Admin extends React.Component {
         };
 
 
-        // Funkcja logująca użytkownika:
+        // User login:
         function login(user, pass) {
             if(user === "test" && pass === "test") {
                  return true;
@@ -30,7 +30,7 @@ export default class Admin extends React.Component {
         }
 
 
-        // Funkcja podpięta pod button submit:
+        // Function which submits form:
         this.handleSubmit = (e) => {
             let setLoggedUser = this.context[1];
 
@@ -66,6 +66,8 @@ export default class Admin extends React.Component {
 
                 break;
 
+                default:
+                
             }
 
         };
