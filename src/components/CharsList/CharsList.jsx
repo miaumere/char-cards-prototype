@@ -17,7 +17,7 @@ class CharsList extends React.Component {
     }
 
     componentWillMount() {
-        const RESTurl = "/characters-cards/api/get-characters";
+        const RESTurl = "api/get-characters";
 
         axios.get(RESTurl)
             .then((response) => {

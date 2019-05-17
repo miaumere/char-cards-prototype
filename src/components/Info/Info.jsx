@@ -51,7 +51,7 @@ class Info extends React.Component {
     getCharInfo(id) {
 
 
-        const RESTurl = `/characters-cards/api/get-character?id=${id}`;
+        const RESTurl = `/api/get-character?id=${id}`;
 
         // Changing state with Axios:
         axios.get(RESTurl)
