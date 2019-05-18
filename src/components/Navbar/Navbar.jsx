@@ -37,7 +37,7 @@ static contextType = LoggedUserContext;
   
         <li className="nav-list__item nav-list__item--user">
           {loggedUser ? 
-            (<span className="logged logged--true">Zalogowano: {loggedUser}</span>) 
+            (<span className="logged logged--true">Zalogowano: {loggedUser.user}</span>) 
             : (<span className="logged logged--false">Nie zalogowano</span>)
             }
         </li>

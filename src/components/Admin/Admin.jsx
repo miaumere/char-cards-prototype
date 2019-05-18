@@ -21,17 +21,7 @@ export default class Admin extends React.Component {
             userValue: "",
             passValue: "",
             error: false,
-            loading: false
         };
-
-
-        // User login:
-        function login(user, pass) {
-            if(user === "user" && pass === "pass") {
-                 return true;
-            }
-            return false;
-        }
 
 
         // Function which submits form:
@@ -51,46 +41,19 @@ export default class Admin extends React.Component {
             "pass": pass
         })
         .then((response) => {
-            this.setState({loading: true})
+            // Adding token to local storage:
 
-            console.log(response.data)
+            setLoggedUser({
+                user
+            });
+
             localStorage.setItem('token', response.data)
-
-            const test = localStorage.getItem('token');
-            console.log(test)
-
-
-            setTimeout(() => {
-                
-                this.setState({loading: false})
-            }, 4000);
-
-
 
         })
         .catch((error) => {
-            console.log(this.state)
-            this.setState({loading: true})
-
             console.error(error);
-            this.setState({loading: false})
         })
-
-
-
-
-
-
-          if(login(user, pass)) {
               
-            setLoggedUser(user);
-
-       } else {
-            console.log("error")
-            this.setState({error: true})
-            console.log(this.state)
-
-       }
         };
 
 
