@@ -9,15 +9,14 @@ import LinkCustom from '../common/Link-custom/Link-custom';
 
 import './CharsList.scss';
 
-interface IResponseData {
+export interface IResponseData {
     readonly id: String; 
     readonly name: String;
     readonly surname: String;
-    
+
     error: boolean;
     map: any;
     item: string;
-    
 }
 
 interface IListProps {
@@ -25,15 +24,15 @@ interface IListProps {
 }
 
 interface IListState {
-    characters: IResponseData ;
+    characters: Array<IResponseData> | null;
     error: boolean;
-
 
 }
 
 class CharsList extends React.Component<IListProps, IListState> {
 
     state : IListState = {
+        characters: null,
         error: false
     }
 
@@ -41,8 +40,7 @@ class CharsList extends React.Component<IListProps, IListState> {
         const RESTurl = "/characters-cards/api/get-characters";
 
         axios.get(RESTurl)
-            .then((response: AxiosResponse<IResponseData>) => {
-
+            .then((response: AxiosResponse <IResponseData[]>) => {
                 
                 this.setState({ characters: response.data })
                 console.log(this.state)
@@ -75,8 +73,8 @@ class CharsList extends React.Component<IListProps, IListState> {
                 <Route path="/karty/" exact render={() => {
 
                     return <ul className="list">
-                        {this.state.characters.map(item =>
-                            <li className="list__el" key={item.id}>
+                        {characters.map((item) =>
+                            <li className="list__el" key={`CharListElKey_${item.id}`}>
                                 <div className="list__image"></div>
                                 <LinkCustom to={`/karty/${item.id}`} className="link link--disabled" label={item.name + " " + item.surname} />
                             </li>)}
