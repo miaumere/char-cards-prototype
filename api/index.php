@@ -1,9 +1,15 @@
 <?php
-
 // ini_set( "display_errors", 0); 
+// header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Authorization, *");
 
 try {
      require_once('config.php');
+     require __DIR__ . '/vendor/autoload.php';
+     require_once('http-error.php');
+     require_once('verify-access.php');
+     require_once('jwt.php');
+
      require_once('DTOs.php');
      require_once('DAOs.php');
      require_once('dao/temperament.php');
@@ -14,16 +20,18 @@ try {
      require_once('routes.php');
      require_once('controller.php');
 
+
 } catch (Exception $e) {
      http_response_code(500);
      echo $e->getMessage();
      die();
 }
 
-header("Access-Control-Allow-Origin: *");
+
 header('Content-Type: application/json');
 
-header('Content-Type: text/html');
+// header('Content-Type: text/html');
+
 
 function console_log($log) {
      header('Content-Type: text/html');
@@ -100,8 +108,6 @@ foreach ($routeManager->routes as &$route) {
                               $queryParamsObj->$key = $value;
                          }
                       
-
-
                     }
                          
 
@@ -113,39 +119,36 @@ foreach ($routeManager->routes as &$route) {
                          if(empty($callBackInvoke)) {
                               header_remove("Content-Type"); 
                               http_response_code(204);
+                              die();
                          } else if(is_string($callBackInvoke)) {
-                              $output = json_encode($callBackInvoke);
-                              echo $output;
+                              echo $callBackInvoke;
                               header('Content-Type: text/plain');
-                              header('Content-length: ' . strlen($output));
+                              header('Content-length: ' . strlen($callBackInvoke));
+                              die();
                          } else {
                               $output = json_encode($callBackInvoke);
                               echo $output;
                               header('Content-Type: application/json');
                               header('Content-length: ' . strlen($output));
+                              die();
                          }
                     }
            
                } catch (Exception $e) {
-                    http_response_code(500);
-                    echo $e->getMessage();
-                    die();
+                    new HTTPError(500, $e->getMessage());
                }
 
           } else {
-               http_response_code(500);
-               echo "No method assigned to current endpoint";
-               die();
+               new HTTPError(500, "No method assigned to current endpoint");
           }
      }
 
 }
 
 
+
 if($found === false) {
-     http_response_code(404);
-     echo "Not found.";
-     die();
+     new HTTPError(404, "Not found.");
 }
 
 

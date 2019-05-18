@@ -5,6 +5,9 @@
 new Route("GET", "/get-characters", 'getCharacters');
 new Route("GET", "/get-character", 'getCharacter');
 new Route("GET", "/get-characters-full", 'getCharactersFullInfo');
+new Route("POST", "/login", 'login');
+new Route("POST", "/relogin", 'relogin');
+new Route("GET", "/protected", 'protected');
 
 
 class Route {
