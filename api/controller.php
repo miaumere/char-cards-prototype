@@ -20,7 +20,6 @@ class Controller
 
      public static function getCharacter($queryParams, $requestBody)
      {
-          
           if(property_exists($queryParams, 'id') && $queryParams->id && (int)$queryParams->id !== 0) {
 
                global $services;

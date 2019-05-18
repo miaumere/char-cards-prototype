@@ -156,21 +156,28 @@ class Services
           if (empty($result_user)) {
                new HTTPError(401, "Niepoprawne hasło lub nazwa użytkownika");
           } else {
-               return generateAuthTokenForUser($user);
+               
+               $userInfo = new stdClass;
+               $userInfo->user = $user;
+               $userInfo->token = generateAuthTokenForUser($user);
+
+               return $userInfo;
           }
      }
 
      
-     function relogin($jwtCookie) {
+     function relogin() {
 
           $jwtUserDecoded = verifyAccess();
 
           if($jwtUserDecoded) {
 
                $userInfo = new stdClass;
-               $userInfo->user = $jwtUserDecoded->sub;
+               $userInfo->user =  $jwtUserDecoded->sub;
+               $userInfo->token = generateAuthTokenForUser($jwtUserDecoded->sub);
 
                return $userInfo;
+
           }
           
           return null;

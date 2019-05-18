@@ -18,6 +18,7 @@ function verifyAccess() {
 
      if($jwtCookie || $authorizationHeader) {
           $jwtObjDecoded = $jwtCookie ? JWTAuth::decodeToken($jwtCookie) : JWTAuth::decodeToken($authorizationHeader);
+          $token = $jwtCookie ? $jwtCookie : $authorizationHeader;
      }
 
 
@@ -28,6 +29,8 @@ function verifyAccess() {
      }
 
      if($jwtObjDecoded && isset($jwtObjDecoded->exp) && $jwtObjDecoded->exp >= time() ) {
+
+          $jwtObjDecoded->token = $token;
           return $jwtObjDecoded;
      }
 
