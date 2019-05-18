@@ -163,22 +163,17 @@ class Services
      
      function relogin($jwtCookie) {
 
-          verifyAccess();
+          $jwtUserDecoded = verifyAccess();
 
-          if(!$jwtCookie) {
-               new HTTPError(401, "Nie udało się przywrócić sesji użytkownika");
+          if($jwtUserDecoded) {
+
+               $userInfo = new stdClass;
+               $userInfo->user = $jwtUserDecoded->sub;
+
+               return $userInfo;
           }
-
-          $jwtTokenDecoded = JWTAuth::decodeToken($jwtCookie);
-          $jwtToken = generateAuthTokenForUser($jwtTokenDecoded->sub);
           
-
-          $newTokenDecoded = JWTAuth::decodeToken($jwtToken);
-
-          $userInfo = new stdClass;
-          $userInfo->user = $newTokenDecoded->sub;
-
-          return $userInfo;
+          return null;
      }
      
 

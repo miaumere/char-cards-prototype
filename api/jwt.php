@@ -26,14 +26,19 @@ function generateAuthTokenForUser($user) {
 class JWTAuth {
 
      static function getToken($token) {
+
           return JWT::encode($token, JWT_KEY);
+
      }
 
      static function decodeToken($jwt) {
           $result;
           
           try {
+
+
                $result = JWT::decode($jwt, JWT_KEY, array('HS256'));
+
           } catch (Exception $e) {
                new HTTPError(401, "Wystąpił błąd weryfikacji autentyczności kodu autoryzacyjnego");
           }

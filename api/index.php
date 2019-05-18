@@ -1,7 +1,7 @@
 <?php
 // ini_set( "display_errors", 0); 
-header("Access-Control-Allow-Origin: *");
-
+// header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Authorization, *");
 
 try {
      require_once('config.php');
@@ -119,15 +119,18 @@ foreach ($routeManager->routes as &$route) {
                          if(empty($callBackInvoke)) {
                               header_remove("Content-Type"); 
                               http_response_code(204);
+                              die();
                          } else if(is_string($callBackInvoke)) {
                               echo $callBackInvoke;
                               header('Content-Type: text/plain');
                               header('Content-length: ' . strlen($callBackInvoke));
+                              die();
                          } else {
                               $output = json_encode($callBackInvoke);
                               echo $output;
                               header('Content-Type: application/json');
                               header('Content-length: ' . strlen($output));
+                              die();
                          }
                     }
            

@@ -2,12 +2,34 @@
 
 function verifyAccess() {
 
-     $jwtObj = isset($_COOKIE['auth']) ? JWTAuth::decodeToken($_COOKIE['auth']) : null;
+     $jwtObjDecoded = null;
 
-     if($jwtObj && isset($jwtObj->exp) && $jwtObj->exp >= time() ) {
-          return true;
+     $jwtCookie = isset($_COOKIE['auth']) ? $_COOKIE['auth'] : null;
+
+     $authorizationHeader = null;
+     foreach (getallheaders() as $name => $value) {
+
+          if($name === "Authorization") {
+               $authorizationHeader = str_replace("Bearer ", "", $value);
+          };
+
      }
 
+
+     if($jwtCookie || $authorizationHeader) {
+          $jwtObjDecoded = $jwtCookie ? JWTAuth::decodeToken($jwtCookie) : JWTAuth::decodeToken($authorizationHeader);
+     }
+
+
+     if($jwtCookie && $authorizationHeader) {
+          if($jwtCookie !== $authorizationHeader) {
+               new HTTPError(401, "Nie udało się zautoryzować użytkownika - rozbieżność tokenów autoryzacyjnych");
+          }
+     }
+
+     if($jwtObjDecoded && isset($jwtObjDecoded->exp) && $jwtObjDecoded->exp >= time() ) {
+          return $jwtObjDecoded;
+     }
 
      new HTTPError(401, "Nie udało się zautoryzować użytkownika");
 }
