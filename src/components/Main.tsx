@@ -10,17 +10,33 @@ import Admin from './Admin/Admin';
 import Loader from './common/Loader/Loader';
 
 import { LoggedUserContext } from './LoggedUserContext';
-import { ReloginContext } from './ReloginContext';
 
-export default class Main extends React.Component {
+export interface ILoggedUser {
+  user: string;
+  token?: string;
+}
 
-  state = {
+
+interface IMainProps {
+}
+
+
+interface IMainState {
+  loggedUser: ILoggedUser | null,
+  user: string | null,
+  loading: boolean
+}
+
+
+export default class Main extends React.Component<IMainProps, IMainState> {
+
+  state: IMainState = {
     loggedUser: null,
     user: null,
     loading: true
   }
 
-  setLoggedUser = (newLoggedUser) => {
+  setLoggedUser = (newLoggedUser: ILoggedUser | null) => {
     this.setState({ loggedUser: newLoggedUser })
   }
 
@@ -50,9 +66,7 @@ export default class Main extends React.Component {
     return (
       <BrowserRouter>
         <LoggedUserContext.Provider value={[this.state.loggedUser, this.setLoggedUser]}>
-          <ReloginContext.Provider value={this.state.user}>
-
-
+     
             <Navbar />
 
             <main className="Main">
@@ -67,19 +81,18 @@ export default class Main extends React.Component {
 
             <Footer />
 
-          </ReloginContext.Provider>
-
         </LoggedUserContext.Provider>
 
       </BrowserRouter>
 
     );
 
-    function NoMatch({ location }) {
+
+    function NoMatch( props: { location: { pathname: React.ReactNode; }; } ) {
       return (
         <div>
           <h3>
-            Nie znaleziono: <code>{location.pathname}</code>
+            Nie znaleziono: <code>{props.location.pathname}</code>
           </h3>
         </div>
       );

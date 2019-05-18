@@ -1,23 +1,29 @@
 {
-  "name": "char-cards",
+  "name": "characters-cards",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/jest": "24.0.13",
+    "@types/node": "12.0.2",
+    "@types/react": "16.8.17",
+    "@types/react-dom": "16.8.4",
+    "@types/react-router-dom": "^4.3.3",
     "axios": "^0.18.0",
     "node-sass": "^4.12.0",
-    "normalize.css": "^8.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.0"
+    "react-scripts": "3.0.1",
+    "typescript": "3.4.5"
   },
-  "proxy": "https://sataris.tk/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "https://sataris.tk/",
   "eslintConfig": {
     "extends": "react-app"
   },

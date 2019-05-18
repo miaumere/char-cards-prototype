@@ -4,8 +4,7 @@ import './index.scss';
 import * as serviceWorker from './serviceWorker';
 import Main from './components/Main';
 
-ReactDOM.render(
-<Main />,
-document.getElementById('root'));
+
+ReactDOM.render(<Main />, document.getElementById('root'));
 
 serviceWorker.unregister();
