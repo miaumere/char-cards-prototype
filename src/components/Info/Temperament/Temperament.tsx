@@ -3,7 +3,19 @@ import "./Temperament.scss";
 
 import EmptyInfo from '../../common/Empty-info/Empty-info';
 
-export default class Temperament extends React.Component {
+interface IPercentages {
+    sanguine: number;
+    spitfire: number;
+    phlegmatic: number;
+    melancholy: number;
+
+}
+
+interface ITemperamentProps {
+    temperament: IPercentages;
+}
+
+export default class Temperament extends React.Component<ITemperamentProps> {
 
     temperamentList() {
         const { temperament } = this.props;

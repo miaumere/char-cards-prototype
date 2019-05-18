@@ -3,10 +3,11 @@ import { Link, Route } from "react-router-dom";
 
 import './Link-custom.scss';
 
-function LinkCustom({ label, to, activeOnlyWhenExact } : {
+function LinkCustom({ label, to, activeOnlyWhenExact, className} : {
   label: string;
   to: string;
-  activeOnlyWhenExact: boolean;
+  activeOnlyWhenExact?: boolean;
+  className: string;
 } ) {
   return (
     <Route

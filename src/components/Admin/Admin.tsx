@@ -37,7 +37,7 @@ export default class Admin extends React.Component<IAdminProps, IAdminState> {
 
 
         // Function which submits form:
-        this.handleSubmit = (e) => {
+        this.handleSubmit = (e: Event) => {
             e.preventDefault();            
             let setLoggedUser = this.context[1];
 
@@ -69,7 +69,7 @@ export default class Admin extends React.Component<IAdminProps, IAdminState> {
         };
 
 
-        this.handleChange = (e) => {
+        this.handleChange = (e: Event) => {
 
             switch (e.target.name) {
                 case "user":

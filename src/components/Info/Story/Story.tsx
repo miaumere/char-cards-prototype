@@ -3,8 +3,16 @@ import "./Story.scss";
 
 import EmptyInfo from '../../common/Empty-info/Empty-info';
 
-export default class Story extends React.Component {
-    constructor(props) {
+interface IStoryProps {
+    history: string | null;
+}
+
+interface IStoryState {
+    blur: boolean;
+}
+
+export default class Story extends React.Component<IStoryProps, IStoryState> {
+    constructor(props : IStoryProps) {
         super(props)
 
         this.state = {

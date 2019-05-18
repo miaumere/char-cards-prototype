@@ -5,7 +5,21 @@ import EmptyInfo from '../../common/Empty-info/Empty-info';
 
 import './Quote.scss';
 
-export default class Quote extends React.Component {
+interface Quotation {
+    quote: string;
+    context?: string;
+}
+
+interface IQuoteProps {
+    q: Array<Quotation>;
+
+}
+
+interface IQuoteState {
+
+}
+
+export default class Quote extends React.Component<IQuoteProps, IQuoteState> {
 
     showQuotation() {
         const { q } = this.props;

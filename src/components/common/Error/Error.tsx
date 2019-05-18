@@ -2,7 +2,15 @@ import React from 'react';
 import './Error.scss';
 import { Link } from 'react-router-dom';
 
-export default class Error extends React.Component {
+interface IErrorProps {
+    errorMsg: string;
+}
+
+interface IErrorState {
+
+}
+
+export default class Error extends React.Component<IErrorProps, IErrorState> {
 
     state = {}
 

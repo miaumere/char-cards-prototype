@@ -13,9 +13,10 @@ interface IResponseData {
     readonly id: String; 
     readonly name: String;
     readonly surname: String;
-
+    
+    error: boolean;
     map: any;
-    item: any;
+    item: string;
     
 }
 

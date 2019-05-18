@@ -1,7 +1,36 @@
 import React from 'react';
 import "./AppearanceColors.scss";
+import { IColors } from '../Appearance';
 
-export default class AppearanceColors extends React.Component {
+
+interface IAppearanceColorsProps {
+    colors: IColors | null;
+}
+
+
+class Colors {
+    outfit_1: null | string  = "grey";
+    outfit_2: null | string = "silver";
+    outfit_3: null | string = "#727272";
+
+    skin: null | string = "#D8D8D8";
+    hair: null | string = "#3D3D3D";
+
+    eye_1: null | string = "#232323";
+    eye_2: null | string = "#ADADAD";
+}
+
+export default class AppearanceColors extends React.Component<IAppearanceColorsProps> {
+
+
+
+    isColorNull(color: null | string) : string {
+        if(color) {
+            return color;
+        } else {
+            return "";
+        }
+    }
 
 
 
@@ -9,18 +38,9 @@ export default class AppearanceColors extends React.Component {
         let { colors } = this.props;
 
         if(!colors){
-            colors = {}
-            colors.outfit_1 = "grey";
-            colors.outfit_2 = "silver";
-            colors.outfit_3 = "#727272";
-
-            colors.skin = "#D8D8D8";
-            colors.hair = "#3D3D3D";
-
-            colors.eye_1 = "#232323";
-            colors.eye_2 = "#ADADAD";
-            
+            colors = new Colors();
         }
+
         return (
             <section className="AppearanceColors color">
 
@@ -30,23 +50,23 @@ export default class AppearanceColors extends React.Component {
                         <ul className="color color__list">
 
                             <li className="color__item">Kolor 1:
-                                <div className="color__block color__block--color_1" style={{ background: colors.outfit_1 }}></div>
+                                <div className="color__block color__block--color_1" style={{ background: this.isColorNull(colors.outfit_1) }}></div>
                             </li>
 
                             <li className="color__item">Kolor 2:
-                                <div className="color__block color__block--color_2" style={{ background: colors.outfit_2 }}></div>
+                                <div className="color__block color__block--color_2" style={{ background: this.isColorNull(colors.outfit_2) }}></div>
                             </li>
 
                             <li className="color__item">Kolor 3:
-                                <div className="color__block color__block--color_3" style={{ background: colors.outfit_3 }}></div>
+                                <div className="color__block color__block--color_3" style={{ background: this.isColorNull(colors.outfit_3) }}></div>
                             </li>
 
                             <li className="color__item">Kolor skóry:
-                                <div className="color__block color__block--color_skin" style={{ background: colors.skin }}></div>
+                                <div className="color__block color__block--color_skin" style={{ background: this.isColorNull(colors.skin) }}></div>
                             </li>
 
                             <li className="color__item">Kolor włosów:
-                                <div className="color__block color__block--color_hair" style={{ background: colors.hair }}></div>
+                                <div className="color__block color__block--color_hair" style={{ background: this.isColorNull(colors.hair) }}></div>
                             </li>
 
                             <li className="color__item color__item--eye">Kolor oczu:
