@@ -1,9 +1,15 @@
 import React from 'react';
 import './Loader.scss';
 
-export default class Loader extends React.Component {
+interface ILoaderProps {
+    fadeOut?: boolean;
+}
 
-    
+export default class Loader extends React.Component<ILoaderProps> {
+    constructor(props:ILoaderProps){
+        super(props)
+
+    }
 
 
     render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { Route } from "react-router-dom";
 
 import Info from '../Info/Info';
@@ -9,10 +9,30 @@ import LinkCustom from '../common/Link-custom/Link-custom';
 
 import './CharsList.scss';
 
+interface IResponseData {
+    readonly id: String; 
+    readonly name: String;
+    readonly surname: String;
 
-class CharsList extends React.Component {
+    map: any;
+    item: any;
+    
+}
 
-    state = {
+interface IListProps {
+    
+}
+
+interface IListState {
+    characters: IResponseData ;
+    error: boolean;
+
+
+}
+
+class CharsList extends React.Component<IListProps, IListState> {
+
+    state : IListState = {
         error: false
     }
 
@@ -20,9 +40,11 @@ class CharsList extends React.Component {
         const RESTurl = "/characters-cards/api/get-characters";
 
         axios.get(RESTurl)
-            .then((response) => {
+            .then((response: AxiosResponse<IResponseData>) => {
 
+                
                 this.setState({ characters: response.data })
+                console.log(this.state)
 
             })
             .catch((error) => {

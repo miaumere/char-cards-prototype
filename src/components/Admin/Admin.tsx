@@ -9,18 +9,30 @@ import Loader from '../common/Loader/Loader';
 
 import { LoggedUserContext } from '../LoggedUserContext';
 
+interface IAdminProps {
 
-export default class Admin extends React.Component {
+}
+
+interface IAdminState {
+    userValue: string;
+    passValue: string;
+    error: boolean;
+    loading: boolean;
+    
+}
+
+export default class Admin extends React.Component<IAdminProps, IAdminState> {
 
     static contextType = LoggedUserContext;
 
-    constructor(props) {
+    constructor(props: IAdminProps) {
         super(props);
 
-        this.state = {
+        this.state  = {
             userValue: "",
             passValue: "",
             error: false,
+            loading: true
         };
 
 

@@ -27,7 +27,6 @@ interface IMainState {
   loading: boolean
 }
 
-
 export default class Main extends React.Component<IMainProps, IMainState> {
 
   state: IMainState = {
