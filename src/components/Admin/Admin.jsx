@@ -34,7 +34,7 @@ export default class Admin extends React.Component {
 
 
         // Authentication:
-        const RESTurl = "api/login";
+        const RESTurl = "/characters-cards/api/login";
 
         axios.post(RESTurl, {
             "user": user,
@@ -90,7 +90,7 @@ export default class Admin extends React.Component {
         {
             loggedUser ? 
             (
-            <div>
+            <div className="container">
                 <span>Logowanie się udało!</span>
                 <br />
                 <button onClick={() => {setLoggedUser(null)}}>Wyloguj</button> 
@@ -99,8 +99,8 @@ export default class Admin extends React.Component {
             : 
 
             (
-            <div>
-            <h2>Panel logowania admina</h2>
+            <div className="container">
+            <h2 className="container__title">Panel logowania admina</h2>
 
             <form onSubmit={this.handleSubmit}>
             {this.state.error ? <span className="form__error">Błędne hasło bądź nazwa użytkownika!</span> : ""}

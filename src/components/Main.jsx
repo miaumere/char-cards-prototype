@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter,  Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import axios from "axios";
 
 import Footer from './Footer/Footer';
@@ -9,8 +9,8 @@ import CharsList from './CharsList/CharsList';
 import Admin from './Admin/Admin';
 import Loader from './common/Loader/Loader';
 
-import {LoggedUserContext}  from './LoggedUserContext';
-import {ReloginContext} from './ReloginContext';
+import { LoggedUserContext } from './LoggedUserContext';
+import { ReloginContext } from './ReloginContext';
 
 export default class Main extends React.Component {
 
@@ -21,39 +21,41 @@ export default class Main extends React.Component {
   }
 
   setLoggedUser = (newLoggedUser) => {
-    this.setState({loggedUser: newLoggedUser})
+    this.setState({ loggedUser: newLoggedUser })
   }
 
-  componentWillMount(){
+  componentWillMount() {
     // User relogin:
 
-    const RESTurl = "api/relogin";
+    const RESTurl = "/characters-cards/api/relogin";
     axios.post(RESTurl)
-    .then((response) => {
+      .then((response) => {
 
-      this.setState({loading: false})
-      this.setLoggedUser(response.data)
-  })
+        this.setState({ loading: false })
+        this.setLoggedUser(response.data)
+      })
 
-  .catch((error) => {
-    this.setState({loading: false})
-})
-}
+      .catch((error) => {
+        this.setState({ loading: false })
+      })
+  }
 
-  render(){
-  
-    if(this.state.loading) {
+  render() {
+
+    if (this.state.loading) {
       return <Loader />
     }
 
 
-      return (
-        <BrowserRouter>
-            <LoggedUserContext.Provider value={[this.state.loggedUser, this.setLoggedUser]}>
-            <ReloginContext.Provider value={this.state.user}>
+    return (
+      <BrowserRouter>
+        <LoggedUserContext.Provider value={[this.state.loggedUser, this.setLoggedUser]}>
+          <ReloginContext.Provider value={this.state.user}>
 
-              <Navbar />
 
+            <Navbar />
+
+            <main className="Main">
               <Switch>
                 <Route path="/" exact component={Test} />
                 <Route path="/karty/" component={CharsList} />
@@ -61,25 +63,27 @@ export default class Main extends React.Component {
 
                 <Route component={NoMatch} />
               </Switch>
+            </main>
 
-              <Footer /> 
-            </ReloginContext.Provider>
-            
-            </LoggedUserContext.Provider>
+            <Footer />
 
-        </BrowserRouter>
+          </ReloginContext.Provider>
 
+        </LoggedUserContext.Provider>
+
+      </BrowserRouter>
+
+    );
+
+    function NoMatch({ location }) {
+      return (
+        <div>
+          <h3>
+            Nie znaleziono: <code>{location.pathname}</code>
+          </h3>
+        </div>
       );
-      
-      function NoMatch({ location }) {
-        return (
-          <div>
-            <h3>
-              Nie znaleziono: <code>{location.pathname}</code>
-            </h3>
-          </div>
-        );
-      }
+    }
 
   }
 }

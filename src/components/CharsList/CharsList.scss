@@ -1,19 +1,22 @@
 @import '../../variables.scss';
 
 .CharsList {
+
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    height: calc(100vh - #{$navbar-height});
-    width: 100%;
-
-    list-style-type: none;
-
-    background-color: rgba(255, 0, 0, 0.205);
+	min-height: calc(100vh - #{$footer-height} - #{$navbar-height});
 
     .list {
-        
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    
+        width: 100%;
+    
+        list-style-type: none;
+    
+        background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
+
+
         &__image {
             height: 100px;
             width: 100px;
@@ -22,4 +25,6 @@
 
         }
     }
+
+    
 }

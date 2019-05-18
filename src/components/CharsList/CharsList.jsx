@@ -17,7 +17,7 @@ class CharsList extends React.Component {
     }
 
     componentWillMount() {
-        const RESTurl = "api/get-characters";
+        const RESTurl = "/characters-cards/api/get-characters";
 
         axios.get(RESTurl)
             .then((response) => {
@@ -45,19 +45,21 @@ class CharsList extends React.Component {
         }
 
         return (
-            <>
+            <div className="CharsList">
+
                 <Loader fadeOut={true} />
 
                 <Route path="/karty/" exact render={() => {
 
-                    return <ul className="CharsList">
+                    return <ul className="list">
                         {this.state.characters.map(item =>
-                            <li className="list" key={item.id}>
+                            <li className="list__el" key={item.id}>
                                 <div className="list__image"></div>
                                 <LinkCustom to={`/karty/${item.id}`} className="link link--disabled" label={item.name + " " + item.surname} />
                             </li>)}
                     </ul>;
                 }} />
+
 
 
                 <Route path="/karty/:id" render={() => {
@@ -74,7 +76,7 @@ class CharsList extends React.Component {
 
 
 
-            </>
+            </div>
         )
     }
 }

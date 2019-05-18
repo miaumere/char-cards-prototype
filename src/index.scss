@@ -2,9 +2,8 @@
 @import 'fonts.scss';
 @import 'variables.scss';
 
-bodyx {
+body {
 	display: flex;
-	vertical-align: baseline;
 	
 	height: 100%;
 	min-height: 100vh;
@@ -17,9 +16,8 @@ bodyx {
 	font: inherit;
 	
 	border: 0;
-	background-image:
-	radial-gradient(ellipse at center, rgba(0,0,0,0) 0%,rgba(0, 0, 0, 0.85) 100%),
-	url('./assets/img/wooden-background.png');
+
+	
 }
 
 #root {
@@ -56,4 +54,9 @@ bodyx {
 ::selection {
   background: black;
   color: white;
+}
+
+
+.Main {
+	min-height: calc(100vh - #{$footer-height} - #{$navbar-height});
 }

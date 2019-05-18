@@ -7,6 +7,7 @@
     justify-content: center;
 
     height: 100vh;
+    background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
     
     &, .form {
 
@@ -15,5 +16,16 @@
             color: red;
         }
     }
+
+    .container {
+        background-color: white;
+        padding: 5px;
+
+        &__title {
+            font-weight: bold;
+            font-size: 2rem;
+        }
+    }
+
 
 }
