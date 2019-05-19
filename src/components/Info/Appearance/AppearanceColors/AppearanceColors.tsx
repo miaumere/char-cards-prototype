@@ -1,10 +1,11 @@
 import React from 'react';
 import "./AppearanceColors.scss";
-import { IColors } from '../Appearance';
+
+import { IColors, ColorsType } from '../../Info';
 
 
 interface IAppearanceColorsProps {
-    colors: IColors | null;
+    colors: ColorsType;
 }
 
 

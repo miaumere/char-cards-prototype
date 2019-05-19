@@ -4,19 +4,12 @@ import "./Appearance.scss";
 import EmptyInfo from '../../common/Empty-info/Empty-info';
 import AppearanceColors from './AppearanceColors/AppearanceColors';
 
-export interface IColors {
-    outfit_1: string | null;
-    outfit_2: string | null;
-    outfit_3: string | null;
-    skin: string | null;
-    hair: string | null;
-    eye_1: string | null;
-    eye_2: string | null;
-}
+import { ColorsType } from '../Info';
+
 
 interface IAppearanceProps {
     appearance_desc: string | null;
-    colors: IColors | null;
+    colors: ColorsType;
 }
 
 interface IAppearanceState {

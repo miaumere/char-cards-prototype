@@ -1,6 +1,6 @@
-export default function TimeFormatter(date: string) {
+export default function TimeFormatter(date: number) {
 
-    let dateObj = new Date(+date * 1000)
+    let dateObj = new Date(date * 1000)
 
     const year = dateObj.getFullYear()
 

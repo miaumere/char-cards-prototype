@@ -4,11 +4,9 @@ import rollRandomNumber from '../../common/roll-random-number';
 import EmptyInfo from '../../common/Empty-info/Empty-info';
 
 import './Quote.scss';
+import { Quotation } from '../Info';
 
-interface Quotation {
-    quote: string;
-    context?: string;
-}
+
 
 interface IQuoteProps {
     q: Array<Quotation>;

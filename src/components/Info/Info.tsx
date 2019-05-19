@@ -17,17 +17,83 @@ import Error from '../common/Error/Error';
 import TimeFormatter from '../common/time-formatter';
 
 
-import { withRouter } from "react-router";
+import { withRouter, RouteComponentProps } from "react-router";
 
-class Info extends React.Component {
+export interface IColors {
+    readonly outfit_1: string | null;
+    readonly outfit_2: string | null;
+    readonly outfit_3: string | null;
+    readonly skin: string | null;
+    readonly hair: string | null;
+    readonly eye_1: string | null;
+    readonly eye_2: string | null;
+}
 
-    state = {
+export interface IPercentages {
+    sanguine: number | null;
+    spitfire: number | null;
+    phlegmatic: number | null;
+    melancholy: number | null;
+}
+
+export type ColorsType = IColors | null;
+
+export interface Quotation {
+    quote: string;
+    context?: string;
+}
+
+interface ICharInfo {
+    readonly id: string;
+    readonly name: string; 
+    readonly surname: string;
+    readonly birthday: number | null;
+    readonly death_date: number | boolean;
+    readonly personality_mbti: string;
+
+    readonly appearance_desc: string | null;
+
+    readonly history: string | null;
+
+    readonly profile_pic: null;
+
+    readonly temperament: IPercentages;
+
+    readonly colors: ColorsType;
+
+    readonly quotes: Array<Quotation>;
+
+}
+
+
+interface MatchParams {
+    id: string;
+}
+
+
+interface IInfoProps extends RouteComponentProps<MatchParams> {
+}
+
+interface IInfoState {
+    errorMsg: string | null;
+    charInfo: ICharInfo | null;
+    birthdayDate: string;
+    deathDate: string;
+}
+
+
+class Info extends React.Component<IInfoProps, IInfoState> {
+
+    state: IInfoState = {
         errorMsg: null,
-        charInfo: null
+        charInfo: null,
+        birthdayDate: "",
+        deathDate: "",
 
     }
 
     componentWillMount() {
+
         // Downloading information about characters with ID from query params:
         const currentId = this.props.match.params.id;
 
@@ -36,7 +102,7 @@ class Info extends React.Component {
 
 
     // ID change (characters menu):
-    componentDidUpdate(props) {
+    componentDidUpdate(props: IInfoProps) {
         const lastId = props.match.params.id;
         const currentId = this.props.match.params.id;
 
@@ -48,8 +114,9 @@ class Info extends React.Component {
     }
 
 
-    getCharInfo(id) {
+    getCharInfo(id: string) {
 
+        const { charInfo } = this.state.charInfo
         const RESTurl = `/characters-cards/api/get-character?id=${id}`;
 
         // Changing state with Axios:
@@ -59,11 +126,11 @@ class Info extends React.Component {
                 JSON.stringify(this.state.charInfo)
 
             // Changing birthday date to YYYY-MM-DD:
-            const birthdayDate = TimeFormatter(this.state.charInfo.birthday);
+            const birthdayDate = TimeFormatter(charInfo.birthday);
 
             this.setState({birthdayDate})
 
-            const deathDate = TimeFormatter(this.state.charInfo.death_date);
+            const deathDate = TimeFormatter(charInfo.death_date);
             this.setState({deathDate})
 
             })
@@ -85,7 +152,7 @@ class Info extends React.Component {
 
         if(errorMsg) {
             return <Error errorMsg={errorMsg} />
-        }
+        }     
 
         if (!charInfo) {
             return <Loader />
@@ -102,7 +169,7 @@ class Info extends React.Component {
 
                     <div className="desc">
 
-                        <h1 className="desc__name"> {this.state.charInfo.name} {this.state.charInfo.surname}</h1>
+                        <h1 className="desc__name"> {charInfo.name} {charInfo.surname}</h1>
                         <div className="desc__other">
                             <span className="desc__information">Data urodzenia: </span>
                             <span className="desc__data">{this.state.birthdayDate}</span>
@@ -111,7 +178,7 @@ class Info extends React.Component {
                             <span className="desc__information">Status: </span>
 
                             <span className="desc__data">
-                                {(this.state.charInfo.death_date !== false) ? 
+                                {(charInfo.death_date !== false) ? 
                                 (<span className="desc__death desc__death--true">trup od: {this.state.deathDate}</span>) : 
                                 (<span className="desc__death desc__death--false">żyjący</span>)}
                             </span>
@@ -120,22 +187,22 @@ class Info extends React.Component {
                             <span className="desc__information">
                             Osobowość <a href="https://www.16personalities.com/pl/typy-osobowosci">MBTI</a>:
                             </span>
-                            <span className="desc__data">{(this.state.charInfo.personality_mbti)}</span>
+                            <span className="desc__data">{(charInfo.personality_mbti)}</span>
 
                             <br />
                             
-                            <Quote q={this.state.charInfo.quotes} />
+                            <Quote q={charInfo.quotes} />
                         
                             
 
                         </div>
                     </div>
 
-                   <Temperament temperament={this.state.charInfo.temperament} />
+                   <Temperament temperament={charInfo.temperament} />
 
-                    <Appearance colors={this.state.charInfo.colors} appearance_desc={this.state.charInfo.appearance_desc} />
+                    <Appearance colors={charInfo.colors} appearance_desc={charInfo.appearance_desc} />
 
-                    <Story history={this.state.charInfo.history}/>
+                    <Story history={charInfo.history}/>
 
                     <Weight />
 

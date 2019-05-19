@@ -2,16 +2,11 @@ import React from 'react';
 import "./Temperament.scss";
 
 import EmptyInfo from '../../common/Empty-info/Empty-info';
+import { IPercentages } from '../Info';
 
-interface IPercentages {
-    sanguine: number;
-    spitfire: number;
-    phlegmatic: number;
-    melancholy: number;
 
-}
 
-interface ITemperamentProps {
+export interface ITemperamentProps {
     temperament: IPercentages;
 }
 
