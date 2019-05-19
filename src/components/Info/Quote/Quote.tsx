@@ -9,7 +9,7 @@ import { Quotation } from '../Info';
 
 
 interface IQuoteProps {
-    q: Array<Quotation>;
+    q: Array<Quotation> | null;
 
 }
 
@@ -21,6 +21,9 @@ export default class Quote extends React.Component<IQuoteProps, IQuoteState> {
 
     showQuotation() {
         const { q } = this.props;
+        if  (q === null){
+            return null
+        }
         let output = rollRandomNumber(0, q.length - 1)
 
         return(
@@ -42,7 +45,7 @@ export default class Quote extends React.Component<IQuoteProps, IQuoteState> {
                 <h2 className="quotation__title">Cytat:</h2>
                 <div className="quotation__container">
 
-                {(q.length !== 0) ? this.showQuotation() : <EmptyInfo />}
+                {q  ? this.showQuotation() : <EmptyInfo />}
 
                 </div>
             </div>

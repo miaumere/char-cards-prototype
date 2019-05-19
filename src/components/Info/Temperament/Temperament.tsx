@@ -4,16 +4,25 @@ import "./Temperament.scss";
 import EmptyInfo from '../../common/Empty-info/Empty-info';
 import { IPercentages } from '../Info';
 
-
+class TemperamentEmpty {
+    sanguine: null = null;
+    spitfire: null = null;
+    phlegmatic: null = null;
+    melancholy: null = null;
+}
 
 export interface ITemperamentProps {
-    temperament: IPercentages;
+    temperament: IPercentages | null | TemperamentEmpty;
 }
 
 export default class Temperament extends React.Component<ITemperamentProps> {
 
     temperamentList() {
-        const { temperament } = this.props;
+        let { temperament } = this.props;
+
+        if(!temperament){
+            temperament = new TemperamentEmpty()
+        }
 
 
         return <ul className="temperament-list">

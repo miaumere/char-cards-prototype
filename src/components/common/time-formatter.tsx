@@ -1,4 +1,9 @@
-export default function TimeFormatter(date: number) {
+export default function TimeFormatter(date: number | null) {
+
+    if(!date) {
+        return "__-__-__";
+    }
+
 
     let dateObj = new Date(date * 1000)
 
